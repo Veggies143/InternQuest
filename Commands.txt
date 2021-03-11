@@ -1,0 +1,10 @@
+In github desktop to change account or to sign out from account press ctrl+,
+
+Create React app
+----------------
+
+npx create-react-app internquest
+cd internquest
+npm start
+ctrl+c - to exit
+
