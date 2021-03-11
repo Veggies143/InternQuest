@@ -8,3 +8,10 @@ cd internquest
 npm start
 ctrl+c - to exit
 
+Go to public->index.html page to change title and logo in title bar of website
+
+Creating react component
+------------------------
+
+npm install -g generate-react-cli
+generate-react component <component-name>
