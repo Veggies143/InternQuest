@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import FirstPage from './Components/FirstPage/FirstPage';
+import ApplicationForm from './Components/ApplicationForm/ApplicationForm';
 
 function App() {
   return (
-    <FirstPage/>
+    <ApplicationForm/>
   );
 }
 

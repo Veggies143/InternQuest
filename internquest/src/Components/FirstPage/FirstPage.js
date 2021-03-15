@@ -6,7 +6,7 @@ const FirstPage = () => (
   <div className={styles.FirstPage} data-testid="FirstPage">
     <p >First </p>
     <i>Page</i>
-    <div className={styles.hi}>
+    <div id={styles.hi}>
       <p > Hello world</p>
     </div>
   </div>

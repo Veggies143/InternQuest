@@ -15,3 +15,5 @@ Creating react component
 
 npm install -g generate-react-cli
 generate-react component <component-name>
+
+npm install semantic-ui-react semantic-ui-css
