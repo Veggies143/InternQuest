@@ -18,3 +18,4 @@ Mongo connection
 ----------------
 npm init -y  //For creating package.json
 npm install mongoose express axios morgan concurrently -S
+node server.js // To run server.js file, do this in terminal ...\Desktop\InternQuest folder

@@ -18,4 +18,13 @@
     "url": "https://github.com/Veggies143/InternQuest/issues"
   },
   "homepage": "https://github.com/Veggies143/InternQuest#readme",
- 
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0",
+    "morgan": "^1.10.0",
+    "raw-body": "^2.4.0",
+    "regexp-clone": "^1.0.0"
+  },
+  "devDependencies": {}
+}

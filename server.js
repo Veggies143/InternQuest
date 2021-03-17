@@ -26,4 +26,4 @@ app.get('/api/name',(req,res) => {
     res.json(data);
 })
 
-app.listen(PORT,console.log(`Server is starting at ${
+app.listen(PORT,console.log(`Server is starting at ${PORT}`))
