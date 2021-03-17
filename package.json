@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "internquest":"cd internquest && npm start",
+    "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run internquest\""  
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   "homepage": "https://github.com/Veggies143/InternQuest#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "concurrently": "^6.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.0",
     "morgan": "^1.10.0",

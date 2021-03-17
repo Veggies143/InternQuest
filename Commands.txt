@@ -14,8 +14,24 @@ Creating react component
 npm install -g generate-react-cli
 generate-react component <component-name>
 
-Mongo connection
-----------------
+Mongo connection   // Youtube link: youtube.com/watch?v=bc2pOPeQyOs&list=PLurIMwd6GdCj_VlnKVceR66Sxfcb37VU8&index=1
+================
+
+Setup for Reactjs and Nodejs
+----------------------------
 npm init -y  //For creating package.json
 npm install mongoose express axios morgan concurrently -S
 node server.js // To run server.js file, do this in terminal ...\Desktop\InternQuest folder
+
+Run Reactjs and Nodejs in same terminal
+---------------------------------------
+npm install -g nodemon   //Used to run server automatically after changes, no need to again give command node server.js after changing the server.js file
+nodemon server.js   //To run server.js
+
+npm i concurrently   //To run two commands at same time, website link: https://www.npmjs.com/package/concurrently
+After then add line in script
+npm run dev
+
+Connect to MongoDB Atlas cluster using mongoose
+-----------------------------------------------
+Password for user: Veggies@143
