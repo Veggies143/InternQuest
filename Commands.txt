@@ -2,7 +2,6 @@ In github desktop to change account or to sign out from account press ctrl+,
 
 Create React app
 ----------------
-
 npx create-react-app internquest
 cd internquest
 npm start
@@ -12,8 +11,10 @@ Go to public->index.html page to change title and logo in title bar of website
 
 Creating react component
 ------------------------
-
 npm install -g generate-react-cli
 generate-react component <component-name>
 
-npm install semantic-ui-react semantic-ui-css
+Mongo connection
+----------------
+npm init -y  //For creating package.json
+npm install mongoose express axios morgan concurrently -S
