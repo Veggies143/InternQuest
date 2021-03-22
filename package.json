@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "internquest":"cd internquest && npm start",
-    "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run internquest\""  
+    "mongoConnect": "cd MongoConnection && nodemon server.js",
+    "dev": "concurrently -n 'server,client' -c 'red,green' \"npm run mongoConnect\" \"npm run internquest\""  
   },
   "repository": {
     "type": "git",
