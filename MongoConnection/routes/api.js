@@ -18,6 +18,22 @@ router.get('/',(req,res) => {
 
 })
 
+router.post('/saveApplicationDetails',(req,res) => {
+    console.log(req.body);
+    const data = req.body;
+    const newApplicationDetails =  new ApplicationDetails(data);
+    newApplicationDetails.save((error) => {
+        if(error) {
+            res.status(500).json({msg: 'Sorry, Internal server error'});
+            return;
+        }
+        return res.json({
+            msg: 'Your data has been received'
+        });
+    });
+
+});
+
 router.get('/name',(req,res) => {
     const data = {
         username:'vishnu',
@@ -25,6 +41,5 @@ router.get('/name',(req,res) => {
     }
     res.json(data);
 })
-
 
 module.exports = router;

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ApplicationDetailsSchema = new Schema({
     YHire: String,
-    DurationAvail: String,
+    DuraAvailable: String,
     date: {
         type: String,
         default: Date.now()

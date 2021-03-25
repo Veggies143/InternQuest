@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "internquest":"cd internquest && npm start",
+    "internquest": "cd internquest && npm start",
     "mongoConnect": "cd MongoConnection && nodemon server.js",
-    "dev": "concurrently -n 'server,client' -c 'red,green' \"npm run mongoConnect\" \"npm run internquest\""  
+    "dev": "concurrently -n 'server,client' -c 'red,green' \"npm run mongoConnect\" \"npm run internquest\""
   },
   "repository": {
     "type": "git",

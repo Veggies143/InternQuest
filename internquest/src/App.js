@@ -1,9 +1,16 @@
 import './App.css';
 import ApplicationForm from './Components/ApplicationForm/ApplicationForm';
+import DispalyApplicationDetails from './Components/DispalyApplicationDetails/DispalyApplicationDetails';
 
 function App() {
   return (
-    <ApplicationForm/>
+    <div>
+      <ApplicationForm/>
+      <br></br>
+      <br></br>
+      <br></br>
+      <DispalyApplicationDetails/>
+    </div>
   );
 }
 

@@ -1,51 +1,89 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ApplicationForm.module.css';
+import axios from 'axios';
 
 class ApplicationForm extends React.Component {
-  constructor() {
-    super();
-    this.onChangeYHire = this.onChangeYHire.bind(this);
-    this.onChangeDurAvail = this.onChangeDurAvail.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  
+  state = {
+    YHire: '',
+    DuraAvailable: ''
+  };
 
-    this.state = {
-      YHire: '',
-      DurationAvailable: ''
-    }
-  }
+  handleChange = ({target}) => {
+    const {name,value} = target;
+    this.setState({
+      [name]: value
+    });
+  };
 
-  onChangeYHire(e) {
-    this.setState({ YHire: e.target.value })
-  }
-
-  onChangeDurAvail(e) {
-      this.setState({ DurationAvailable: e.target.value })
-  }
-
-  handleSubmit(event) {
-    alert('Submitted: ' + this.state.YHire+"\n"+this.state.DurationAvailable);
+  handleSubmit = (event) => {
     event.preventDefault();
+    const payLoad = {
+      YHire: this.state.YHire,
+      DuraAvailable: this.state.DuraAvailable
+    };
+
+    //alert(this.state.YHire+" "+this.state.DuraAvailable);
+    axios({ 
+      url: '/api/saveApplicationDetails',
+      method: 'POST',
+      data: payLoad
+    })
+    .then(() => {
+      console.log("Data has been sent to the server");
+      this.resetUserInputs();
+    })
+    .catch(() => {
+      console.log("Internal server error");
+    });
+
+  }
+
+  resetUserInputs = () => {
     this.setState({
       YHire: '',
-      DurationAvailable: ''
-    });
-  }
+      DuraAvailable: ''
+    })
+  };
 
   render() {
+
     return (
-      <form onSubmit={this.handleSubmit} className={styles.ApplicationForm}>
-        <label>
-          Why should we hire you
-          <input type="textarea" value={this.state.YHire} onChange={this.onChangeYHire} />
-        </label>
-        <br/>
-        <label>
-          Are you available for full duration of internship
-          <input type="textarea" value={this.state.DurationAvailable} onChange={this.onChangeDurAvail} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div className={styles.ApplicationForm}>
+        <h2>Application Details Form</h2>
+        <form onSubmit={this.handleSubmit}>
+
+          <div className="form-input">
+            <textarea 
+              name="YHire" 
+              placeholder="Specify the reason to hire you" 
+              cols="100" 
+              rows="10" 
+              value={this.state.YHire} 
+              onChange={this.handleChange} >
+            </textarea>
+          </div>
+
+          <br></br>
+
+          <div className="form-input">
+            <textarea 
+              name="DuraAvailable" 
+              placeholder="Yes, I am available" 
+              cols="100" 
+              rows="10" 
+              value={this.state.DuraAvailable} 
+              onChange={this.handleChange} >
+            </textarea>
+          </div>
+
+          <br></br>
+
+          <button>Submit</button> 
+          
+        </form>
+      </div>
     );
   }
 }
