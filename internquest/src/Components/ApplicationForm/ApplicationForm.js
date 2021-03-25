@@ -31,11 +31,11 @@ class ApplicationForm extends React.Component {
       data: payLoad
     })
     .then(() => {
-      console.log("Data has been sent to the server");
+      console.log("Application Details Data has been sent to the server");
       this.resetUserInputs();
     })
     .catch(() => {
-      console.log("Internal server error");
+      console.log("Internal server error in ApplicationForm Component");
     });
 
   }
@@ -54,6 +54,7 @@ class ApplicationForm extends React.Component {
         <h2>Application Details Form</h2>
         <form onSubmit={this.handleSubmit}>
 
+          <label>Why Should we hire you</label>
           <div className="form-input">
             <textarea 
               name="YHire" 
@@ -67,6 +68,7 @@ class ApplicationForm extends React.Component {
 
           <br></br>
 
+          <label>Are you available for the internship</label>
           <div className="form-input">
             <textarea 
               name="DuraAvailable" 

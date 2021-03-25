@@ -1,6 +1,7 @@
 const express = require('express');
 
 const ApplicationDetails = require('../models/ApplicationDetails');
+const InternshipDetails = require('../models/InternshipDetails');
 
 const router = express.Router();
 
@@ -34,9 +35,25 @@ router.post('/saveApplicationDetails',(req,res) => {
 
 });
 
+router.post('/saveInternshipDetails',(req,res) => {
+    console.log(req.body);
+    const data = req.body;
+    const newInternshipDetails =  new InternshipDetails(data);
+    newInternshipDetails.save((error) => {
+        if(error) {
+            res.status(500).json({msg: 'Sorry, Internal server error'});
+            return;
+        }
+        return res.json({
+            msg: 'Your data has been received'
+        });
+    });
+
+});
+
 router.get('/name',(req,res) => {
     const data = {
-        username:'vishnu',
+        username:'teju',
         age:21
     }
     res.json(data);

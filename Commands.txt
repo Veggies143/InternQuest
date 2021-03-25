@@ -37,3 +37,8 @@ Connect to MongoDB Atlas cluster using mongoose
 Password for user: Veggies@143
 
 
+When port is already in user
+============================
+Open Command Prompt 
+Step 1: netstat -ano | findstr :<port number>
+Step 2: taskkill /PID typeyourPIDhere /F   //typeyourPIDhere is the value you got from above command execution
