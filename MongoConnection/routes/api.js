@@ -6,7 +6,7 @@ const InternshipDetails = require('../models/InternshipDetails');
 const router = express.Router();
 
 //Routes
-router.get('/',(req,res) => {
+router.get('/ApplicationDetails',(req,res) => {
     
     ApplicationDetails.find({ })
         .then((data) => {
@@ -34,6 +34,19 @@ router.post('/saveApplicationDetails',(req,res) => {
     });
 
 });
+
+router.get('/InternshipDetails',(req,res) => {
+    
+    InternshipDetails.find({ })
+        .then((data) => {
+            console.log('Data: ',data);
+            res.json(data);
+        })
+        .catch((error) => {
+            console.log('error: ',daerrorta);
+        });
+
+})
 
 router.post('/saveInternshipDetails',(req,res) => {
     console.log(req.body);

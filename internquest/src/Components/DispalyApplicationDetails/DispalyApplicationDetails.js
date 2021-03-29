@@ -13,7 +13,7 @@ class DispalyApplicationDetails extends React.Component {
   };
   
   getApplicationDetails = () => {
-    axios.get('/api')
+    axios.get('/api/ApplicationDetails')
     .then((response) => {
       const data=response.data;
       this.setState({Details:data});
