@@ -189,9 +189,9 @@ class InternshipDetailsForm extends React.Component {
             </div>
             <br/>
 
-          <button>Submit</button>   
-          <br></br>
-          <button onClick={this.resetUserInputs}>Reset</button> 
+          <button class="btn btn-success">Submit</button>   
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-info" onClick={this.resetUserInputs} >Reset</button> 
           
         </form>
       </div>

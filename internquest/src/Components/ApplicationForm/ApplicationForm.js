@@ -82,8 +82,10 @@ class ApplicationForm extends React.Component {
 
           <br></br>
 
-          <button>Submit</button> 
-          
+          <button class="btn btn-success">Submit</button> 
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-info" onClick={this.resetUserInputs}>Reset</button>
+
         </form>
       </div>
     );

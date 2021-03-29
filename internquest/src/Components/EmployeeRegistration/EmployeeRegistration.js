@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './LoginPage.module.css';
+import styles from './EmployeeRegistration.module.css';
 
-class LoginPage extends React.Component {
+class EmployeeRegistration extends React.Component {
 
   constructor() {
     super();
@@ -31,14 +31,17 @@ class LoginPage extends React.Component {
         console.log(this.state);
   
         let input = {};
+        input["name"] = "";
         input["email"] = "";
         input["password"] = "";
-        input["userType"] = "";
+        input["confirmPassword"] = "";
+        input["age"] = "";
         this.setState({input:input});
   
         alert('Demo Form is submited');
     }
   }
+
   
   validate(){
       let input = this.state.input;
@@ -49,10 +52,25 @@ class LoginPage extends React.Component {
         isValid = false;
         errors["password"] = "Please enter your password.";
       }
+
+      if (!input["confirmPassword"]) {
+        isValid = false;
+        errors["confirmPassword"] = "Please enter your password again.";
+      }
+
+      if (!input["age"]) {
+        isValid = false;
+        errors["age"] = "Please enter your age.";
+      }
   
       if (!input["email"]) {
         isValid = false;
         errors["email"] = "Please enter your email Address.";
+      }
+
+      if (!input["name"]) {
+        isValid = false;
+        errors["name"] = "Please enter your name.";
       }
   
       if (typeof input["email"] !== "undefined") {
@@ -61,6 +79,23 @@ class LoginPage extends React.Component {
         if (!pattern.test(input["email"])) {
           isValid = false;
           errors["email"] = "Please enter valid email address.";
+        }
+      }
+
+      if(input["password"]!=input["confirmPassword"]) {
+        errors["confirmPassword"] = "Passwords doesnot match."
+        errors["password"] = "Passwords doesnot match."
+      }
+
+      if(typeof input["age"] !== "undefined") {
+        var pattern = new RegExp(/^[0-9]\d*$/);
+        if(!pattern.test(input["age"])) {
+          isValid = false;
+          errors["age"] = "Please enter valid age."
+        }
+        if(input["age"]==0) {
+          isValid = false;
+          errors["age"] = "Please enter valid age."
         }
       }
   
@@ -73,26 +108,22 @@ class LoginPage extends React.Component {
      
   render() {
     return (
-      <div className={styles.LoginPage}> 
-        <h1>Login Page</h1>
+      <div className={styles.EmployeeRegistration}> 
+        <h1>Employee Regitsration Form</h1>
         <form onSubmit={this.handleSubmit}>
 
-          <div class="form-group">
-            <label>Type of user</label>
-            <div>
-              <select 
-                type="text" 
-                name='userType' 
-                value={this.state.input.userType} 
-                class="form-control"  
-                onChange={this.handleChange} 
-                id="userType" >
-                <option value="Employee">Employees</option>
-                <option value="Employer">Employer</option>
-                <option value="Tutor">Tutor</option>
-              </select>
-            </div>
-
+        <div class="form-group">
+            <label for="email">Name:</label>
+            <input 
+              type="text" 
+              name="name" 
+              value={this.state.input.name}
+              onChange={this.handleChange}
+              class="form-control" 
+              placeholder="Enter name" 
+              id="name" />
+   
+              <div className="text-danger">{this.state.errors.name}</div>
           </div>
 
           <div class="form-group">
@@ -112,7 +143,6 @@ class LoginPage extends React.Component {
           <div class="form-group">
             <label for="name">Password:</label>
             <input 
-              type="text" 
               name="password"
               type="password" 
               value={this.state.input.password}
@@ -123,9 +153,38 @@ class LoginPage extends React.Component {
   
               <div className="text-danger">{this.state.errors.password}</div>
           </div>
+
+          <div class="form-group">
+            <label for="name">Confirm Password:</label>
+            <input  
+              name="confirmPassword"
+              type="password" 
+              value={this.state.input.comfirmPassword}
+              onChange={this.handleChange}
+              class="form-control" 
+              placeholder="Enter conform password" 
+              id="confirmPassword" />
+  
+              <div className="text-danger">{this.state.errors.confirmPassword}</div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Age:</label>
+            <input 
+              type="number" 
+              name="age"
+              type="age" 
+              value={this.state.input.age}
+              onChange={this.handleChange}
+              class="form-control" 
+              placeholder="Enter age" 
+              id="age" />
+  
+              <div className="text-danger">{this.state.errors.age}</div>
+          </div>
              
           <input type="submit" value="Submit" class="btn btn-success" />
-        
+      
         </form>
         <br/>
       </div>
@@ -133,8 +192,8 @@ class LoginPage extends React.Component {
   }
 }
 
-LoginPage.propTypes = {};
+EmployeeRegistration.propTypes = {};
 
-LoginPage.defaultProps = {};
+EmployeeRegistration.defaultProps = {};
 
-export default LoginPage;
+export default EmployeeRegistration;
