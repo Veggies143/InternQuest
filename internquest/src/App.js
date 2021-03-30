@@ -12,7 +12,7 @@ import TutorRegistration from './Components/TutorRegistration/TutorRegistration'
 function App() {
   return (
     <div>
-      <EmployeeRegistration/>
+      <LoginPage/>
     </div>
   );
 }

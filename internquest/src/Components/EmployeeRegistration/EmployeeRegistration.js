@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EmployeeRegistration.module.css';
+import axios from 'axios';
 
 class EmployeeRegistration extends React.Component {
 
@@ -22,6 +23,7 @@ class EmployeeRegistration extends React.Component {
     this.setState({
       input
     });
+    //this.validate();
   }
     
   handleSubmit(event) {
@@ -29,6 +31,18 @@ class EmployeeRegistration extends React.Component {
   
     if(this.validate()){
         console.log(this.state);
+
+        axios({ 
+          url: '/api/saveEmployeeProfileDetails',
+          method: 'POST',
+          data: this.state.input
+        })
+        .then(() => {
+          console.log("Employee Profile Details Data has been sent to the server");
+        })
+        .catch(() => {
+          console.log("Internal server error in EmployeeRegistration Component");
+        });
   
         let input = {};
         input["name"] = "";
@@ -82,7 +96,15 @@ class EmployeeRegistration extends React.Component {
         }
       }
 
-      if(input["password"]!=input["confirmPassword"]) {
+      if (typeof input["password"] !== "undefined") {
+        if(input["password"].length < 6) {
+          isValid = false;
+          errors["password"] = "Password must contain atleast 6 characters.";
+        }
+      }
+
+      if(input["password"] !== input["confirmPassword"]) {
+        isValid = false;
         errors["confirmPassword"] = "Passwords doesnot match."
         errors["password"] = "Passwords doesnot match."
       }
@@ -113,7 +135,7 @@ class EmployeeRegistration extends React.Component {
         <form onSubmit={this.handleSubmit}>
 
         <div class="form-group">
-            <label for="email">Name:</label>
+            <label for="name">Name:</label>
             <input 
               type="text" 
               name="name" 
@@ -141,7 +163,7 @@ class EmployeeRegistration extends React.Component {
           </div>
 
           <div class="form-group">
-            <label for="name">Password:</label>
+            <label for="password">Password:</label>
             <input 
               name="password"
               type="password" 
@@ -155,7 +177,7 @@ class EmployeeRegistration extends React.Component {
           </div>
 
           <div class="form-group">
-            <label for="name">Confirm Password:</label>
+            <label for="confirmPassword">Confirm Password:</label>
             <input  
               name="confirmPassword"
               type="password" 
@@ -169,11 +191,10 @@ class EmployeeRegistration extends React.Component {
           </div>
 
           <div class="form-group">
-            <label for="name">Age:</label>
+            <label for="age">Age:</label>
             <input 
               type="number" 
               name="age"
-              type="age" 
               value={this.state.input.age}
               onChange={this.handleChange}
               class="form-control" 
