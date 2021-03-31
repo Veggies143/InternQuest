@@ -54,30 +54,36 @@ class ApplicationForm extends React.Component {
         <h2>Application Details Form</h2>
         <form onSubmit={this.handleSubmit}>
 
-          <label>Why Should we hire you</label>
-          <div className="form-input">
-            <textarea 
-              name="YHire" 
-              placeholder="Specify the reason to hire you" 
-              cols="100" 
-              rows="10" 
-              value={this.state.YHire} 
-              onChange={this.handleChange} >
-            </textarea>
+          <div class="form-group">
+            <label>Why Should we hire you</label>
+            <div className="form-input">
+              <textarea 
+                name="YHire" 
+                class="form-control"  
+                placeholder="Specify the reason to hire you" 
+                cols="100" 
+                rows="10" 
+                value={this.state.YHire} 
+                onChange={this.handleChange} >
+              </textarea>
+            </div>
           </div>
 
           <br></br>
 
-          <label>Are you available for the internship</label>
-          <div className="form-input">
-            <textarea 
-              name="DuraAvailable" 
-              placeholder="Yes, I am available" 
-              cols="100" 
-              rows="10" 
-              value={this.state.DuraAvailable} 
-              onChange={this.handleChange} >
-            </textarea>
+          <div class="form-group">
+            <label>Are you available for the internship</label>
+            <div className="form-input">
+              <textarea 
+                name="DuraAvailable" 
+                class="form-control"  
+                placeholder="Yes, I am available" 
+                cols="150" 
+                rows="10" 
+                value={this.state.DuraAvailable} 
+                onChange={this.handleChange} >
+              </textarea>
+            </div>
           </div>
 
           <br></br>

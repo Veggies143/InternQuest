@@ -72,122 +72,148 @@ class InternshipDetailsForm extends React.Component {
     return (
       <div className={styles.InternshipDetailsForm}>
         <h2>Internship Details Form</h2>
-        <form id='internship_details' onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
 
-        <label>Name of your Company</label>
-        <div className="form-input">
-            <input 
-              name="CompanyName" 
-              placeholder="Name of your company" 
-              value={this.state.CompanyName} 
-              onChange={this.handleChange} 
-              required>
-            </input>
-        </div>
-        <br/>
-
-        <label>Job Role</label>
-        <div className="form-input">
-            <input 
-              name="JobRole" 
-              placeholder="Role name for the job" 
-              value={this.state.JobRole} 
-              onChange={this.handleChange} 
-              required>
-            </input>
-        </div>
-        <br/>
-
-        <label>Duration of the internship</label>
-        <div className="form-input">
-            <input 
-              name="Duration" 
-              placeholder="Duration of internship" 
-              pattern="[0-9]*"
-              value={this.state.Duration} 
-              onChange={this.handleChange} 
-              required>
-            </input>
-          </div>
-          <br/>
-
-          <label>Period of Internship</label>
-          <div className="form-input">
-            <select name='Period' value={this.state.Period} onChange={this.handleChange} required>
-              <option value="Months">Month/s</option>
-              <option value="Weeks">Week/s</option>
-              <option value="Days">Days</option>
-            </select>
-          </div>
-          <br/>
-
-          <label>What is your company about</label>
-          <div className="form-input">
-            <textarea 
-              name="AboutCompany" 
-              placeholder="How your company works" 
-              cols="100" 
-              rows="10" 
-              value={this.state.AboutCompany} 
-              onChange={this.handleChange} 
-              required>
-            </textarea>
-          </div>
-          <br/>
-
-          <label>What is this internship about</label>
-          <div className="form-input">
-            <textarea 
-              name="JobDescription" 
-              placeholder="How your company works" 
-              cols="100" 
-              rows="10" 
-              value={this.state.JobDescription} 
-              onChange={this.handleChange} 
-              required>
-            </textarea>
-          </div>
-          <br/>
-
-          <label>Skill Required for this internship</label>
-          <div className="form-input">
-            <textarea 
-              name="SkillsRequired" 
-              placeholder="Skills Required" 
-              cols="100" 
-              rows="10" 
-              value={this.state.SkillsRequired} 
-              onChange={this.handleChange} 
-              required>
-            </textarea>
-          </div>
-          <br/>
-
-          <label>What benefits will you give</label>
-          <div className="form-input">
-            <textarea 
-              name="Benefits" 
-              placeholder="Benefits provided" 
-              cols="100" 
-              rows="10" 
-              value={this.state.Benefits} 
-              onChange={this.handleChange} >
-            </textarea>
-          </div>
-          <br/>
-
-          <label>About you will pay for this internship</label>
-          <div className="form-input">
+          <div class="form-group">
+            <label>Name of your Company</label>
+            <div>
               <input 
-                name="Stipend" 
-                placeholder="Stipend" 
-                pattern="[0-9]*"
-                value={this.state.Stipend} 
+                name="CompanyName" 
+                placeholder="Name of your company" 
+                class="form-control"  
+                value={this.state.CompanyName} 
+                onChange={this.handleChange} 
+                required>
+              </input>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label>Job Role</label>
+            <div>
+              <input 
+                name="JobRole" 
+                placeholder="Role name for the job" 
+                class="form-control" 
+                value={this.state.JobRole} 
                 onChange={this.handleChange} 
                 required>
               </input>
             </div>
             <br/>
+          </div>
+
+          <div class="form-group">
+            <label>Duration of the internship</label>
+            <div>
+              <input 
+                name="Duration" 
+                placeholder="Duration of internship" 
+                class="form-control" 
+                pattern="[0-9]*"
+                value={this.state.Duration} 
+                onChange={this.handleChange} 
+                required>
+              </input>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>Period of Internship</label>
+            <div>
+              <select name='Period' class="form-control" value={this.state.Period} onChange={this.handleChange} required>
+                <option value="Months">Month/s</option>
+                <option value="Weeks">Week/s</option>
+                <option value="Days">Days</option>
+              </select>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>What is your company about</label>
+            <div>
+              <textarea 
+                name="AboutCompany" 
+                placeholder="How your company works"
+                class="form-control"  
+                cols="100" 
+                rows="10" 
+                value={this.state.AboutCompany} 
+                onChange={this.handleChange} 
+                required>
+              </textarea>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>What is this internship about</label>
+            <div>
+              <textarea 
+                name="JobDescription" 
+                placeholder="How your company works" 
+                class="form-control" 
+                cols="100" 
+                rows="10" 
+                value={this.state.JobDescription} 
+                onChange={this.handleChange} 
+                required>
+              </textarea>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>Skill Required for this internship</label>
+            <div>
+              <textarea 
+                name="SkillsRequired" 
+                placeholder="Skills Required" 
+                class="form-control" 
+                cols="100" 
+                rows="10" 
+                value={this.state.SkillsRequired} 
+                onChange={this.handleChange} 
+                required>
+              </textarea>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>What benefits will you give</label>
+            <div>
+              <textarea 
+                name="Benefits" 
+                placeholder="Benefits provided" 
+                class="form-control" 
+                cols="100" 
+                rows="10" 
+                value={this.state.Benefits} 
+                onChange={this.handleChange} >
+              </textarea>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>About you will pay for this internship</label>
+            <div>
+                <input 
+                  name="Stipend" 
+                  placeholder="Stipend" 
+                  class="form-control" 
+                  pattern="[0-9]*"
+                  value={this.state.Stipend} 
+                  onChange={this.handleChange} 
+                  required>
+                </input>
+            </div>
+            <br/>
+          </div>
 
           <button class="btn btn-success">Submit</button>   
           &nbsp;&nbsp;&nbsp;&nbsp;

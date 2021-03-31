@@ -5,6 +5,7 @@ const InternshipDetails = require('../models/InternshipDetails');
 const TutorProfileDetails = require('../models/TutorProfileDetails');
 const EmployeeProfileDetails = require('../models/EmployeeProfileDetails');
 const EmployerProfileDetails = require('../models/EmployerProfileDetails');
+const CourseDetails = require('../models/CourseDetails');
 
 const router = express.Router();
 
@@ -56,6 +57,35 @@ router.post('/saveInternshipDetails',(req,res) => {
     const data = req.body;
     const newInternshipDetails =  new InternshipDetails(data);
     newInternshipDetails.save((error) => {
+        if(error) {
+            res.status(500).json({msg: 'Sorry, Internal server error'});
+            return;
+        }
+        return res.json({
+            msg: 'Your data has been received'
+        });
+    });
+
+});
+
+router.get('/CourseDetails',(req,res) => {
+    
+    CourseDetails.find({ })
+        .then((data) => {
+            console.log('Data: ',data);
+            res.json(data);
+        })
+        .catch((error) => {
+            console.log('error: ',daerrorta);
+        });
+
+})
+
+router.post('/saveCourseDetails',(req,res) => {
+    console.log(req.body);
+    const data = req.body;
+    const newCourseDetails =  new CourseDetails(data);
+    newCourseDetails.save((error) => {
         if(error) {
             res.status(500).json({msg: 'Sorry, Internal server error'});
             return;

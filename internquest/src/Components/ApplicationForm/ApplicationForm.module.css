@@ -1,6 +1,11 @@
-.ApplicationForm {
-    background-color: rgb(21, 255, 0);
-}
-html {
-  background-color:aqua;
-}
+
+@media all and (min-width: 480px) {
+    .ApplicationForm {
+      padding: 60px 0;
+    }
+  
+    .ApplicationForm form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }

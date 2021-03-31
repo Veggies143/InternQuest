@@ -12,11 +12,13 @@ import DisplayInternshipDetails from './Components/DisplayInternshipDetails/Disp
 import TutorProfile from './Components/TutorProfile/TutorProfile';
 import EmployerProfile from './Components/EmployerProfile/EmployerProfile';
 import EmployeeProfile from './Components/EmployeeProfile/EmployeeProfile';
+import CourseDetailsForm from './Components/CourseDetailsForm/CourseDetailsForm';
+import DisplayCourseDetails from './Components/DisplayCourseDetails/DisplayCourseDetails';
 
 function App() {
   return (
     <div>
-      <EmployeeProfile/>
+      <DisplayCourseDetails/>
     </div>
   );
 }
