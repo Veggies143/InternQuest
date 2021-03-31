@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './LoginPage.module.css';
+import axios from 'axios';
 
 class LoginPage extends React.Component {
 
@@ -8,7 +9,11 @@ class LoginPage extends React.Component {
     super();
     this.state = {
       input: {},
-      errors: {}
+      errors: {},
+      TutorProfileDetails: {},
+      EmployeeProfileDetails: {},
+      EmployerProfileDetails: {},
+      invalidDetails: ""
     };
      
     this.handleChange = this.handleChange.bind(this);
@@ -29,14 +34,58 @@ class LoginPage extends React.Component {
   
     if(this.validate()){
         console.log(this.state);
+
+        let flag = false;
+
+        if(this.state.input["userType"] == "Tutor") {
+          this.state.TutorProfileDetails.forEach(element => {
+            //console.log(element.email+"   "+element.password);
+            if(element.email == this.state.input["email"] && element.password == this.state.input["password"]) {
+              flag=true;
+              this.setState({invalidDetails : ""});
+              alert("Login successfull");
+            }
+          });
+          if(!flag) {
+            //alert("Login not successfull");
+            this.setState({invalidDetails : "Please enter correct login credentials"});
+          }
+        }
+        else if(this.state.input["userType"] == "Employer") {
+          this.state.EmployerProfileDetails.forEach(element => {
+            //console.log(element.email+"   "+element.password);
+            if(element.email == this.state.input["email"] && element.password == this.state.input["password"]) {
+              flag=true;
+              this.setState({invalidDetails : ""});
+              alert("Login successfull");
+            }
+          });
+          if(!flag) {
+            //alert("Login not successfull");
+            this.setState({invalidDetails : "Please enter correct login credentials"});
+          }
+        }
+        else {
+          this.state.EmployeeProfileDetails.forEach(element => {
+            //console.log(element.email+"   "+element.password);
+            if(element.email == this.state.input["email"] && element.password == this.state.input["password"]) {
+              flag=true;
+              this.setState({invalidDetails : ""});
+              alert("Login successfull");
+            }
+          });
+          if(!flag) {
+            //alert("Login not successfull");
+            this.setState({invalidDetails : "Please enter correct login credentials"});
+          }
+        }
   
         let input = {};
         input["email"] = "";
         input["password"] = "";
         input["userType"] = "";
         this.setState({input:input});
-  
-        alert('Demo Form is submited');
+
     }
   }
   
@@ -70,6 +119,38 @@ class LoginPage extends React.Component {
   
       return isValid;
   }
+
+  componentWillMount() {
+    axios.get('/api/TutorProfileDetails')
+    .then((response) => {
+      const data=response.data;
+      this.setState({TutorProfileDetails:data});
+      //console.log("Data received!!");
+    })
+    .catch(() => {
+      alert("Error retreving data");
+    });
+
+    axios.get('/api/EmployeeProfileDetails')
+    .then((response) => {
+      const data=response.data;
+      this.setState({EmployeeProfileDetails:data});
+      //console.log("Data received!!");
+    })
+    .catch(() => {
+      alert("Error retreving data");
+    });
+
+    axios.get('/api/EmployerProfileDetails')
+    .then((response) => {
+      const data=response.data;
+      this.setState({EmployerProfileDetails:data});
+      //console.log("Data received!!");
+    })
+    .catch(() => {
+      alert("Error retreving data");
+    });
+  }
      
   render() {
     return (
@@ -87,7 +168,7 @@ class LoginPage extends React.Component {
                 class="form-control"  
                 onChange={this.handleChange} 
                 id="userType" >
-                <option value="Employee">Employees</option>
+                <option value="Aplicant">Applicant</option>
                 <option value="Employer">Employer</option>
                 <option value="Tutor">Tutor</option>
               </select>
@@ -122,6 +203,7 @@ class LoginPage extends React.Component {
               id="password" />
   
               <div className="text-danger">{this.state.errors.password}</div>
+              <div className="text-danger">{this.state.invalidDetails}</div>
           </div>
              
           <input type="submit" value="Submit" class="btn btn-success" />
