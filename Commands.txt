@@ -44,3 +44,7 @@ Step 1: netstat -ano | findstr :<port number>
 Step 2: taskkill /PID typeyourPIDhere /F   //typeyourPIDhere is the value you got from above command execution
 
 npm install react-bootstrap bootstrap
+
+Routing
+=======
+npm install react-router-dom

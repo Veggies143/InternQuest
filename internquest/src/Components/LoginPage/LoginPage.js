@@ -28,7 +28,7 @@ class LoginPage extends React.Component {
       input
     });
   }
-    
+  
   handleSubmit(event) {
     event.preventDefault();
   
@@ -85,6 +85,11 @@ class LoginPage extends React.Component {
         input["password"] = "";
         input["userType"] = "";
         this.setState({input:input});
+
+        if(flag) {
+          console.log("Here to redirect");
+          window.location.href="appDetails"
+        }
 
     }
   }
@@ -158,7 +163,7 @@ class LoginPage extends React.Component {
         <h1>Login Page</h1>
         <form onSubmit={this.handleSubmit}>
 
-          <div class="form-group">
+          <div className="form-group">
             <label>Type of user</label>
             <div>
               <select 

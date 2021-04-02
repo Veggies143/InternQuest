@@ -14,11 +14,13 @@ import EmployerProfile from './Components/EmployerProfile/EmployerProfile';
 import EmployeeProfile from './Components/EmployeeProfile/EmployeeProfile';
 import CourseDetailsForm from './Components/CourseDetailsForm/CourseDetailsForm';
 import DisplayCourseDetails from './Components/DisplayCourseDetails/DisplayCourseDetails';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
+import FirstPage from './Components/FirstPage/FirstPage';
 
 function App() {
   return (
     <div>
-      <DisplayCourseDetails/>
+      <TutorProfile/>
     </div>
   );
 }
