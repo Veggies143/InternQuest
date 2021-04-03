@@ -16,11 +16,12 @@ import CourseDetailsForm from './Components/CourseDetailsForm/CourseDetailsForm'
 import DisplayCourseDetails from './Components/DisplayCourseDetails/DisplayCourseDetails';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import FirstPage from './Components/FirstPage/FirstPage';
+import BeforeLoginPage from './Components/BeforeLoginPage/BeforeLoginPage';
 
 function App() {
   return (
     <div>
-      <TutorProfile/>
+      <BeforeLoginPage/>
     </div>
   );
 }

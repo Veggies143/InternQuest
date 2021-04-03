@@ -56,6 +56,9 @@ class EmployeeRegistration extends React.Component {
     }
   }
 
+  onLogin = () => {
+    window.location.href = 'login'; 
+  }
   
   validate(){
       let input = this.state.input;
@@ -204,8 +207,10 @@ class EmployeeRegistration extends React.Component {
               <div className="text-danger">{this.state.errors.age}</div>
           </div>
              
-          <input type="submit" value="Submit" class="btn btn-success" />
-      
+          <input type="submit" value="Submit" className="btn btn-success" />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button className='btn btn-info' onClick={this.onLogin}>Login ?</button>
+                
         </form>
         <br/>
       </div>

@@ -15,6 +15,10 @@ class EmployerRegistration extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  onLogin = () => {
+    window.location.href = 'login'; 
+  }
      
   handleChange(event) {
     let input = this.state.input;
@@ -219,7 +223,9 @@ class EmployerRegistration extends React.Component {
               <div className="text-danger">{this.state.errors.phoneNo}</div>
           </div>
              
-          <input type="submit" value="Submit" class="btn btn-success" />
+          <input type="submit" value="Submit" className="btn btn-success" />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button className='btn btn-info' onClick={this.onLogin}>Login ?</button>
       
         </form>
         <br/>

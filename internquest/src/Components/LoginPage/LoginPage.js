@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './LoginPage.module.css';
 import axios from 'axios';
+import { Dropdown } from 'react-bootstrap';
 
 class LoginPage extends React.Component {
 
@@ -88,7 +89,11 @@ class LoginPage extends React.Component {
 
         if(flag) {
           console.log("Here to redirect");
-          window.location.href="appDetails"
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('myData', JSON.stringify(this.state.input));
+            localStorage.setItem('isLogin',true);
+          }
+          window.location.href="firstPage";
         }
 
     }
@@ -173,7 +178,7 @@ class LoginPage extends React.Component {
                 class="form-control"  
                 onChange={this.handleChange} 
                 id="userType" >
-                <option value="Aplicant">Applicant</option>
+                <option value="Applicant">Applicant</option>
                 <option value="Employer">Employer</option>
                 <option value="Tutor">Tutor</option>
               </select>
@@ -211,7 +216,19 @@ class LoginPage extends React.Component {
               <div className="text-danger">{this.state.invalidDetails}</div>
           </div>
              
-          <input type="submit" value="Submit" class="btn btn-success" />
+          <input type="submit" value="Submit" class="btn btn-success" />   
+          <br/><br/>
+          <Dropdown>
+            <Dropdown.Toggle variant="info" id="dropdown-basic">
+              Register ?
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="/employeeRegistration">Applicant</Dropdown.Item>
+              <Dropdown.Item href="/employerRegistration">Employer</Dropdown.Item>
+              <Dropdown.Item href="/tutorRegistration">Tutor</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>    
         
         </form>
         <br/>

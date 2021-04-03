@@ -19,6 +19,7 @@ import CourseDetailsForm from './Components/CourseDetailsForm/CourseDetailsForm'
 import DisplayCourseDetails from './Components/DisplayCourseDetails/DisplayCourseDetails';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import FirstPage from './Components/FirstPage/FirstPage';
+import BeforeLoginPage from './Components/BeforeLoginPage/BeforeLoginPage';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -40,6 +41,7 @@ const routing = (
       <Route path="/tutorProfile" component={TutorProfile}/>
       <Route path="/courseDetails" component={CourseDetailsForm}/>
       <Route path="/firstPage" component={FirstPage}/>
+      <Route path="/beforeLoginPage" component={BeforeLoginPage}/>
       <Route component={ErrorPage}/>
     </Switch>
   </Router>

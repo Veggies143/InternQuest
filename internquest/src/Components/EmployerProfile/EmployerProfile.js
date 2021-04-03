@@ -5,7 +5,9 @@ import axios from 'axios';
 
 class EmployerProfile extends React.Component {
   state = {
-    Details: []
+    Details: [],
+    dataToDisplay: {},
+    loginDetails: {}
   }
   
   componentDidMount = () => {
@@ -22,23 +24,31 @@ class EmployerProfile extends React.Component {
     .catch(() => {
       alert("Error retreving data");
     });
+
+    let data=localStorage.getItem('myData');
+    data = JSON.parse(data);
+    console.log(data);
+
+    setTimeout(() => {
+      this.state.Details.forEach(element => {
+        if(element.email === data.email && element.password === data.password) {
+          this.setState({dataToDisplay: element});
+        }
+      });
+    },1000);
   };
 
   render() {
     return(
       <div className={styles.EmployerProfile} data-testid="EmployerProfile">
         <h1>EmployerProfile Component</h1>
-        <div className="users">
-        {this.state.Details.map((detail, index) => (
-          <div key={index}>
-            <h2>{detail.companyName}</h2>
-            <h3>{detail.name}</h3>
-            <p>{detail.email}</p>
-            <p>{detail.password}</p>
-            <p>{detail.phoneNo}</p>
-          </div>
-        ))}
-      </div>
+        <div>
+          <h1>{this.state.dataToDisplay.companyName}</h1>
+          <h3>{this.state.dataToDisplay.name}</h3>
+          <h2>{this.state.dataToDisplay.email}</h2>
+          <i>{this.state.dataToDisplay.password}</i>
+          <p>{this.state.dataToDisplay.phoneNo}</p>
+        </div>
       </div>
     )
   }
