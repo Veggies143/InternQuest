@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Veggies143/InternQuest#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "concurrently": "^6.0.0",
@@ -29,6 +31,7 @@
     "morgan": "^1.10.0",
     "raw-body": "^2.4.0",
     "react-bootstrap": "^1.5.2",
+    "react-password-toggle-icon": "^1.1.5",
     "regexp-clone": "^1.0.0"
   },
   "devDependencies": {}

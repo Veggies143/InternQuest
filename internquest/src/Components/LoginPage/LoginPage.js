@@ -4,6 +4,10 @@ import styles from './LoginPage.module.css';
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
 
+import ReactPasswordToggleIcon from 'react-password-toggle-icon';
+
+
+
 class LoginPage extends React.Component {
 
   constructor() {
@@ -203,7 +207,6 @@ class LoginPage extends React.Component {
           <div class="form-group">
             <label for="name">Password:</label>
             <input 
-              type="text" 
               name="password"
               type="password" 
               value={this.state.input.password}
@@ -211,7 +214,7 @@ class LoginPage extends React.Component {
               class="form-control" 
               placeholder="Enter password" 
               id="password" />
-  
+
               <div className="text-danger">{this.state.errors.password}</div>
               <div className="text-danger">{this.state.invalidDetails}</div>
           </div>
