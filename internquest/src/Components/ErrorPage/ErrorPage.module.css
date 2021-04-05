@@ -1,1 +1,18 @@
-.ErrorPage {}
+.Error {
+    background-image: url(https://s3.envato.com/files/28316400/01_preview.__large_preview.jpg);
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+    position: relative;
+    
+}
+
+.Ebutton {
+    padding-top: 150px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

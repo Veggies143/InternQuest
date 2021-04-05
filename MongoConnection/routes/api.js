@@ -14,7 +14,6 @@ router.get('/ApplicationDetails',(req,res) => {
     
     ApplicationDetails.find({ })
         .then((data) => {
-            console.log('Data: ',data);
             res.json(data);
         })
         .catch((error) => {
@@ -24,7 +23,6 @@ router.get('/ApplicationDetails',(req,res) => {
 })
 
 router.post('/saveApplicationDetails',(req,res) => {
-    console.log(req.body);
     const data = req.body;
     const newApplicationDetails =  new ApplicationDetails(data);
     newApplicationDetails.save((error) => {
@@ -43,7 +41,6 @@ router.get('/InternshipDetails',(req,res) => {
     
     InternshipDetails.find({ })
         .then((data) => {
-            console.log('Data: ',data);
             res.json(data);
         })
         .catch((error) => {
@@ -53,7 +50,6 @@ router.get('/InternshipDetails',(req,res) => {
 })
 
 router.post('/saveInternshipDetails',(req,res) => {
-    console.log(req.body);
     const data = req.body;
     const newInternshipDetails =  new InternshipDetails(data);
     newInternshipDetails.save((error) => {
@@ -72,7 +68,6 @@ router.get('/CourseDetails',(req,res) => {
     
     CourseDetails.find({ })
         .then((data) => {
-            console.log('Data: ',data);
             res.json(data);
         })
         .catch((error) => {
@@ -82,7 +77,6 @@ router.get('/CourseDetails',(req,res) => {
 })
 
 router.post('/saveCourseDetails',(req,res) => {
-    console.log(req.body);
     const data = req.body;
     const newCourseDetails =  new CourseDetails(data);
     newCourseDetails.save((error) => {
@@ -101,7 +95,6 @@ router.get('/TutorProfileDetails',(req,res) => {
     
     TutorProfileDetails.find({ })
         .then((data) => {
-            console.log('Data: ',data);
             res.json(data);
         })
         .catch((error) => {
@@ -111,7 +104,6 @@ router.get('/TutorProfileDetails',(req,res) => {
 })
 
 router.post('/saveTutorProfileDetails',(req,res) => {
-    console.log(req.body);
     const data = req.body;
     const newTutorProfileDetails =  new TutorProfileDetails(data);
     newTutorProfileDetails.save((error) => {
@@ -130,7 +122,6 @@ router.get('/EmployeeProfileDetails',(req,res) => {
     
     EmployeeProfileDetails.find({ })
         .then((data) => {
-            console.log('Data: ',data);
             res.json(data);
         })
         .catch((error) => {
@@ -140,7 +131,6 @@ router.get('/EmployeeProfileDetails',(req,res) => {
 })
 
 router.post('/saveEmployeeProfileDetails',(req,res) => {
-    console.log(req.body);
     const data = req.body;
     const newEmployeeProfileDetails =  new EmployeeProfileDetails(data);
     newEmployeeProfileDetails.save((error) => {
@@ -159,7 +149,6 @@ router.get('/EmployerProfileDetails',(req,res) => {
     
     EmployerProfileDetails.find({ })
         .then((data) => {
-            console.log('Data: ',data);
             res.json(data);
         })
         .catch((error) => {
@@ -169,7 +158,6 @@ router.get('/EmployerProfileDetails',(req,res) => {
 })
 
 router.post('/saveEmployerProfileDetails',(req,res) => {
-    console.log(req.body);
     const data = req.body;
     const newEmployerProfileDetails =  new EmployerProfileDetails(data);
     newEmployerProfileDetails.save((error) => {
