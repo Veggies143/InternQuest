@@ -112,12 +112,12 @@ class EmployeeRegistration extends React.Component {
       }
 
       if(typeof input["age"] !== "undefined") {
-        var pattern = new RegExp(/^[0-9]\d*$/);
+        pattern = new RegExp(/^[0-9]\d*$/);
         if(!pattern.test(input["age"])) {
           isValid = false;
           errors["age"] = "Please enter valid age."
         }
-        if(input["age"]==0) {
+        if(input["age"]===0) {
           isValid = false;
           errors["age"] = "Please enter valid age."
         }

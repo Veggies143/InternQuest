@@ -118,7 +118,7 @@ class EmployerRegistration extends React.Component {
       }
 
       if(typeof input["phoneNo"] !== "undefined") {
-        var pattern = new RegExp(/^[0-9]\d*$/);
+        pattern = new RegExp(/^[0-9]\d*$/);
         if(!pattern.test(input["phoneNo"]) || input["phoneNo"].length<10 || input["phoneNo"].length>10) {
           isValid = false;
           errors["phoneNo"] = "Please enter valid phone number."

@@ -2,9 +2,6 @@ import React from 'react';
 import styles from './FirstPage.module.css';
 
 class FirstPage extends React.Component { 
-  constructor() {
-    super();
-  }
 
   goToProfile = () => {
     let data=localStorage.getItem('myData');
