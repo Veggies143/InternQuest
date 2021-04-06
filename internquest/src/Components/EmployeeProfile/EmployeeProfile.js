@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './EmployeeProfile.module.css';
 import axios from 'axios';
 

@@ -1,12 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './LoginPage.module.css';
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
-
-import ReactPasswordToggleIcon from 'react-password-toggle-icon';
-
-
 
 class LoginPage extends React.Component {
 
@@ -42,10 +37,10 @@ class LoginPage extends React.Component {
 
         let flag = false;
 
-        if(this.state.input["userType"] == "Tutor") {
+        if(this.state.input["userType"] === "Tutor") {
           this.state.TutorProfileDetails.forEach(element => {
             //console.log(element.email+"   "+element.password);
-            if(element.email == this.state.input["email"] && element.password == this.state.input["password"]) {
+            if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
               alert("Login successfull");
@@ -56,10 +51,10 @@ class LoginPage extends React.Component {
             this.setState({invalidDetails : "Please enter correct login credentials"});
           }
         }
-        else if(this.state.input["userType"] == "Employer") {
+        else if(this.state.input["userType"] === "Employer") {
           this.state.EmployerProfileDetails.forEach(element => {
             //console.log(element.email+"   "+element.password);
-            if(element.email == this.state.input["email"] && element.password == this.state.input["password"]) {
+            if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
               alert("Login successfull");
@@ -73,7 +68,7 @@ class LoginPage extends React.Component {
         else {
           this.state.EmployeeProfileDetails.forEach(element => {
             //console.log(element.email+"   "+element.password);
-            if(element.email == this.state.input["email"] && element.password == this.state.input["password"]) {
+            if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
               alert("Login successfull");
