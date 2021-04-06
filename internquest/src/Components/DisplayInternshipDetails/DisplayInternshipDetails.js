@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './DisplayInternshipDetails.module.css';
 import axios from 'axios';
-import SkillsDropdown from './../SkillsDropdown/SkillsDropdown';
+import { TagsSelect } from 'react-select-material-ui';
 
 class DisplayInternshipDetails extends React.Component {
-  state = {
-    Details: []
+  
+  constructor() {
+    super();
+    this.state = {
+      Details: [],
+      options: ['Personal', 'Hiii', 'Work', 'Important', 'Optional', 'hello','Required'],
+      selectedValues: []
+    }
   }
   
   componentDidMount = () => {
@@ -25,6 +31,13 @@ class DisplayInternshipDetails extends React.Component {
     });
   };
 
+  handleChange = (values) => {
+    const select =values;
+    this.setState({selectedValues:select});
+    setTimeout(()=>{console.log(this.state.selectedValues)},250);
+    
+  };
+
   render() {
     return(
       <div className={styles.DispalyInternshipDetails} data-testid="DispalyInternshipDetails">
@@ -32,14 +45,17 @@ class DisplayInternshipDetails extends React.Component {
         <div className="row">
 
           <div className="col-4" id={styles.sortInternships}>
-            Keep your preferences 
-            <div><SkillsDropdown/></div>
-            <br/>
-            <br/>
-            <b>Another dropdown</b>
-            <div>
-              Hii
-            </div>
+            <b>Keep your preferences</b> 
+            <TagsSelect
+              label="Tags"
+              options={this.state.options}
+              onChange={this.handleChange}
+              SelectProps={{
+                isCreatable: true,
+                msgNoOptionsAvailable: 'All tags are selected',
+                msgNoOptionsMatchFilter: 'No tag matches the filter',
+              }}
+            />
           </div>
             
           <div className="col-8" id={styles.details}>

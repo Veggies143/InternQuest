@@ -53,4 +53,4 @@ npm install --save react-router
 
 We are using "localstorage" to store data, so that data can be passed from one component to another.
 
-npm i multiselect-react-dropdown
+npm i react-select-material-ui    //Used for multi select dropdown
