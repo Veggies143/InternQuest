@@ -47,7 +47,7 @@ class DisplayInternshipDetails extends React.Component {
           <div className="col-4" id={styles.sortInternships}>
             <b>Keep your preferences</b> 
             <TagsSelect
-              label="Tags"
+              label="Skills"
               options={this.state.options}
               onChange={this.handleChange}
               SelectProps={{
@@ -61,7 +61,7 @@ class DisplayInternshipDetails extends React.Component {
           <div className="col-8" id={styles.details}>
             {this.state.Details.map((detail, index) => (
               <div key={index}>
-                <h1>Comapny Name: {detail.CompanyName}</h1>
+                <h1>Company Name: {detail.CompanyName}</h1>
                 <p>About Company: {detail.AboutCompany}</p>
                 <h2>Job Role: {detail.JobRole}</h2>
                 <p>Job Description: {detail.JobDescription}</p>
