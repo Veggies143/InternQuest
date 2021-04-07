@@ -9,12 +9,13 @@ class DisplayInternshipDetails extends React.Component {
     super();
     this.state = {
       Details: [],
+      SortedDetails: [],
       options: [
         'Java', 'HTML', 'CSS', 'Python', 'Django', 'Javascript', 'Machine Learning', 'SQL'
       ],
       selectedValues: [],
-      MinStipend: Number,
-      MaxDuration: Number,
+      MinStipend: '',
+      MaxDuration: '',
       MaxPeriod: 'Months'
     }
   }
@@ -28,6 +29,7 @@ class DisplayInternshipDetails extends React.Component {
     .then((response) => {
       const data=response.data;
       this.setState({Details:data});
+      this.setState({SortedDetails:data});
       console.log("Data received!!");
     })
     .catch(() => {
@@ -35,32 +37,32 @@ class DisplayInternshipDetails extends React.Component {
     });
   };
 
-  sortBasedOnSkills = () => {
-    console.log(this.state.selectedValues);
-    let sortedDetails = [];
-    this.state.Details.forEach(element => {
+  // sortBasedOnSkills = () => {
+  //   console.log(this.state.selectedValues);
+  //   let sortedDetails = [];
+  //   this.state.Details.forEach(element => {
 
-      let isValid = true;
-      this.state.selectedValues.forEach(skill => {
-        //console.log(skill);
+  //     let isValid = true;
+  //     this.state.selectedValues.forEach(skill => {
+  //       //console.log(skill);
 
-        var temp = element.SkillsRequired;
-        if(!temp.includes(skill)) {
-          isValid = false;
-          console.log("Not valid internship");
-          return;
-        }
-        //console.log(temp.includes(skill));
+  //       var temp = element.SkillsRequired;
+  //       if(!temp.includes(skill)) {
+  //         isValid = false;
+  //         //console.log("Not valid internship");
+  //         return;
+  //       }
+  //       //console.log(temp.includes(skill));
 
-        //console.log(element.SkillsRequired);
-      });
-      if(isValid) {
-        sortedDetails.push(element);
-      }
+  //       //console.log(element.SkillsRequired);
+  //     });
+  //     if(isValid) {
+  //       sortedDetails.push(element);
+  //     }
 
-    });
-    this.setState({Details: sortedDetails})
-  }
+  //   });
+  //   this.setState({SortedDetails: sortedDetails})
+  // }
 
   handleChange = (values) => {
     const select =values;
@@ -69,64 +71,215 @@ class DisplayInternshipDetails extends React.Component {
     
   };
 
-  handleChangeInMinStipend = ({target}) => {
+  // handleChangeInMinStipend = ({target}) => {
+  //   const {name,value} = target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
+
+  // sortBasedOnStipend = (event) => {
+  //   event.preventDefault();
+  //   //alert(this.state.MinStipend);
+  //   let min=this.state.MinStipend;
+  //   let sortedDetails = [];
+
+  //   this.state.Details.forEach(element => {
+  //     if(element.Stipend >= min) {
+  //       sortedDetails.push(element);
+  //     }
+  //   });
+
+  //   this.setState({SortedDetails: sortedDetails})
+  // }
+
+  handleChangeOnSubmitForm = ({target}) => {
     const {name,value} = target;
     this.setState({
       [name]: value
     });
   };
 
-  sortBasedOnStipend = (event) => {
-    event.preventDefault();
-    //alert(this.state.MinStipend);
-    let min=this.state.MinStipend;
-    let sortedDetails = [];
+  // sortBasedOnDuration = (event) => {
+  //   event.preventDefault();
+  //   //alert(this.state.MaxDuration+"  "+this.state.MaxPeriod);
+  //   let maxDays = this.state.MaxDuration;
+  //   let maxPeriod = this.state.MaxPeriod;
+  //   //console.log(maxDays+"  "+maxPeriod+"   "+this.state.MaxPeriod)
+  //   let sortedDetails = [];
 
-    this.state.Details.forEach(element => {
-      if(element.Stipend >= min) {
-        sortedDetails.push(element);
-      }
-    });
+  //   if(maxPeriod === 'Months') 
+  //     maxDays = maxDays*30;
+  //   else if(maxPeriod === 'Weeks')
+  //     maxDays = maxDays*7;
 
-    this.setState({Details: sortedDetails})
-  }
+  //   //console.log(maxDays+"  "+maxPeriod)
 
-  handleChangeOnMaxDuration = ({target}) => {
-    const {name,value} = target;
-    this.setState({
-      [name]: value
-    });
-  };
+  //   this.state.Details.forEach(element => {
+  //     let temp = element.Duration;
+  //     if(element.Period === 'Months')
+  //       temp = temp*30;
+  //     else if(element.Period === 'Weeks')
+  //       temp = temp*7;
 
-  sortBasedOnDuration = (event) => {
-    event.preventDefault();
-    //alert(this.state.MaxDuration+"  "+this.state.MaxPeriod);
+  //     if(temp <= maxDays)
+  //       sortedDetails.push(element);
+
+  //   });
+
+  //   this.setState({SortedDetails: sortedDetails})
+
+  // }
+
+  sortInternships = () => {
     let maxDays = this.state.MaxDuration;
     let maxPeriod = this.state.MaxPeriod;
-    //console.log(maxDays+"  "+maxPeriod+"   "+this.state.MaxPeriod)
+    let minPay = this.state.MinStipend;
+    let skills = [];
+    skills = this.state.selectedValues;
     let sortedDetails = [];
+    //console.log(skills+" "+maxDays+" "+maxPeriod+" "+minPay)
 
-    if(maxPeriod === 'Months') 
-      maxDays = maxDays*30;
-    else if(maxPeriod === 'Weeks')
-      maxDays = maxDays*7;
 
-    console.log(maxDays+"  "+maxPeriod)
+    if( (skills === null ||skills.length === 0) && minPay === '' && maxDays === '' ) {
+      this.setState({SortedDetails: this.state.Details});
+    }
+    else if( (skills === null ||skills.length === 0) && minPay === '' ) {
+      if(maxPeriod === 'Months') 
+        maxDays = maxDays*30;
+      else if(maxPeriod === 'Weeks')
+        maxDays = maxDays*7;
 
-    this.state.Details.forEach(element => {
-      let temp = element.Duration;
-      if(element.Period === 'Months')
-        temp = temp*30;
-      else if(element.Period === 'Weeks')
-        temp = temp*7;
+      this.state.Details.forEach(element => {
+        let temp = element.Duration;
+        if(element.Period === 'Months')
+          temp = temp*30;
+        else if(element.Period === 'Weeks')
+          temp = temp*7;
 
-      if(temp <= maxDays)
-        sortedDetails.push(element);
+        if(temp <= maxDays)
+          sortedDetails.push(element);
+      });
+      this.setState({SortedDetails: sortedDetails});
+    }
+    else if( (skills === null ||skills.length === 0) && maxDays === '' ) {
+      this.state.Details.forEach(element => {
+        if(element.Stipend >= minPay)
+          sortedDetails.push(element);
+      });
+      this.setState({SortedDetails: sortedDetails});
+    }
+    else if( minPay === '' && maxDays === '' ) {  
+      this.state.Details.forEach(element => {
+        let isValid = true;
+        this.state.selectedValues.forEach(skill => {
+          var temp = element.SkillsRequired;
+          if(!temp.includes(skill)) {
+            isValid = false;
+            return;
+          }
+        });
+        if(isValid) {
+          sortedDetails.push(element);
+        }
+      });
+      this.setState({SortedDetails: sortedDetails})
+    }
+    else if( (skills === null ||skills.length === 0) ) {
+      if(maxPeriod === 'Months') 
+        maxDays = maxDays*30;
+      else if(maxPeriod === 'Weeks')
+        maxDays = maxDays*7;
 
-    });
+      this.state.Details.forEach(element => {
+        let temp = element.Duration;
+        if(element.Period === 'Months')
+          temp = temp*30;
+        else if(element.Period === 'Weeks')
+          temp = temp*7;
 
-    this.setState({Details: sortedDetails})
+        if(temp <= maxDays && element.Stipend >= minPay)
+          sortedDetails.push(element);
+      });
+      this.setState({SortedDetails: sortedDetails})
+    }
+    else if( minPay === '' ) {
+      if(maxPeriod === 'Months') 
+        maxDays = maxDays*30;
+      else if(maxPeriod === 'Weeks')
+        maxDays = maxDays*7;
 
+      this.state.Details.forEach(element => {
+        let isValid = true;
+        let temp = element.Duration;
+        if(element.Period === 'Months')
+          temp = temp*30;
+        else if(element.Period === 'Weeks')
+          temp = temp*7;
+
+        this.state.selectedValues.forEach(skill => {
+          var temp = element.SkillsRequired;
+          if(!temp.includes(skill)) {
+            isValid = false;
+            return;
+          }
+        });
+
+        if(temp <= maxDays && isValid) {
+          sortedDetails.push(element);
+        }
+      });
+      this.setState({SortedDetails: sortedDetails})
+    }
+    else if( maxDays === '' ) {
+      this.state.Details.forEach(element => {
+        let isValid = true;
+        this.state.selectedValues.forEach(skill => {
+          var temp = element.SkillsRequired;
+          if(!temp.includes(skill)) {
+            isValid = false;
+            return;
+          }
+        });
+        if(isValid && element.Stipend >= minPay) {
+          sortedDetails.push(element);
+        }
+      });
+      this.setState({SortedDetails: sortedDetails})
+    }
+    else {
+      if(maxPeriod === 'Months') 
+        maxDays = maxDays*30;
+      else if(maxPeriod === 'Weeks')
+        maxDays = maxDays*7;
+
+      this.state.Details.forEach(element => {
+        let isValid = true;
+        let temp = element.Duration;
+        if(element.Period === 'Months')
+          temp = temp*30;
+        else if(element.Period === 'Weeks')
+          temp = temp*7;
+
+        this.state.selectedValues.forEach(skill => {
+          var temp = element.SkillsRequired;
+          if(!temp.includes(skill)) {
+            isValid = false;
+            return;
+          }
+        });
+        if(temp <= maxDays && isValid && element.Stipend >= minPay) {
+          sortedDetails.push(element);
+        }
+      });
+      this.setState({SortedDetails: sortedDetails})
+    }
+
+
+  }
+  
+  handleSubmitOnSort = (event) => {
+    event.preventDefault();
   }
 
   render() {
@@ -148,71 +301,63 @@ class DisplayInternshipDetails extends React.Component {
                   msgNoOptionsMatchFilter: 'No tag matches the filter',
                 }}
               />
-              <br/>
-              <br/>
-              <button className="btn btn-info" onClick={this.sortBasedOnSkills}>Get internships with above skills</button>
             </div>
 
-            <div>
-              <form onSubmit={this.sortBasedOnStipend}>
-                <div class="form-group">
-                  <label>Minimum stipend wanted</label>
-                  <div>
-                      <input 
-                        name="MinStipend" 
-                        placeholder="Maximum Stipend" 
-                        class="form-control" 
-                        pattern="[0-9]*"
-                        value={this.state.MinStipend} 
-                        onChange={this.handleChangeInMinStipend} 
-                        required>
-                      </input>
-                  </div>
+            <br/>
+
+            <form onSubmit={this.handleSubmitOnSort}>
+
+              <div class="form-group">
+                <label>Minimum stipend wanted</label>
+                <div>
+                  <input 
+                    name="MinStipend" 
+                    placeholder="Minimum Stipend" 
+                    class="form-control" 
+                    pattern="[0-9]*"
+                    value={this.state.MinStipend} 
+                    onChange={this.handleChangeOnSubmitForm} >
+                  </input>
                 </div>
-                <button class="btn btn-success">Sort based on stipend</button>  
-              </form>
-            </div>
+              </div>
 
-            <div>
-              <form onSubmit={this.sortBasedOnDuration}>
-
-                <div class="form-group">
-                  <label>Maximum Duration of the internship</label>
-                  <div>
-                    <input 
-                      name="MaxDuration" 
-                      placeholder="Maximum Duration of internship" 
-                      class="form-control" 
-                      pattern="[0-9]*"
-                      value={this.state.MaxDuration} 
-                      onChange={this.handleChangeOnMaxDuration} 
-                      required>
-                    </input>
-                  </div>
-                  <br/>
+              <div class="form-group">
+                <label>Maximum Duration of the internship</label>
+                <div>
+                  <input 
+                    name="MaxDuration" 
+                    placeholder="Maximum Duration of internship" 
+                    class="form-control" 
+                    pattern="[0-9]*"
+                    value={this.state.MaxDuration} 
+                    onChange={this.handleChangeOnSubmitForm} >
+                  </input>
                 </div>
+              </div>
 
-                <div class="form-group">
-                  <label>Maximum Period of Internship</label>
-                  <div>
-                    <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnMaxDuration} required>
-                      <option value="Months">Month/s</option>
-                      <option value="Weeks">Week/s</option>
-                      <option value="Days">Days</option>
-                    </select>
-                  </div>
+              <div class="form-group">
+                <label>Maximum Period of Internship</label>
+                <div>
+                  <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
+                    <option value="Months">Month/s</option>
+                    <option value="Weeks">Week/s</option>
+                    <option value="Days">Days</option>
+                  </select>
                 </div>
+              </div>
 
-                <button class="btn btn-success">Sort based on duration</button>  
+              <button class="btn btn-info" onClick={this.sortInternships}>Sort Internships</button>
 
-              </form>
+            </form>
 
-            </div>
+            
+            
             
           </div>
             
           <div className="col-8" id={styles.details}>
-            {this.state.Details.map((detail, index) => (
+            <b>Number of internships: {this.state.SortedDetails.length}</b>
+            {this.state.SortedDetails.map((detail, index) => (
               <div key={index}>
                 {/* <h1>Company Name: {detail.CompanyName}</h1>
                 <p>About Company: {detail.AboutCompany}</p>
