@@ -1,12 +1,49 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './SingleInternshipDisplay.module.css';
 
-const SingleInternshipDisplay = () => (
-  <div className={styles.SingleInternshipDisplay} data-testid="SingleInternshipDisplay">
-    SingleInternshipDisplay Component
-  </div>
-);
+class SingleInternshipDisplay extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      DetailsInfo: {}
+    }
+  }
+
+  componentDidMount() {
+    let data=localStorage.getItem('internDetails');
+    data = JSON.parse(data);
+    //console.log(data);
+    this.setState({DetailsInfo: data});
+  }
+  
+  render() {
+    return(
+      <div className={styles.SingleInternshipDisplay} data-testid="SingleInternshipDisplay">
+        <b>SingleInternshipDisplay Component</b>
+        <div>
+          <h1> Company Name: {this.state.DetailsInfo.CompanyName} </h1>
+          <p>About Company: {this.state.DetailsInfo.AboutCompany}</p>
+          <h2>Job Role: {this.state.DetailsInfo.JobRole}</h2>
+          <p>Job Description: {this.state.DetailsInfo.JobDescription}</p>
+          <i>Duration: {this.state.DetailsInfo.Duration}</i>
+          <br/>
+          <i>Period: {this.state.DetailsInfo.Period}</i>
+          <br/>
+          <b>SkillsRequired: {this.state.DetailsInfo.SkillsRequired}</b>
+          <br/>
+          <p>Benefits: {this.state.DetailsInfo.Benefits}</p>
+          <i>Stipend: {this.state.DetailsInfo.Stipend}</i>
+          <br/>
+          <b>Date: {this.state.DetailsInfo.date}</b> 
+          <br/>
+          <br/>
+        </div>
+      </div>
+    )
+  }
+
+}
 
 SingleInternshipDisplay.propTypes = {};
 

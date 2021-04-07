@@ -20,6 +20,7 @@ import DisplayCourseDetails from './Components/DisplayCourseDetails/DisplayCours
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import FirstPage from './Components/FirstPage/FirstPage';
 import BeforeLoginPage from './Components/BeforeLoginPage/BeforeLoginPage';
+import SingleInternshipDisplay from './Components/SingleInternshipDisplay/SingleInternshipDisplay';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -42,6 +43,7 @@ const routing = (
       <Route path="/courseDetails" component={CourseDetailsForm}/>
       <Route path="/firstPage" component={FirstPage}/>
       <Route path="/beforeLoginPage" component={BeforeLoginPage}/>
+      <Route path="/singleInternshipDisplay" component={SingleInternshipDisplay}/>
       <Route component={ErrorPage}/>
     </Switch>
   </Router>
