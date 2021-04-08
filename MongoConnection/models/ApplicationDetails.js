@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const ApplicationDetailsSchema = new Schema({
     YHire: String,
     DuraAvailable: String,
+    InternDetails: {},
+    ApplicantDetails: {},
     date: {
         type: String,
         default: Date.now()

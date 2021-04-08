@@ -6,8 +6,20 @@ class ApplicationForm extends React.Component {
   
   state = {
     YHire: '',
-    DuraAvailable: ''
+    DuraAvailable: '',
+    InternDetails: {},
+    ApplicantDetails: {}
   };
+
+  componentDidMount() {
+    let data=localStorage.getItem('internDetails');
+    data = JSON.parse(data);
+    this.setState({InternDetails: data});
+
+    let d=localStorage.getItem('myData');
+    d = JSON.parse(d);
+    this.setState({ApplicantDetails: d});
+  }
 
   handleChange = ({target}) => {
     const {name,value} = target;
@@ -20,7 +32,9 @@ class ApplicationForm extends React.Component {
     event.preventDefault();
     const payLoad = {
       YHire: this.state.YHire,
-      DuraAvailable: this.state.DuraAvailable
+      DuraAvailable: this.state.DuraAvailable,
+      InternDetails: this.state.InternDetails,
+      ApplicantDetails: this.state.ApplicantDetails
     };
 
     //alert(this.state.YHire+" "+this.state.DuraAvailable);
@@ -36,6 +50,9 @@ class ApplicationForm extends React.Component {
     .catch(() => {
       console.log("Internal server error in ApplicationForm Component");
     });
+    
+    this.resetUserInputs();
+    window.location.href = 'applicationDetails';
 
   }
 
@@ -71,7 +88,7 @@ class ApplicationForm extends React.Component {
           <br></br>
 
           <div class="form-group">
-            <label>Are you available for the internship</label>
+            <label>Are you available for the duration of {this.state.InternDetails.Duration} {this.state.InternDetails.Period} for this internship</label>
             <div className="form-input">
               <textarea 
                 name="DuraAvailable" 

@@ -22,6 +22,14 @@ class FirstPage extends React.Component {
     window.location.href = 'beforeLoginPage'; 
   }
 
+  goToInternships = () => {
+    window.location.href = '/internshipDetails';
+  }
+
+  goToApplicationDetails = () => {
+    window.location.href = '/applicationDetails';
+  }
+
   render() {
     return (
       <div className={styles.FirstPage} data-testid="FirstPage">
@@ -33,6 +41,10 @@ class FirstPage extends React.Component {
         <button className='btn btn-info' onClick={this.goToProfile}>Profile</button>
         &nbsp; &nbsp; &nbsp; &nbsp;
         <button className='btn btn-info' onClick={this.onLogout}>Logout</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button className='btn btn-info' onClick={this.goToInternships}>Internships</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button className='btn btn-info' onClick={this.goToApplicationDetails}>Your Applications</button>
       </div>
       </div>
     )

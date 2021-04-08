@@ -17,11 +17,17 @@ class SingleInternshipDisplay extends React.Component {
     this.setState({DetailsInfo: data});
   }
   
+  onApplyIntern = () => {
+    //console.log("Apply for the internship");
+    window.location.href="applicationForm";
+  }
+  
   render() {
     return(
       <div className={styles.SingleInternshipDisplay} data-testid="SingleInternshipDisplay">
         <b>SingleInternshipDisplay Component</b>
         <div>
+          <button className='btn btn-info' onClick={this.onApplyIntern}>Apply</button>
           <h1> Company Name: {this.state.DetailsInfo.CompanyName} </h1>
           <p>About Company: {this.state.DetailsInfo.AboutCompany}</p>
           <h2>Job Role: {this.state.DetailsInfo.JobRole}</h2>

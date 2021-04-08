@@ -30,7 +30,7 @@ const routing = (
       <Route exact path="/" component={App} />
       <Route path="/login" component={LoginPage} />
       <Route path="/applicationForm" component={ApplicationForm}/>
-      <Route path="/aplicationDetails" component={DispalyApplicationDetails}/>
+      <Route path="/applicationDetails" component={DispalyApplicationDetails}/>
       <Route path="/internshipDetails" component={DisplayInternshipDetails}/>
       <Route path="/courseDetails" component={DisplayCourseDetails}/>
       <Route path="/internshipForm" component={InternshipDetailsForm}/>
