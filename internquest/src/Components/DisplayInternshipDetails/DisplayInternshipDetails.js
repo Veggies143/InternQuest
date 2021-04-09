@@ -60,7 +60,7 @@ class DisplayInternshipDetails extends React.Component {
     let sortedDetails = this.state.Details;
     //console.log(skills+" "+maxDays+" "+maxPeriod+" "+minPay)
 
-    if((skills !== null ||skills.length !== 0)) {
+    if((skills !== null && skills.length !== 0)) {
       let tempDetails = [];
       sortedDetails.forEach(element => {
         let isValid = true;

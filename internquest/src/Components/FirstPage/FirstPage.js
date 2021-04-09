@@ -30,6 +30,26 @@ class FirstPage extends React.Component {
     window.location.href = '/applicationDetails';
   }
 
+  goToEmployerApplicantDetails = () => {
+    window.location.href = '/employerApplicantDetails';
+  }
+
+  goToInternshipForm = () => {
+    window.location.href = '/internshipForm';
+  }
+  
+  goToCourseForm = () => {
+    window.location.href = '/courseDetailsForm';
+  }
+
+  goToCourseDisplay = () => {
+    window.location.href = '/courseDetails';
+  }
+
+  goToCourseRegistrationDetails = () => {
+    window.location.href = '/courseRegistrationDetails'
+  }  
+
   render() {
     return (
       <div className={styles.FirstPage} data-testid="FirstPage">
@@ -45,6 +65,16 @@ class FirstPage extends React.Component {
         <button className='btn btn-info' onClick={this.goToInternships}>Internships</button>
         &nbsp; &nbsp; &nbsp; &nbsp;
         <button className='btn btn-info' onClick={this.goToApplicationDetails}>Your Applications</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button className='btn btn-info' onClick={this.goToEmployerApplicantDetails}>Employer Application Forms</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button className='btn btn-info' onClick={this.goToInternshipForm}>Post an internship</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button className='btn btn-info' onClick={this.goToCourseDisplay}>Courses</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button className='btn btn-info' onClick={this.goToCourseForm}>Post a course</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button className='btn btn-info' onClick={this.goToCourseRegistrationDetails}>Course Registartion Details</button>
       </div>
       </div>
     )

@@ -13,8 +13,15 @@ class InternshipDetailsForm extends React.Component {
     JobDescription: '',
     SkillsRequired: '',
     Benefits: '',
-    Stipend: Number
+    Stipend: Number,
+    EmployerDetails: {}
   };
+
+  componentDidMount() {
+    let d=localStorage.getItem('myData');
+    d = JSON.parse(d);
+    this.setState({EmployerDetails: d});
+  }
 
   handleChange = ({target}) => {
     const {name,value} = target;
@@ -34,9 +41,10 @@ class InternshipDetailsForm extends React.Component {
       JobDescription: this.state.JobDescription,
       SkillsRequired: this.state.SkillsRequired,
       Benefits: this.state.Benefits,
-      Stipend: this.state.Stipend
+      Stipend: this.state.Stipend,
+      EmployerDetails: this.state.EmployerDetails
     };
-    console.log(payLoad)
+    //console.log(payLoad)
 
     axios({ 
       url: '/api/saveInternshipDetails',
@@ -46,10 +54,12 @@ class InternshipDetailsForm extends React.Component {
     .then(() => {
       console.log("Internship Details Data has been sent to the server");
       this.resetUserInputs();
+      window.location.href = "/firstPage"
     })
     .catch(() => {
       console.log("Internal server error in InternshipDetailsForm component");
     });
+
   }
 
   resetUserInputs = () => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './DispalyApplicationDetails.module.css';
 import axios from 'axios';
-import { Details } from '@material-ui/icons';
 
 class DispalyApplicationDetails extends React.Component {
   state = {
@@ -56,7 +55,7 @@ class DispalyApplicationDetails extends React.Component {
             <p>{detail.DuraAvailable}</p>
           </div>
         ))}
-      </div>
+        </div>
       </div>
     )
   }

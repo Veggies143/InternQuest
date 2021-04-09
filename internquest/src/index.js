@@ -21,6 +21,9 @@ import ErrorPage from './Components/ErrorPage/ErrorPage';
 import FirstPage from './Components/FirstPage/FirstPage';
 import BeforeLoginPage from './Components/BeforeLoginPage/BeforeLoginPage';
 import SingleInternshipDisplay from './Components/SingleInternshipDisplay/SingleInternshipDisplay';
+import EmployerApplicantDetails from './Components/EmployerApplicantDetails/EmployerApplicantDetails';
+import SingleCourseDisplay from './Components/SingleCourseDisplay/SingleCourseDisplay';
+import CourseRegistrationDetails from './Components/CourseRegistrationDetails/CourseRegistrationDetails';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -40,10 +43,13 @@ const routing = (
       <Route path="/employerProfile" component={EmployerProfile}/>
       <Route path="/employeeProfile" component={EmployeeProfile}/>
       <Route path="/tutorProfile" component={TutorProfile}/>
-      <Route path="/courseDetails" component={CourseDetailsForm}/>
+      <Route path="/courseDetailsForm" component={CourseDetailsForm}/>
       <Route path="/firstPage" component={FirstPage}/>
       <Route path="/beforeLoginPage" component={BeforeLoginPage}/>
       <Route path="/singleInternshipDisplay" component={SingleInternshipDisplay}/>
+      <Route path="/employerApplicantDetails" component={EmployerApplicantDetails}/>
+      <Route path="/singleCourseDisplay" component={SingleCourseDisplay}/>
+      <Route path="/courseRegistrationDetails" component={CourseRegistrationDetails}/>
       <Route component={ErrorPage}/>
     </Switch>
   </Router>

@@ -12,8 +12,15 @@ class CourseDetailsForm extends React.Component {
     AboutYourself: '',
     CourseDescription: '',
     Benefits: '',
-    Fees: Number
+    Fees: Number,
+    TutorDetails: {}
   };
+
+  componentDidMount() {
+    let d=localStorage.getItem('myData');
+    d = JSON.parse(d);
+    this.setState({TutorDetails: d});
+  }
 
   handleChange = ({target}) => {
     const {name,value} = target;
@@ -32,9 +39,10 @@ class CourseDetailsForm extends React.Component {
       AboutYourself: this.state.AboutYourself,
       CourseDescription: this.state.CourseDescription,
       Benefits: this.state.Benefits,
-      Fees: this.state.Fees
+      Fees: this.state.Fees,
+      TutorDetails: this.state.TutorDetails
     };
-    console.log(payLoad)
+    //console.log(payLoad)
 
     axios({ 
       url: '/api/saveCourseDetails',
@@ -44,6 +52,7 @@ class CourseDetailsForm extends React.Component {
     .then(() => {
       console.log("Course Details Data has been sent to the server");
       this.resetUserInputs();
+      window.location.href = 'firstPage'
     })
     .catch(() => {
       console.log("Internal server error in CourseDetailsForm component");

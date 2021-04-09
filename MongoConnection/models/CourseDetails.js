@@ -11,6 +11,7 @@ const CourseDetailsSchema = new Schema({
     CourseDescription: String,
     Benefits: String,
     Fees: Number,
+    TutorDetails: {},
     date: {
         type: String,
         default: Date.now()
