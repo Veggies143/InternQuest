@@ -47,6 +47,16 @@ class EmployerApplicantDetails extends React.Component {
     this.setState({ApplicationDetailsToDisplay: tempDetails});
   }
 
+  onReviewApplication = () => {
+    console.log("Review Application")
+  }
+
+  onViewApplicantProfile = (value) => {
+    console.log("Applicant Profile")
+    localStorage.setItem('applicantProfileDetails', JSON.stringify(value));
+    window.location.href="applicantProfileForEmployer";
+  }
+
   render() {
     return(
       <div className={styles.EmployerApplicantDetails} data-testid="EmployerApplicantDetails">
@@ -58,6 +68,10 @@ class EmployerApplicantDetails extends React.Component {
               <h2>{detail.InternDetails.CompanyName}</h2>
               <h3>{detail.YHire}</h3>
               <p>{detail.DuraAvailable}</p>
+              &nbsp;&nbsp;
+              <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantProfile.bind(this, detail.ApplicantDetails)}>View Applicant Profile</button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button className="btn btn-info" onClick={this.onReviewApplication}>Review Application</button>
             </div>
           ))}
         </div>

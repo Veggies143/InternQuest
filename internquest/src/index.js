@@ -24,6 +24,8 @@ import SingleInternshipDisplay from './Components/SingleInternshipDisplay/Single
 import EmployerApplicantDetails from './Components/EmployerApplicantDetails/EmployerApplicantDetails';
 import SingleCourseDisplay from './Components/SingleCourseDisplay/SingleCourseDisplay';
 import CourseRegistrationDetails from './Components/CourseRegistrationDetails/CourseRegistrationDetails';
+import ApplicantProfileForEmployer from './Components/ApplicantProfileForEmployer/ApplicantProfileForEmployer';
+import EmployeeResumeDetails from './Components/EmployeeResumeDetails/EmployeeResumeDetails';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -50,6 +52,8 @@ const routing = (
       <Route path="/employerApplicantDetails" component={EmployerApplicantDetails}/>
       <Route path="/singleCourseDisplay" component={SingleCourseDisplay}/>
       <Route path="/courseRegistrationDetails" component={CourseRegistrationDetails}/>
+      <Route path="/applicantProfileForEmployer" component={ApplicantProfileForEmployer}/>
+      <Route path="/employeeResumeDetails" component={EmployeeResumeDetails}/>
       <Route component={ErrorPage}/>
     </Switch>
   </Router>
