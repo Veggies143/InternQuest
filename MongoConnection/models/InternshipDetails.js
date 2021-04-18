@@ -12,6 +12,9 @@ const InternshipDetailsSchema = new Schema({
     SkillsRequired: String,
     Benefits: String,
     Stipend: Number,
+    Location: String,
+    ModeOfInternship: String,
+    MinRequiremnetsFromApplicant: String,
     EmployerDetails: {},
     date: {
         type: String,

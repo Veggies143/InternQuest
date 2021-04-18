@@ -29,29 +29,30 @@ class EmployeeRegistration extends React.Component {
     event.preventDefault();
   
     if(this.validate()){
-        console.log(this.state);
+      console.log(this.state);
 
-        axios({ 
-          url: '/api/saveEmployeeProfileDetails',
-          method: 'POST',
-          data: this.state.input
-        })
-        .then(() => {
-          console.log("Employee Profile Details Data has been sent to the server");
-        })
-        .catch(() => {
-          console.log("Internal server error in EmployeeRegistration Component");
-        });
-  
-        let input = {};
-        input["name"] = "";
-        input["email"] = "";
-        input["password"] = "";
-        input["confirmPassword"] = "";
-        input["age"] = "";
-        this.setState({input:input});
-  
-        alert('Demo Form is submited');
+      axios({ 
+        url: '/api/saveEmployeeProfileDetails',
+        method: 'POST',
+        data: this.state.input
+      })
+      .then(() => {
+        console.log("Employee Profile Details Data has been sent to the server");
+        window.location.href = 'login';
+      })
+      .catch(() => {
+        console.log("Internal server error in EmployeeRegistration Component");
+      });
+
+      let input = {};
+      input["name"] = "";
+      input["email"] = "";
+      input["password"] = "";
+      input["confirmPassword"] = "";
+      input["age"] = "";
+      this.setState({input:input});
+
+      //alert('Demo Form is submited');
     }
   }
 

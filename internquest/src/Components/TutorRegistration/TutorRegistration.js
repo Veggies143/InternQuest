@@ -42,6 +42,7 @@ class TutorRegistration extends React.Component {
         })
         .then(() => {
           console.log("Tutor Profile Details Data has been sent to the server");
+          window.location.href = 'login';
         })
         .catch(() => {
           console.log("Internal server error in TutorRegistration Component");

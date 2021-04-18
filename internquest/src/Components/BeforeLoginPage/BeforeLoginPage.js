@@ -16,7 +16,7 @@ class BeforeLoginPage extends React.Component {
     return(
       <div className={styles.BeforeLoginPage} data-testid="BeforeLoginPage">
         <div> BeforeLoginPage Component </div>
-        <button className='btn btn-info' onClick={this.onLogin}>Login ?</button>
+        <button className='btn btn-info' onClick={this.onLogin}>Login</button>
         <br/>
         <br/>
         <Dropdown>

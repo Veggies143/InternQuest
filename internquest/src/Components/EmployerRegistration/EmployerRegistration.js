@@ -42,6 +42,7 @@ class EmployerRegistration extends React.Component {
         })
         .then(() => {
           console.log("Employer Profile Details Data has been sent to the server");
+          window.location.href = 'login';
         })
         .catch(() => {
           console.log("Internal server error in EmployerRegistration Component");

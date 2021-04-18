@@ -14,6 +14,9 @@ class InternshipDetailsForm extends React.Component {
     SkillsRequired: '',
     Benefits: '',
     Stipend: Number,
+    Location: '',
+    ModeOfInternship: 'WFH',
+    MinRequiremnetsFromApplicant: '',
     EmployerDetails: {}
   };
 
@@ -42,6 +45,9 @@ class InternshipDetailsForm extends React.Component {
       SkillsRequired: this.state.SkillsRequired,
       Benefits: this.state.Benefits,
       Stipend: this.state.Stipend,
+      Location: this.state.Location,
+      ModeOfInternship: this.state.ModeOfInternship,
+      MinRequiremnetsFromApplicant: this.state.MinRequiremnetsFromApplicant,
       EmployerDetails: this.state.EmployerDetails
     };
     //console.log(payLoad)
@@ -72,7 +78,10 @@ class InternshipDetailsForm extends React.Component {
       JobDescription: '',
       SkillsRequired: '',
       Benefits: '',
-      Stipend: Number
+      Stipend: Number,
+      Location: '',
+      ModeOfInternship: 'WFH',
+      MinRequiremnetsFromApplicant: '',
     })
   };
 
@@ -209,9 +218,52 @@ class InternshipDetailsForm extends React.Component {
           </div>
 
           <div class="form-group">
+            <label>Location</label>
+            <div>
+              <input 
+                name="Location" 
+                placeholder="Location" 
+                class="form-control" 
+                value={this.state.Location} 
+                onChange={this.handleChange} 
+                required>
+              </input>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>Mode of Internship</label>
+            <div>
+              <select name='ModeOfInternship' class="form-control" value={this.state.ModeOfInternship} onChange={this.handleChange} required>
+                <option value="WFH">Work From Home</option>
+                <option value="Remote">Remote</option>
+              </select>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
+            <label>Minimum requirements expected from applicant</label>
+            <div>
+              <textarea 
+                name="MinRequiremnetsFromApplicant" 
+                placeholder="Minimum requirements expected from applicant" 
+                class="form-control" 
+                cols="100" 
+                rows="10" 
+                value={this.state.MinRequiremnetsFromApplicant} 
+                onChange={this.handleChange} 
+                required>
+              </textarea>
+            </div>
+            <br/>
+          </div>
+
+          <div class="form-group">
             <label>About you will pay for this internship</label>
             <div>
-                <input 
+                <input
                   name="Stipend" 
                   placeholder="Stipend" 
                   class="form-control" 
@@ -226,7 +278,7 @@ class InternshipDetailsForm extends React.Component {
 
           <button class="btn btn-success">Submit</button>   
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn btn-info" onClick={this.resetUserInputs} >Reset</button> 
+          <button class="btn btn-info" onClick={this.resetUserInputs}>Reset</button> 
           
         </form>
       </div>

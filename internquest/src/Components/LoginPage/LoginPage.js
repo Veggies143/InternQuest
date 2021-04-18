@@ -43,7 +43,7 @@ class LoginPage extends React.Component {
             if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
-              alert("Login successfull");
+              //alert("Login successfull");
             }
           });
           if(!flag) {
@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
             if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
-              alert("Login successfull");
+              //alert("Login successfull");
             }
           });
           if(!flag) {
@@ -71,7 +71,7 @@ class LoginPage extends React.Component {
             if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
-              alert("Login successfull");
+              //alert("Login successfull");
             }
           });
           if(!flag) {

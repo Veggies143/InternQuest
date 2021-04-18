@@ -3,19 +3,38 @@ import styles from './FirstPage.module.css';
 
 class FirstPage extends React.Component { 
 
-  goToProfile = () => {
+  constructor() {
+    super();
+    this.state = {
+      isApplicant: false,
+      isEmployer: false,
+      isTutor: false,
+      typeOfUser: ''
+    }
+  }
+
+  componentDidMount() {
     let data=localStorage.getItem('myData');
     data = JSON.parse(data);
     let type = data.userType;
-    if(type === 'Tutor') 
+    if(type === 'Tutor') {
       type = 'tutorProfile';
+      this.setState({isTutor: true});
+    }
     else if(type === 'Employer') {
       type='employerProfile';
+      this.setState({isEmployer: true});
     }
     else {
       type = 'employeeProfile';
+      this.setState({isApplicant: true});
     }
-    window.location.href = type;
+    this.setState({typeOfUser: type});
+
+  }
+
+  goToProfile = () => {
+    window.location.href = this.state.typeOfUser;
   }
 
   onLogout = () => {
@@ -53,29 +72,54 @@ class FirstPage extends React.Component {
   render() {
     return (
       <div className={styles.FirstPage} data-testid="FirstPage">
-      <p >First </p>
-      <i>Page</i>
-      <div id={styles.hi}>
-        <p > Hello world</p>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToProfile}>Profile</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.onLogout}>Logout</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToInternships}>Internships</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToApplicationDetails}>Your Applications</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToEmployerApplicantDetails}>Employer Application Forms</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToInternshipForm}>Post an internship</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToCourseDisplay}>Courses</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToCourseForm}>Post a course</button>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <button className='btn btn-info' onClick={this.goToCourseRegistrationDetails}>Course Registartion Details</button>
-      </div>
+
+        <div>
+          <h1>First Page</h1>
+        </div>
+        <br/>
+        <br/>
+
+        <div>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToProfile}>Profile</button>
+        </div>
+        <br/>
+        <br/>
+
+        { this.state.isApplicant && <div>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToInternships}>Internships</button>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToApplicationDetails}>Your Applications</button>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToCourseDisplay}>Courses</button>
+        </div>}
+        <br/>
+        <br/>
+
+        { this.state.isEmployer && <div>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToEmployerApplicantDetails}>Employer Application Forms</button>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToInternshipForm}>Post an internship</button>
+        </div>}
+        <br/>
+        <br/>
+
+        { this.state.isTutor && <div>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToCourseForm}>Post a course</button>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.goToCourseRegistrationDetails}>Course Registartion Details</button>
+        </div>}
+        <br/>
+        <br/>
+
+        <div>
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <button className='btn btn-info' onClick={this.onLogout}>Logout</button>
+        </div>
+
       </div>
     )
   }

@@ -11,11 +11,13 @@ class DisplayInternshipDetails extends React.Component {
       Details: [],
       SortedDetails: [],
       options: [
-        'Java', 'HTML', 'CSS', 'Python', 'Django', 'Javascript', 'Machine Learning', 'SQL'
+        'Java', 'HTML', 'CSS', 'Python', 'Django', 'Javascript', 'Machine Learning', 'SQL', 'Music'
       ],
       selectedValues: [],
       MinStipend: '',
       MaxDuration: '',
+      Location: '',
+      ModeOfInternship: 'WFH',
       MaxPeriod: 'Months'
     }
   }
@@ -55,6 +57,8 @@ class DisplayInternshipDetails extends React.Component {
     let maxDays = this.state.MaxDuration;
     let maxPeriod = this.state.MaxPeriod;
     let minPay = this.state.MinStipend;
+    let loc = this.state.Location;
+    let mode = this.state.ModeOfInternship;
     let skills = [];
     skills = this.state.selectedValues;
     let sortedDetails = this.state.Details;
@@ -106,6 +110,25 @@ class DisplayInternshipDetails extends React.Component {
       });
       sortedDetails = tempDetails;
     }
+    if(loc !== '') {
+      let tempDetails = [];
+      sortedDetails.forEach(element => {
+        if(element.Location === loc) {
+          tempDetails.push(element);
+        }
+      });
+      sortedDetails = tempDetails;
+    }
+    if(mode !== '') {
+      let tempDetails = [];
+      sortedDetails.forEach(element => {
+        if(element.ModeOfInternship === mode) {
+          tempDetails.push(element);
+        }
+      });
+      sortedDetails = tempDetails;
+    }
+
     this.setState({SortedDetails: sortedDetails});
 
   }
@@ -164,6 +187,29 @@ class DisplayInternshipDetails extends React.Component {
                     value={this.state.MinStipend} 
                     onChange={this.handleChangeOnSubmitForm} >
                   </input>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Location</label>
+                <div>
+                  <input 
+                    name="Location" 
+                    placeholder="Location" 
+                    class="form-control" 
+                    value={this.state.Location} 
+                    onChange={this.handleChangeOnSubmitForm} >
+                  </input>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Mode of internship</label>
+                <div>
+                  <select name='ModeOfInternship' class="form-control" value={this.state.ModeOfInternship} onChange={this.handleChangeOnSubmitForm} >
+                    <option value="WFH">Work From Home</option>
+                    <option value="Remote">Remote</option>
+                  </select>
                 </div>
               </div>
 
