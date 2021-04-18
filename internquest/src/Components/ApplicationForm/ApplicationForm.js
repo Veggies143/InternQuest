@@ -37,7 +37,6 @@ class ApplicationForm extends React.Component {
       ApplicantDetails: this.state.ApplicantDetails
     };
 
-    //alert(this.state.YHire+" "+this.state.DuraAvailable);
     axios({ 
       url: '/api/saveApplicationDetails',
       method: 'POST',
@@ -51,7 +50,6 @@ class ApplicationForm extends React.Component {
       console.log("Internal server error in ApplicationForm Component");
     });
     
-    this.resetUserInputs();
     window.location.href = 'applicationDetails';
 
   }
@@ -80,7 +78,8 @@ class ApplicationForm extends React.Component {
                 cols="100" 
                 rows="10" 
                 value={this.state.YHire} 
-                onChange={this.handleChange} >
+                onChange={this.handleChange} 
+                required>
               </textarea>
             </div>
           </div>
@@ -97,7 +96,8 @@ class ApplicationForm extends React.Component {
                 cols="150" 
                 rows="10" 
                 value={this.state.DuraAvailable} 
-                onChange={this.handleChange} >
+                onChange={this.handleChange} 
+                required>
               </textarea>
             </div>
           </div>

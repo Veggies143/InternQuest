@@ -10,7 +10,7 @@ class DispalyApplicationDetails extends React.Component {
   }
   
   componentDidMount = () => {
-    axios.get('/api/ApplicationDetails')
+    axios.get('/api/ApplicationDetailsAfterReview')
     .then((response) => {
       const data=response.data;
       this.setState({Details:data});
@@ -33,7 +33,7 @@ class DispalyApplicationDetails extends React.Component {
     let mail = this.state.ApplicantDetails.email;
 
     this.state.Details.forEach(element => {
-      if(mail === element.ApplicantDetails.email) {
+      if(mail === element.ApplicationDetailsAfterReview.ApplicantDetails.email) {
         sortDetails.push(element);
       }
     });
@@ -49,10 +49,11 @@ class DispalyApplicationDetails extends React.Component {
         <div className="users">
         {this.state.DisplayAppDetails.map((detail, index) => (
           <div key={index}>
-            <h1>{detail.ApplicantDetails.email}</h1>
-            <h2>{detail.InternDetails.CompanyName}</h2>
-            <h3>{detail.YHire}</h3>
-            <p>{detail.DuraAvailable}</p>
+            <h1>{detail.ApplicationDetailsAfterReview.ApplicantDetails.email}</h1>
+            <h2>{detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</h2>
+            <h3>{detail.ApplicationDetailsAfterReview.YHire}</h3>
+            <p>{detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
+            <b>{detail.ReviewForApplication}</b>
           </div>
         ))}
         </div>

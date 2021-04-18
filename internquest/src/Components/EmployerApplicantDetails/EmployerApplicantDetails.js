@@ -8,7 +8,10 @@ class EmployerApplicantDetails extends React.Component {
     this.state = {
       ProfileDetails: {},
       ApplicationDetails: [],
-      ApplicationDetailsToDisplay: []
+      ApplicationDetailsToDisplay: [],
+      SingleApplicationDetails: {},
+      displayReviewBox: true,
+      reviewForApplication: ''
     }
   }
 
@@ -47,8 +50,74 @@ class EmployerApplicantDetails extends React.Component {
     this.setState({ApplicationDetailsToDisplay: tempDetails});
   }
 
-  onReviewApplication = () => {
-    console.log("Review Application")
+  handleChange = ({target}) => {
+    const {name,value} = target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.reviewForApplication);
+    this.setState({reviewForApplication: ''});
+    this.setState({displayReviewBox: !this.state.displayReviewBox});
+
+    this.storeInMongo();
+    setTimeout(() => {this.removeApplicationDetails(this.state.SingleApplicationDetails);},700)
+
+    console.log("Before delete");
+
+    
+
+    axios({ 
+      url: '/api/deleteApplication',
+      method: 'DELETE'
+    })
+    .then(() => {
+      console.log("Deleted");
+    })
+    .catch(() => {
+      console.log("Error in deleting");
+    });
+
+    setTimeout(() => {console.log("After delete");},2000)
+
+  }
+
+  removeApplicationDetails = (value) => {
+    for (let index = 0; index < this.state.ApplicationDetailsToDisplay.length; index++) {
+      const element = this.state.ApplicationDetailsToDisplay[index];
+      if(element.ApplicantDetails.email === value.ApplicantDetails.email && element.InternDetails.CompanyName === value.InternDetails.CompanyName) {
+        this.state.ApplicationDetailsToDisplay.splice(index, 1); 
+      }
+    }
+
+    setTimeout(() => {console.log(this.state.ApplicationDetailsToDisplay);},1500)
+
+  }
+
+  storeInMongo = () => {
+    const payLoad = {
+      ApplicationDetailsAfterReview: this.state.SingleApplicationDetails,
+      ReviewForApplication: this.state.reviewForApplication
+    };
+
+    axios({ 
+      url: '/api/saveApplicationDetailsAfterReview',
+      method: 'POST',
+      data: payLoad
+    })
+    .then(() => {
+      console.log("Application Details After Review Data has been sent to the server");
+    })
+    .catch(() => {
+      console.log("Internal server error in EmployerApplicantDetails Component");
+    });
+  }
+
+  getAppDetails = (value) => {
+    this.setState({SingleApplicationDetails: value})
   }
 
   onViewApplicantProfile = (value) => {
@@ -70,8 +139,30 @@ class EmployerApplicantDetails extends React.Component {
               <p>{detail.DuraAvailable}</p>
               &nbsp;&nbsp;
               <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantProfile.bind(this, detail.ApplicantDetails)}>View Applicant Profile</button>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button className="btn btn-info" onClick={this.onReviewApplication}>Review Application</button>
+              <br/>
+              <br/>
+              {
+                this.state.displayReviewBox && <div>
+                <form onSubmit={this.handleSubmit}> 
+                  <div className="form-group">
+                    <div className="form-input">
+                      <textarea 
+                        name="reviewForApplication" 
+                        className="form-control"  
+                        placeholder="Specify the reason of rejection or acceptance" 
+                        cols="100" 
+                        rows="10" 
+                        value={this.state.reviewForApplication} 
+                        onChange={this.handleChange} 
+                        required >
+                      </textarea>
+                    </div>
+                  </div>
+                  <button className="btn btn-info" value={detail} onClick={this.getAppDetails.bind(this, detail)}>Submit Review</button>
+                </form> 
+                </div>
+              }
+              <hr/>
             </div>
           ))}
         </div>

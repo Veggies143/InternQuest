@@ -1,1 +1,7 @@
-.EmployerApplicantDetails {}
+
+@media all and (min-width: 480px) {
+    .EmployerApplicantDetails form {
+        padding-left: 10px;
+        max-width: 500px;
+    }
+  }

@@ -25,7 +25,7 @@ import EmployerApplicantDetails from './Components/EmployerApplicantDetails/Empl
 import SingleCourseDisplay from './Components/SingleCourseDisplay/SingleCourseDisplay';
 import CourseRegistrationDetails from './Components/CourseRegistrationDetails/CourseRegistrationDetails';
 import ApplicantProfileForEmployer from './Components/ApplicantProfileForEmployer/ApplicantProfileForEmployer';
-import EmployeeResumeDetails from './Components/EmployeeResumeDetails/EmployeeResumeDetails';
+import ResumeUploadPage from './Components/ResumeUploadPage/ResumeUploadPage';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -53,7 +53,7 @@ const routing = (
       <Route path="/singleCourseDisplay" component={SingleCourseDisplay}/>
       <Route path="/courseRegistrationDetails" component={CourseRegistrationDetails}/>
       <Route path="/applicantProfileForEmployer" component={ApplicantProfileForEmployer}/>
-      <Route path="/employeeResumeDetails" component={EmployeeResumeDetails}/>
+      <Route path="/resumeUploadPage" component={ResumeUploadPage}/>
       <Route component={ErrorPage}/>
     </Switch>
   </Router>

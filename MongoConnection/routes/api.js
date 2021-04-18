@@ -7,6 +7,8 @@ const EmployeeProfileDetails = require('../models/EmployeeProfileDetails');
 const EmployerProfileDetails = require('../models/EmployerProfileDetails');
 const CourseDetails = require('../models/CourseDetails');
 const CourseRegistrationDetails = require('../models/CourseRegistrationDetails');
+const ApplicationDetailsAfterReview = require('../models/ApplicationDetailsAfterReview');
+const ResumeUpload = require('../models/ResumeUpload');
 
 const router = express.Router();
 
@@ -27,6 +29,33 @@ router.post('/saveApplicationDetails',(req,res) => {
     const data = req.body;
     const newApplicationDetails =  new ApplicationDetails(data);
     newApplicationDetails.save((error) => {
+        if(error) {
+            res.status(500).json({msg: 'Sorry, Internal server error'});
+            return;
+        }
+        return res.json({
+            msg: 'Your data has been received'
+        });
+    });
+
+});
+
+router.get('/ApplicationDetailsAfterReview',(req,res) => {
+    
+    ApplicationDetailsAfterReview.find({ })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((error) => {
+            console.log('error: ',daerrorta);
+        });
+
+})
+
+router.post('/saveApplicationDetailsAfterReview',(req,res) => {
+    const data = req.body;
+    const newApplicationDetailsAfterReview =  new ApplicationDetailsAfterReview(data);
+    newApplicationDetailsAfterReview.save((error) => {
         if(error) {
             res.status(500).json({msg: 'Sorry, Internal server error'});
             return;
@@ -200,12 +229,51 @@ router.post('/saveEmployerProfileDetails',(req,res) => {
 
 });
 
+router.post('/saveResumePDF',(req,res) => {
+    const data = req.body;
+    console.log(data);
+    const newResumeUpload =  new ResumeUpload(data);
+    newResumeUpload.save((error) => {
+        if(error) {
+            res.status(500).json({msg: 'Sorry, Internal server error'});
+            return;
+        }
+        return res.json({
+            msg: 'Your data has been received'
+        });
+    });
+
+});
+
 router.get('/name',(req,res) => {
-    const data = {
-        username:'teju',
-        age:21
-    }
+    const data = [
+        {
+            username:'teju',
+            age:21
+        },
+        {
+            username:'vishnu',
+            age:22
+        },
+        {
+            username:'swetha',
+            age:22
+        }
+    ]
     res.json(data);
 })
+
+
+router.delete('/deleteApplication',function(req,res) {
+    var id=req.params.id;
+    console.log(id);
+    InternshipDetails.findOneAndRemove({CompanyName: id}, function(err) {
+        if(err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        return res.status(200).send();
+    })
+});
 
 module.exports = router;
