@@ -10,6 +10,7 @@ class EmployerApplicantDetails extends React.Component {
       ApplicationDetails: [],
       ApplicationDetailsToDisplay: [],
       SingleApplicationDetails: {},
+      ResumeDetails: [],
       displayReviewBox: true,
       reviewForApplication: ''
     }
@@ -30,23 +31,29 @@ class EmployerApplicantDetails extends React.Component {
       alert("Error retreving data");
     });
 
-    setTimeout(() => {this.getApplications()},1000);
+    setTimeout(() => {this.getApplications()},500);
+
+    axios.get('/api/getResumeDetails')
+    .then((response) => {
+      const da=response.data;
+      this.setState({ResumeDetails:da});
+      console.log("Data received!!");
+    })
+    .catch(() => {
+      alert("Error retreving data");
+    });
 
   }
 
   getApplications = () => {
-    //console.log(this.state.ProfileDetails)
     let tempDetails = [];
 
     this.state.ApplicationDetails.forEach(element => {
-      //console.log(element.InternDetails.EmployerDetails.email)
-      //console.log(this.state.ProfileDetails.email)
       if(element.InternDetails.EmployerDetails.email === this.state.ProfileDetails.email) 
         tempDetails.push(element);
     });
 
     //setTimeout(() => console.log(this.state.ApplicationDetails),2000);
-
     this.setState({ApplicationDetailsToDisplay: tempDetails});
   }
 
@@ -64,15 +71,18 @@ class EmployerApplicantDetails extends React.Component {
     this.setState({displayReviewBox: !this.state.displayReviewBox});
 
     this.storeInMongo();
-    setTimeout(() => {this.removeApplicationDetails(this.state.SingleApplicationDetails);},700)
+    setTimeout(() => {this.deleteApplication(this.state.SingleApplicationDetails);},700)
 
     console.log("Before delete");
 
-    
+  }
 
+  deleteApplication = (val) => {
+    const YHire = val.YHire;
     axios({ 
       url: '/api/deleteApplication',
-      method: 'DELETE'
+      method: 'DELETE',
+      params: { YHire },
     })
     .then(() => {
       console.log("Deleted");
@@ -82,7 +92,6 @@ class EmployerApplicantDetails extends React.Component {
     });
 
     setTimeout(() => {console.log("After delete");},2000)
-
   }
 
   removeApplicationDetails = (value) => {
@@ -120,10 +129,16 @@ class EmployerApplicantDetails extends React.Component {
     this.setState({SingleApplicationDetails: value})
   }
 
-  onViewApplicantProfile = (value) => {
-    console.log("Applicant Profile")
-    localStorage.setItem('applicantProfileDetails', JSON.stringify(value));
-    window.location.href="applicantProfileForEmployer";
+  onViewApplicantResume = (value) => {
+    let link = ''
+    this.state.ResumeDetails.forEach(element => {
+      if(element.ApplicantDetails.email === value.email && element.ApplicantDetails.password === value.password) {
+        link = element.ResumeLink
+      }
+    });
+
+    setTimeout(() => {window.open(link, "_blank");},500)
+
   }
 
   render() {
@@ -133,12 +148,12 @@ class EmployerApplicantDetails extends React.Component {
         <div className="users">
           {this.state.ApplicationDetailsToDisplay.map((detail, index) => (
             <div key={index}>
-              <h1>{detail.ApplicantDetails.email}</h1>
+              <h1>Applicant Email: {detail.ApplicantDetails.email}</h1>
               <h2>{detail.InternDetails.CompanyName}</h2>
               <h3>{detail.YHire}</h3>
               <p>{detail.DuraAvailable}</p>
               &nbsp;&nbsp;
-              <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantProfile.bind(this, detail.ApplicantDetails)}>View Applicant Profile</button>
+              <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantResume.bind(this, detail.ApplicantDetails)}>View Applicant Resume</button>
               <br/>
               <br/>
               {

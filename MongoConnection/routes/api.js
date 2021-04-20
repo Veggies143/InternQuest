@@ -229,9 +229,21 @@ router.post('/saveEmployerProfileDetails',(req,res) => {
 
 });
 
+router.get('/getResumeDetails',(req,res) => {
+    
+    ResumeUpload.find({ })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((error) => {
+            console.log('error: ',daerrorta);
+        });
+
+})
+
 router.post('/saveResumePDF',(req,res) => {
     const data = req.body;
-    console.log(data);
+    console.log(req.data);
     const newResumeUpload =  new ResumeUpload(data);
     newResumeUpload.save((error) => {
         if(error) {
@@ -265,9 +277,11 @@ router.get('/name',(req,res) => {
 
 
 router.delete('/deleteApplication',function(req,res) {
-    var id=req.params.id;
-    console.log(id);
-    InternshipDetails.findOneAndRemove({CompanyName: id}, function(err) {
+    const hire = req.query.YHire
+    console.log("In api.js  "+hire)
+    // var id="Oodles Technologies Private Limited";
+    // console.log(id);
+    ApplicationDetails.findOneAndRemove({YHire: hire}, function(err) {
         if(err) {
             console.log(err);
             return res.status(500).send();

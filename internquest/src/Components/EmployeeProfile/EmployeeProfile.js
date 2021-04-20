@@ -6,12 +6,13 @@ class EmployeeProfile extends React.Component {
   state = {
     Details: [],
     dataToDisplay: {},
-    loginDetails: {}
+    loginDetails: {},
+    ResumeDetails: [],
+    ResumeLink: ''
   }
   
   componentDidMount = () => {
     this.getEmployeeProfileDetails();
-    
   };
   
   getEmployeeProfileDetails = () => {
@@ -25,17 +26,37 @@ class EmployeeProfile extends React.Component {
       alert("Error retreving data");
     });
 
+    axios.get('/api/getResumeDetails')
+    .then((response) => {
+      const da=response.data;
+      this.setState({ResumeDetails:da});
+      console.log("Data received!!");
+    })
+    .catch(() => {
+      alert("Error retreving data");
+    });
+
     let data=localStorage.getItem('myData');
     data = JSON.parse(data);
     console.log(data);
 
     setTimeout(() => {
+
       this.state.Details.forEach(element => {
         if(element.email === data.email && element.password === data.password) {
           this.setState({dataToDisplay: element});
+          return;
         }
       });
-    },1000);
+
+      this.state.ResumeDetails.forEach(element => {
+        if(element.ApplicantDetails.email === data.email && element.ApplicantDetails.password === data.password) {
+          this.setState({ResumeLink: element.ResumeLink});
+          return;
+        }
+      });
+
+    },500);
 
   };
 
@@ -48,6 +69,7 @@ class EmployeeProfile extends React.Component {
           <h3>{this.state.dataToDisplay.name}</h3>
           <i>{this.state.dataToDisplay.password}</i>
           <p>{this.state.dataToDisplay.age}</p>
+          <i>{this.state.ResumeLink}</i>
         </div>
       </div>
     )

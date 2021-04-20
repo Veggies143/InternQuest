@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 //Schema
 const Schema = mongoose.Schema;
 const ResumeUploadSchema = new Schema({
-    formData: String,
+    ResumeLink: String,
+    ApplicantDetails: {},
     date: {
         type: String,
         default: Date.now()

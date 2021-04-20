@@ -129,7 +129,7 @@ class LoginPage extends React.Component {
       return isValid;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/api/TutorProfileDetails')
     .then((response) => {
       const data=response.data;
@@ -174,7 +174,7 @@ class LoginPage extends React.Component {
                 type="text" 
                 name='userType' 
                 value={this.state.input.userType} 
-                class="form-control"  
+                className="form-control"  
                 onChange={this.handleChange} 
                 id="userType" >
                 <option value="Applicant">Applicant</option>
@@ -185,28 +185,28 @@ class LoginPage extends React.Component {
 
           </div>
 
-          <div class="form-group">
-            <label for="email">Email Address:</label>
+          <div className="form-group">
+            <label>Email Address:</label>
             <input 
               type="text" 
               name="email" 
               value={this.state.input.email}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter email" 
               id="email" />
    
               <div className="text-danger">{this.state.errors.email}</div>
           </div>
 
-          <div class="form-group">
-            <label for="name">Password:</label>
+          <div className="form-group">
+            <label>Password:</label>
             <input 
               name="password"
               type="password" 
               value={this.state.input.password}
               onChange={this.handleChange}
-              class="form-control" 
+              className="form-control" 
               placeholder="Enter password" 
               id="password" />
 
@@ -214,7 +214,7 @@ class LoginPage extends React.Component {
               <div className="text-danger">{this.state.invalidDetails}</div>
           </div>
              
-          <input type="submit" value="Submit" class="btn btn-success" />   
+          <input type="submit" value="Submit" className="btn btn-success" />   
           <br/><br/>
           <Dropdown>
             <Dropdown.Toggle variant="info" id="dropdown-basic">
