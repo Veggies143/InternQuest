@@ -26,6 +26,9 @@ import SingleCourseDisplay from './Components/SingleCourseDisplay/SingleCourseDi
 import CourseRegistrationDetails from './Components/CourseRegistrationDetails/CourseRegistrationDetails';
 import ApplicantProfileForEmployer from './Components/ApplicantProfileForEmployer/ApplicantProfileForEmployer';
 import ResumeUploadPage from './Components/ResumeUploadPage/ResumeUploadPage';
+import HeaderBeforeLogin from './Components/HeaderBeforeLogin/HeaderBeforeLogin';
+import HeaderAfterLogin from './Components/HeaderAfterLogin/HeaderAfterLogin';
+import Footer from './Components/Footer/Footer';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -54,6 +57,9 @@ const routing = (
       <Route path="/courseRegistrationDetails" component={CourseRegistrationDetails}/>
       <Route path="/applicantProfileForEmployer" component={ApplicantProfileForEmployer}/>
       <Route path="/resumeUploadPage" component={ResumeUploadPage}/>
+      <Route path="/headerBeforeLogin" component={HeaderBeforeLogin}/>
+      <Route path="/headerAfterLogin" component={HeaderAfterLogin}/>
+      <Route path="/footer" component={Footer}/>
       <Route component={ErrorPage}/>
     </Switch>
   </Router>

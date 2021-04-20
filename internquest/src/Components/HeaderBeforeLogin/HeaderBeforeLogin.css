@@ -1,0 +1,24 @@
+.Pageh {
+    background-color: black;
+}
+.move {
+    margin-left: auto;
+    padding-left:20px;
+}
+.navbar-brand {
+    color:aqua;
+}
+.nav-link{
+    color:aqua;
+}
+.navbar-nav > li{
+    padding-left:20px;
+    padding-right:20px;
+  }
+.navbar img{
+    width: 70px;
+    left: 15px;
+}
+.navbar-brand{
+    padding-left: 10px;
+}
