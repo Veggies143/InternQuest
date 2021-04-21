@@ -50,7 +50,7 @@ class ApplicationForm extends React.Component {
       console.log("Internal server error in ApplicationForm Component");
     });
     
-    window.location.href = 'applicationDetails';
+    window.location.href = 'internshipDetails';
 
   }
 

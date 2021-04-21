@@ -21,17 +21,9 @@ class EmployerApplicantDetails extends React.Component {
     d = JSON.parse(d);
     this.setState({ProfileDetails: d});
 
-    axios.get('/api/ApplicationDetails')
-    .then((response) => {
-      const data=response.data;
-      this.setState({ApplicationDetails:data});
-      console.log("Data received!!");
-    })
-    .catch(() => {
-      alert("Error retreving data");
-    });
+    this.getApplicationDetailsFromMongo();
 
-    setTimeout(() => {this.getApplications()},500);
+    //setTimeout(() => {this.getApplications()},500);
 
     axios.get('/api/getResumeDetails')
     .then((response) => {
@@ -45,7 +37,23 @@ class EmployerApplicantDetails extends React.Component {
 
   }
 
+  getApplicationDetailsFromMongo = () => {
+    console.log("In get app details mongo")
+    axios.get('/api/ApplicationDetails')
+    .then((response) => {
+      const data=response.data;
+      this.setState({ApplicationDetails:data});
+      console.log("Data received!!");
+    })
+    .catch(() => {
+      alert("Error retreving data");
+    });
+
+    setTimeout(() => {this.getApplications()},500);
+  }
+
   getApplications = () => {
+    console.log("In get app details")
     let tempDetails = [];
 
     this.state.ApplicationDetails.forEach(element => {
@@ -68,7 +76,7 @@ class EmployerApplicantDetails extends React.Component {
     event.preventDefault();
     console.log(this.state.reviewForApplication);
     this.setState({reviewForApplication: ''});
-    this.setState({displayReviewBox: !this.state.displayReviewBox});
+    //this.setState({displayReviewBox: !this.state.displayReviewBox});
 
     this.storeInMongo();
     setTimeout(() => {this.deleteApplication(this.state.SingleApplicationDetails);},700)
@@ -91,19 +99,8 @@ class EmployerApplicantDetails extends React.Component {
       console.log("Error in deleting");
     });
 
-    setTimeout(() => {console.log("After delete");},2000)
-  }
-
-  removeApplicationDetails = (value) => {
-    for (let index = 0; index < this.state.ApplicationDetailsToDisplay.length; index++) {
-      const element = this.state.ApplicationDetailsToDisplay[index];
-      if(element.ApplicantDetails.email === value.ApplicantDetails.email && element.InternDetails.CompanyName === value.InternDetails.CompanyName) {
-        this.state.ApplicationDetailsToDisplay.splice(index, 1); 
-      }
-    }
-
-    setTimeout(() => {console.log(this.state.ApplicationDetailsToDisplay);},1500)
-
+    setTimeout(this.getApplicationDetailsFromMongo,500);
+    
   }
 
   storeInMongo = () => {

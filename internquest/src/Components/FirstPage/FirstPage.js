@@ -94,7 +94,7 @@ class FirstPage extends React.Component {
           &nbsp; &nbsp; &nbsp; &nbsp;
           <button className='btn btn-info' onClick={this.goToInternships}>Internships</button>
           &nbsp; &nbsp; &nbsp; &nbsp;
-          <button className='btn btn-info' onClick={this.goToApplicationDetails}>Your Applications</button>
+          <button className='btn btn-info' onClick={this.goToApplicationDetails}>Your Applications After Review</button>
           &nbsp; &nbsp; &nbsp; &nbsp;
           <button className='btn btn-info' onClick={this.goToCourseDisplay}>Courses</button>
           &nbsp; &nbsp; &nbsp; &nbsp;
