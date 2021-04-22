@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const ApplicationDetailsSchema = new Schema({
     YHire: String,
     DuraAvailable: String,
+    ResumeLink: String,
     InternDetails: {},
     ApplicantDetails: {},
     date: {

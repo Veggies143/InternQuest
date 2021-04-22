@@ -8,7 +8,6 @@ const EmployerProfileDetails = require('../models/EmployerProfileDetails');
 const CourseDetails = require('../models/CourseDetails');
 const CourseRegistrationDetails = require('../models/CourseRegistrationDetails');
 const ApplicationDetailsAfterReview = require('../models/ApplicationDetailsAfterReview');
-const ResumeUpload = require('../models/ResumeUpload');
 
 const router = express.Router();
 
@@ -218,34 +217,6 @@ router.post('/saveEmployerProfileDetails',(req,res) => {
     const data = req.body;
     const newEmployerProfileDetails =  new EmployerProfileDetails(data);
     newEmployerProfileDetails.save((error) => {
-        if(error) {
-            res.status(500).json({msg: 'Sorry, Internal server error'});
-            return;
-        }
-        return res.json({
-            msg: 'Your data has been received'
-        });
-    });
-
-});
-
-router.get('/getResumeDetails',(req,res) => {
-    
-    ResumeUpload.find({ })
-        .then((data) => {
-            res.json(data);
-        })
-        .catch((error) => {
-            console.log('error: ',daerrorta);
-        });
-
-})
-
-router.post('/saveResumePDF',(req,res) => {
-    const data = req.body;
-    console.log(req.data);
-    const newResumeUpload =  new ResumeUpload(data);
-    newResumeUpload.save((error) => {
         if(error) {
             res.status(500).json({msg: 'Sorry, Internal server error'});
             return;

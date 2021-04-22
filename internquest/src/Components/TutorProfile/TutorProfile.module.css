@@ -1,1 +1,24 @@
-.TutorProfile {}
+.TutorProfile {
+    /* background-image: url(https://cdn.pixabay.com/photo/2016/10/04/12/17/white-1714170__480.jpg); */
+   /* background-image: url(https://thumbs.dreamstime.com/b/simple-top-view-table-creative-flat-lay-office-desk-laptop-notebooks-coffee-cup-white-background-panorama-banner-copy-184211587.jpg); */
+   background-image: url(https://img.lovepik.com//photo/50078/7328.jpg_860.jpg);
+   background-size:cover;
+   background-position: top;
+   height: 100vh;
+   position: relative;
+}
+
+.box{
+   padding-top: 40px;
+   width: 500px;
+   margin-left: 60px;
+   
+}
+
+.simg{
+   width: 250px;
+  height:250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

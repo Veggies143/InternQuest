@@ -1,1 +1,13 @@
-.EmployeeProfile {}
+.lb {
+  position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.tstyle {
+  padding-top: 140px;
+  margin-left: 250px;
+  margin-right: 250px;  
+}

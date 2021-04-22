@@ -24,11 +24,10 @@ import SingleInternshipDisplay from './Components/SingleInternshipDisplay/Single
 import EmployerApplicantDetails from './Components/EmployerApplicantDetails/EmployerApplicantDetails';
 import SingleCourseDisplay from './Components/SingleCourseDisplay/SingleCourseDisplay';
 import CourseRegistrationDetails from './Components/CourseRegistrationDetails/CourseRegistrationDetails';
-import ApplicantProfileForEmployer from './Components/ApplicantProfileForEmployer/ApplicantProfileForEmployer';
-import ResumeUploadPage from './Components/ResumeUploadPage/ResumeUploadPage';
 import HeaderBeforeLogin from './Components/HeaderBeforeLogin/HeaderBeforeLogin';
 import HeaderAfterLogin from './Components/HeaderAfterLogin/HeaderAfterLogin';
 import Footer from './Components/Footer/Footer';
+import Header from './Components/Header/Header';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -55,10 +54,9 @@ const routing = (
       <Route path="/employerApplicantDetails" component={EmployerApplicantDetails}/>
       <Route path="/singleCourseDisplay" component={SingleCourseDisplay}/>
       <Route path="/courseRegistrationDetails" component={CourseRegistrationDetails}/>
-      <Route path="/applicantProfileForEmployer" component={ApplicantProfileForEmployer}/>
-      <Route path="/resumeUploadPage" component={ResumeUploadPage}/>
       <Route path="/headerBeforeLogin" component={HeaderBeforeLogin}/>
       <Route path="/headerAfterLogin" component={HeaderAfterLogin}/>
+      <Route path="/header" component={Header}/>
       <Route path="/footer" component={Footer}/>
       <Route component={ErrorPage}/>
     </Switch>

@@ -40,13 +40,39 @@ class TutorProfile extends React.Component {
   render() {
     return(
       <div className={styles.TutorProfile} data-testid="TutorProfile">
-        <h1>TutorProfile Component</h1>
-        <div>
-          <h1>{this.state.dataToDisplay.name}</h1>
-          <h3>{this.state.dataToDisplay.email}</h3>
-          <p>{this.state.dataToDisplay.password}</p>
-          <i>{this.state.dataToDisplay.phoneNo}</i>
+      <div className={styles.box}>
+         <div class="card">
+          <div className={styles.simg}>
+            <img class="card-img-top" src="https://i.ibb.co/nBSvTbZ/tpic1.jpg" alt="Card cap"/>
+            <h3>Profile</h3>
+          </div>
+          <br/><br/>
+          <div class="card-body">
+              <table className="table  table-striped ">
+                <tbody>
+                  <tr >
+                      <td><b>NAME</b></td>
+                      <td>{this.state.dataToDisplay.name}</td>
+                  </tr>
+                  <tr >
+                      <td><b>EMAIL ID</b></td>
+                      <td>{this.state.dataToDisplay.email}</td>
+                  </tr>
+                  <tr >
+                      <td><b>PHONE NO</b></td>
+                      <td>{this.state.dataToDisplay.phoneNo}</td>
+                  </tr>
+                  <tr >
+                      <td><b>PASSWORD</b></td>
+                       <td>{this.state.dataToDisplay.password}</td>
+                   </tr>
+                            
+                 </tbody>
+              </table>
+          </div>
         </div>
+      </div>
+
       </div>
     )
   }

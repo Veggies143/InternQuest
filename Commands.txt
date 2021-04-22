@@ -56,3 +56,5 @@ We are using "localstorage" to store data, so that data can be passed from one c
 npm i react-select-material-ui    //Used for multi select dropdown
 
 npm install --save font-awesome  // Used in Footer
+
+npm install @material-ui/core   //Used in EmployeeProfile

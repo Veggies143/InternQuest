@@ -10,7 +10,7 @@ class EmployerApplicantDetails extends React.Component {
       ApplicationDetails: [],
       ApplicationDetailsToDisplay: [],
       SingleApplicationDetails: {},
-      ResumeDetails: [],
+      //ResumeDetails: [],
       displayReviewBox: true,
       reviewForApplication: ''
     }
@@ -25,20 +25,20 @@ class EmployerApplicantDetails extends React.Component {
 
     //setTimeout(() => {this.getApplications()},500);
 
-    axios.get('/api/getResumeDetails')
-    .then((response) => {
-      const da=response.data;
-      this.setState({ResumeDetails:da});
-      console.log("Data received!!");
-    })
-    .catch(() => {
-      alert("Error retreving data");
-    });
+    // axios.get('/api/getResumeDetails')
+    // .then((response) => {
+    //   const da=response.data;
+    //   this.setState({ResumeDetails:da});
+    //   console.log("Data received!!");
+    // })
+    // .catch(() => {
+    //   alert("Error retreving data");
+    // });
 
   }
 
   getApplicationDetailsFromMongo = () => {
-    console.log("In get app details mongo")
+    //console.log("In get app details mongo")
     axios.get('/api/ApplicationDetails')
     .then((response) => {
       const data=response.data;
@@ -127,14 +127,16 @@ class EmployerApplicantDetails extends React.Component {
   }
 
   onViewApplicantResume = (value) => {
-    let link = ''
-    this.state.ResumeDetails.forEach(element => {
-      if(element.ApplicantDetails.email === value.email && element.ApplicantDetails.password === value.password) {
-        link = element.ResumeLink
-      }
-    });
+    // let link = ''
+    // this.state.ResumeDetails.forEach(element => {
+    //   if(element.ApplicantDetails.email === value.email && element.ApplicantDetails.password === value.password) {
+    //     link = element.ResumeLink
+    //   }
+    // });
 
-    setTimeout(() => {window.open(link, "_blank");},500)
+    // setTimeout(() => {window.open(link, "_blank");},500)
+
+    window.open(value, "_blank");
 
   }
 
@@ -150,7 +152,7 @@ class EmployerApplicantDetails extends React.Component {
               <h3>{detail.YHire}</h3>
               <p>{detail.DuraAvailable}</p>
               &nbsp;&nbsp;
-              <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantResume.bind(this, detail.ApplicantDetails)}>View Applicant Resume</button>
+              <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantResume.bind(this, detail.ResumeLink)}>View Applicant Resume</button>
               <br/>
               <br/>
               {

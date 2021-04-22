@@ -1,1 +1,24 @@
-.EmployerProfile {}
+.EmployerProfile {
+    background-image: url(https://www.proofhub.com/wp-content/uploads/2020/05/Bussiness-management-software.jpg);
+    background-size: cover;
+    background-position: top;
+    height: 120vh;
+    position: relative;
+}
+
+.box{
+   
+   padding-top: 40px;
+   width: 500px;
+   margin: 0 auto; 
+   float: none; 
+   margin-bottom: 10px;
+}
+
+.simg{
+   width: 250px;
+   height:250px;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+}

@@ -40,14 +40,43 @@ class EmployerProfile extends React.Component {
   render() {
     return(
       <div className={styles.EmployerProfile} data-testid="EmployerProfile">
-        <h1>EmployerProfile Component</h1>
-        <div>
-          <h1>{this.state.dataToDisplay.companyName}</h1>
-          <h3>{this.state.dataToDisplay.name}</h3>
-          <h2>{this.state.dataToDisplay.email}</h2>
-          <i>{this.state.dataToDisplay.password}</i>
-          <p>{this.state.dataToDisplay.phoneNo}</p>
-        </div>
+        <div className={styles.box}>
+         <div class="card">
+          <div className={styles.simg}>
+            <img class="card-img-top" src="https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg" alt="Card cap"/>
+            <h3>Profile</h3>
+          </div>
+          <br/>
+          <div class="card-body">
+            {/* <h5 class="card-title">Card title</h5> */}
+              <table className="table  table-striped ">
+              <tbody>
+                        <tr >
+                            <td><b>COMPANY NAME</b></td>
+                            <td>{this.state.dataToDisplay.companyName}</td>
+                          </tr>
+                        <tr >
+                            <td><b>NAME</b></td>
+                            <td>{this.state.dataToDisplay.name}</td>
+                          </tr>
+                          <tr >
+                            <td><b>EMAIL ID</b></td>
+                            <td>{this.state.dataToDisplay.email}</td>
+                          </tr>
+                          <tr >
+                            <td><b>PHONE NO</b></td>
+                            <td>{this.state.dataToDisplay.phoneNo}</td>
+                          </tr>
+                          <tr >
+                            <td><b>PASSWORD</b></td>
+                            <td>{this.state.dataToDisplay.password}</td>
+                          </tr>
+                            
+                      </tbody>
+                </table>
+            </div>
+          </div>
+         </div>
       </div>
     )
   }

@@ -7,6 +7,7 @@ class ApplicationForm extends React.Component {
   state = {
     YHire: '',
     DuraAvailable: '',
+    ResumeLink: '',
     InternDetails: {},
     ApplicantDetails: {}
   };
@@ -33,6 +34,7 @@ class ApplicationForm extends React.Component {
     const payLoad = {
       YHire: this.state.YHire,
       DuraAvailable: this.state.DuraAvailable,
+      ResumeLink: this.state.ResumeLink,
       InternDetails: this.state.InternDetails,
       ApplicantDetails: this.state.ApplicantDetails
     };
@@ -57,7 +59,8 @@ class ApplicationForm extends React.Component {
   resetUserInputs = () => {
     this.setState({
       YHire: '',
-      DuraAvailable: ''
+      DuraAvailable: '',
+      ResumeLink: ''
     })
   };
 
@@ -99,6 +102,15 @@ class ApplicationForm extends React.Component {
                 onChange={this.handleChange} 
                 required>
               </textarea>
+            </div>
+          </div>
+
+          <br></br>
+
+          <div className="form-group">
+            <label>Provide a google drive link or some other link for resume details</label>
+            <div className="form-input">
+              <input type="text" size="70" name="ResumeLink" onChange={this.handleChange} />
             </div>
           </div>
 

@@ -39,6 +39,11 @@ class FirstPage extends React.Component {
 
   onLogout = () => {
     window.location.href = 'beforeLoginPage'; 
+    localStorage.setItem('isLogin',false);
+    setTimeout(() => {
+      console.log("In logout  "+localStorage.get('isLogin'))
+    }, 500
+    );
   }
 
   goToInternships = () => {
