@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ErrorPage.module.css';
 
 function redirect() {
-  window.location.href="firstPage"
+  window.location.href="beforeLoginPage"
 }
 
  const ErrorPage = () => (
