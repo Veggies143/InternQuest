@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './EmployerApplicantDetails.module.css';
 import axios from 'axios';
+import HeaderForEmployer from '../HeaderForEmployer/HeaderForEmployer';
+import Footer from '../Footer/Footer';
 
 class EmployerApplicantDetails extends React.Component {
   constructor() {
@@ -127,59 +129,53 @@ class EmployerApplicantDetails extends React.Component {
   }
 
   onViewApplicantResume = (value) => {
-    // let link = ''
-    // this.state.ResumeDetails.forEach(element => {
-    //   if(element.ApplicantDetails.email === value.email && element.ApplicantDetails.password === value.password) {
-    //     link = element.ResumeLink
-    //   }
-    // });
-
-    // setTimeout(() => {window.open(link, "_blank");},500)
-
     window.open(value, "_blank");
-
   }
 
   render() {
     return(
-      <div className={styles.EmployerApplicantDetails} data-testid="EmployerApplicantDetails">
-        <b>EmployerApplicantDetails Component</b>
-        <div className="users">
-          {this.state.ApplicationDetailsToDisplay.map((detail, index) => (
-            <div key={index}>
-              <h1>Applicant Email: {detail.ApplicantDetails.email}</h1>
-              <h2>{detail.InternDetails.CompanyName}</h2>
-              <h3>{detail.YHire}</h3>
-              <p>{detail.DuraAvailable}</p>
-              &nbsp;&nbsp;
-              <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantResume.bind(this, detail.ResumeLink)}>View Applicant Resume</button>
-              <br/>
-              <br/>
-              {
-                this.state.displayReviewBox && <div>
-                <form onSubmit={this.handleSubmit}> 
-                  <div className="form-group">
-                    <div className="form-input">
-                      <textarea 
-                        name="reviewForApplication" 
-                        className="form-control"  
-                        placeholder="Specify the reason of rejection or acceptance" 
-                        cols="100" 
-                        rows="10" 
-                        value={this.state.reviewForApplication} 
-                        onChange={this.handleChange} 
-                        required >
-                      </textarea>
+      <div>
+        <HeaderForEmployer/>
+        <div className={styles.EmployerApplicantDetails} data-testid="EmployerApplicantDetails">
+          <b>EmployerApplicantDetails Component</b>
+          <div className="users">
+            {this.state.ApplicationDetailsToDisplay.map((detail, index) => (
+              <div key={index}>
+                <h1>Applicant Email: {detail.ApplicantDetails.email}</h1>
+                <h2>{detail.InternDetails.CompanyName}</h2>
+                <h3>{detail.YHire}</h3>
+                <p>{detail.DuraAvailable}</p>
+                &nbsp;&nbsp;
+                <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantResume.bind(this, detail.ResumeLink)}>View Applicant Resume</button>
+                <br/>
+                <br/>
+                {
+                  this.state.displayReviewBox && <div>
+                  <form onSubmit={this.handleSubmit}> 
+                    <div className="form-group">
+                      <div className="form-input">
+                        <textarea 
+                          name="reviewForApplication" 
+                          className="form-control"  
+                          placeholder="Specify the reason of rejection or acceptance" 
+                          cols="100" 
+                          rows="10" 
+                          value={this.state.reviewForApplication} 
+                          onChange={this.handleChange} 
+                          required >
+                        </textarea>
+                      </div>
                     </div>
+                    <button className="btn btn-info" value={detail} onClick={this.getAppDetails.bind(this, detail)}>Submit Review</button>
+                  </form> 
                   </div>
-                  <button className="btn btn-info" value={detail} onClick={this.getAppDetails.bind(this, detail)}>Submit Review</button>
-                </form> 
-                </div>
-              }
-              <hr/>
-            </div>
-          ))}
+                }
+                <hr/>
+              </div>
+            ))}
+          </div>
         </div>
+        <Footer/>
       </div>
     )
   }

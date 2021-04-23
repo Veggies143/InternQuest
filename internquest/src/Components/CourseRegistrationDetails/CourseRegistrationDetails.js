@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './CourseRegistrationDetails.module.css';
 import axios from 'axios';
+import HeaderForTutor from '../HeaderForTutor/HeaderForTutor';
+import Footer from '../Footer/Footer';
 
 class CourseRegistrationDetails extends React.Component {
   constructor() {
@@ -46,18 +48,22 @@ class CourseRegistrationDetails extends React.Component {
 
   render() {
     return(
-      <div className={styles.CourseRegistrationDetails} data-testid="CourseRegistrationDetails">
-        <h1>CourseRegistrationDetails Component</h1>
-        <div className="users">
-        {this.state.DisplayRegistrationDetails.map((detail, index) => (
-          <div key={index}>
-            <h1>{detail.ApplicantDetails.email}</h1>
-            <h2>{detail.DetailsInfo.CourseOffered}</h2>
-            <h3>{detail.DetailsInfo.Fees}</h3>
-            <p>{detail.DetailsInfo.TutorDetails.email}</p>
+      <div>
+        <HeaderForTutor/>
+        <div className={styles.CourseRegistrationDetails} data-testid="CourseRegistrationDetails">
+          <h1>CourseRegistrationDetails Component</h1>
+          <div className="users">
+          {this.state.DisplayRegistrationDetails.map((detail, index) => (
+            <div key={index}>
+              <h1>{detail.ApplicantDetails.email}</h1>
+              <h2>{detail.DetailsInfo.CourseOffered}</h2>
+              <h3>{detail.DetailsInfo.Fees}</h3>
+              <p>{detail.DetailsInfo.TutorDetails.email}</p>
+            </div>
+          ))}
           </div>
-        ))}
         </div>
+        <Footer/>
       </div>
     )
   }

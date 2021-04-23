@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './DispalyApplicationDetails.module.css';
 import axios from 'axios';
+import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
+import Footer from '../Footer/Footer';
 
 class DispalyApplicationDetails extends React.Component {
   state = {
@@ -44,19 +46,23 @@ class DispalyApplicationDetails extends React.Component {
 
   render() {
     return(
-      <div className={styles.DispalyApplicationDetails} data-testid="DispalyApplicationDetails">
-        <h1>DispalyApplicationDetails Component</h1>
-        <div className="users">
-        {this.state.DisplayAppDetails.map((detail, index) => (
-          <div key={index}>
-            <h1>{detail.ApplicationDetailsAfterReview.ApplicantDetails.email}</h1>
-            <h2>{detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</h2>
-            <h3>{detail.ApplicationDetailsAfterReview.YHire}</h3>
-            <p>{detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
-            <b>{detail.ReviewForApplication}</b>
+      <div>
+        <HeaderForApplicant/>
+        <div className={styles.DispalyApplicationDetails} data-testid="DispalyApplicationDetails">
+          <h1>DispalyApplicationDetails Component</h1>
+          <div className="users">
+          {this.state.DisplayAppDetails.map((detail, index) => (
+            <div key={index}>
+              <h1>{detail.ApplicationDetailsAfterReview.ApplicantDetails.email}</h1>
+              <h2>{detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</h2>
+              <h3>{detail.ApplicationDetailsAfterReview.YHire}</h3>
+              <p>{detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
+              <b>{detail.ReviewForApplication}</b>
+            </div>
+          ))}
           </div>
-        ))}
         </div>
+        <Footer/>
       </div>
     )
   }

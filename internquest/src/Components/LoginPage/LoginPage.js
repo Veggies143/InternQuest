@@ -43,6 +43,7 @@ class LoginPage extends React.Component {
             if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
+              window.location.href = '/afterLoginTutor'
               //alert("Login successfull");
             }
           });
@@ -57,6 +58,7 @@ class LoginPage extends React.Component {
             if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
+              window.location.href = '/afterLoginEmployer'
               //alert("Login successfull");
             }
           });
@@ -71,6 +73,7 @@ class LoginPage extends React.Component {
             if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
+              window.location.href = '/afterLoginApplicant'
               //alert("Login successfull");
             }
           });
@@ -92,10 +95,9 @@ class LoginPage extends React.Component {
             localStorage.setItem('myData', JSON.stringify(this.state.input));
             localStorage.setItem('isLogin',true);
           }
-          window.location.href="firstPage";
+          
+          //window.location.href="firstPage";
         }
-
-        
 
     }
   }

@@ -74,8 +74,8 @@ class FirstPage extends React.Component {
     window.location.href = '/courseRegistrationDetails'
   }  
 
-  goToUploadResume = () => {
-    window.location.href = '/resumeUploadPage'
+  goToHeader = () => {
+    window.location.href='header';
   }
 
   render() {
@@ -84,6 +84,7 @@ class FirstPage extends React.Component {
 
         <div>
           <h1>First Page</h1>
+          <button onClick={this.goToHeader}>Header</button>
         </div>
         <br/>
         <br/>
@@ -102,8 +103,6 @@ class FirstPage extends React.Component {
           <button className='btn btn-info' onClick={this.goToApplicationDetails}>Your Applications After Review</button>
           &nbsp; &nbsp; &nbsp; &nbsp;
           <button className='btn btn-info' onClick={this.goToCourseDisplay}>Courses</button>
-          &nbsp; &nbsp; &nbsp; &nbsp;
-          <button className='btn btn-info' onClick={this.goToUploadResume}>Upload Resume</button>
         </div>}
         <br/>
         <br/>

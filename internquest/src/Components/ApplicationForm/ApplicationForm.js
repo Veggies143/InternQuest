@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './ApplicationForm.module.css';
 import axios from 'axios';
+import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
+import Footer from '../Footer/Footer';
 
 class ApplicationForm extends React.Component {
   
@@ -67,60 +69,64 @@ class ApplicationForm extends React.Component {
   render() {
 
     return (
-      <div className={styles.ApplicationForm}>
-        <h2>Application Details Form</h2>
-        <form onSubmit={this.handleSubmit}>
+      <div>
+        <HeaderForApplicant/>
+        <div className={styles.ApplicationForm}>
+          <h2>Application Details Form</h2>
+          <form onSubmit={this.handleSubmit}>
 
-          <div class="form-group">
-            <label>Why Should we hire you</label>
-            <div className="form-input">
-              <textarea 
-                name="YHire" 
-                class="form-control"  
-                placeholder="Specify the reason to hire you" 
-                cols="100" 
-                rows="10" 
-                value={this.state.YHire} 
-                onChange={this.handleChange} 
-                required>
-              </textarea>
+            <div class="form-group">
+              <label>Why Should we hire you</label>
+              <div className="form-input">
+                <textarea 
+                  name="YHire" 
+                  class="form-control"  
+                  placeholder="Specify the reason to hire you" 
+                  cols="100" 
+                  rows="10" 
+                  value={this.state.YHire} 
+                  onChange={this.handleChange} 
+                  required>
+                </textarea>
+              </div>
             </div>
-          </div>
 
-          <br></br>
+            <br></br>
 
-          <div class="form-group">
-            <label>Are you available for the duration of {this.state.InternDetails.Duration} {this.state.InternDetails.Period} for this internship</label>
-            <div className="form-input">
-              <textarea 
-                name="DuraAvailable" 
-                class="form-control"  
-                placeholder="Yes, I am available" 
-                cols="150" 
-                rows="10" 
-                value={this.state.DuraAvailable} 
-                onChange={this.handleChange} 
-                required>
-              </textarea>
+            <div class="form-group">
+              <label>Are you available for the duration of {this.state.InternDetails.Duration} {this.state.InternDetails.Period} for this internship</label>
+              <div className="form-input">
+                <textarea 
+                  name="DuraAvailable" 
+                  class="form-control"  
+                  placeholder="Yes, I am available" 
+                  cols="150" 
+                  rows="10" 
+                  value={this.state.DuraAvailable} 
+                  onChange={this.handleChange} 
+                  required>
+                </textarea>
+              </div>
             </div>
-          </div>
 
-          <br></br>
+            <br></br>
 
-          <div className="form-group">
-            <label>Provide a google drive link or some other link for resume details</label>
-            <div className="form-input">
-              <input type="text" size="70" name="ResumeLink" onChange={this.handleChange} />
+            <div className="form-group">
+              <label>Provide a google drive link or some other link for resume details</label>
+              <div className="form-input">
+                <input type="text" size="70" name="ResumeLink" onChange={this.handleChange} />
+              </div>
             </div>
-          </div>
 
-          <br></br>
+            <br></br>
 
-          <button class="btn btn-success">Submit</button> 
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn btn-info" onClick={this.resetUserInputs}>Reset</button>
+            <button class="btn btn-success">Submit</button> 
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-info" onClick={this.resetUserInputs}>Reset</button>
 
-        </form>
+          </form>
+        </div>
+        <Footer/>
       </div>
     );
   }

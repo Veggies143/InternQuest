@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './SingleCourseDisplay.module.css';
 import axios from 'axios';
+import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
+import Footer from '../Footer/Footer';
 
 class SingleCourseDisplay extends React.Component {
   
@@ -45,25 +47,29 @@ class SingleCourseDisplay extends React.Component {
 
   render() {
     return(
-      <div className={styles.SingleCourseDisplay} data-testid="SingleCourseDisplay">
-        <b>SingleCourseDisplay Component</b>
-        <div>
-          <button className='btn btn-info' onClick={this.onRegisterCourse}>Register for the course</button>
-          <h1>Name: {this.state.DetailsInfo.Name}</h1>
-          <p>Course Offered: {this.state.DetailsInfo.CourseOffered}</p>
-          <i>Duration: {this.state.DetailsInfo.Duration}</i>
-          <br/>
-          <i>Period: {this.state.DetailsInfo.Period}</i>
-          <br/>
-          <p>About Yourself: {this.state.DetailsInfo.AboutYourself}</p>
-          <p>Course Description: {this.state.DetailsInfo.CourseDescription}</p>
-          <p>Benefits: {this.state.DetailsInfo.Benefits}</p>
-          <i>Fees: {this.state.DetailsInfo.Fees}</i>
-          <br/>
-          <b>Date: {this.state.DetailsInfo.date}</b> 
-          <br/>
-          <br/>
+      <div>
+        <HeaderForApplicant/>
+        <div className={styles.SingleCourseDisplay} data-testid="SingleCourseDisplay">
+          <b>SingleCourseDisplay Component</b>
+          <div>
+            <button className='btn btn-info' onClick={this.onRegisterCourse}>Register for the course</button>
+            <h1>Name: {this.state.DetailsInfo.Name}</h1>
+            <p>Course Offered: {this.state.DetailsInfo.CourseOffered}</p>
+            <i>Duration: {this.state.DetailsInfo.Duration}</i>
+            <br/>
+            <i>Period: {this.state.DetailsInfo.Period}</i>
+            <br/>
+            <p>About Yourself: {this.state.DetailsInfo.AboutYourself}</p>
+            <p>Course Description: {this.state.DetailsInfo.CourseDescription}</p>
+            <p>Benefits: {this.state.DetailsInfo.Benefits}</p>
+            <i>Fees: {this.state.DetailsInfo.Fees}</i>
+            <br/>
+            <b>Date: {this.state.DetailsInfo.date}</b> 
+            <br/>
+            <br/>
+          </div>
         </div>
+        <Footer/>
       </div>
     )
   }

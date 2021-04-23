@@ -2,10 +2,12 @@
 @media all and (min-width: 480px) {
   .EmployeeRegistration {
     padding: 60px 0;
+    background: linear-gradient(to left, #2980b9, #6dd5fa, #ffffff);
   }
 
   .EmployeeRegistration form {
     margin: 0 auto;
-    max-width: 320px;
+    
+    /* max-width: 320px; */
   }
 }

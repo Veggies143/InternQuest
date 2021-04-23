@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './DisplayCourseDetails.module.css';
 import axios from 'axios';
 import { TagsSelect } from 'react-select-material-ui';
+import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
+import Footer from '../Footer/Footer';
 
 class DisplayCourseDetails extends React.Component {
   state = {
@@ -123,97 +125,101 @@ class DisplayCourseDetails extends React.Component {
 
   render() {
     return(
-      <div className={styles.DispalyCourseDetails} data-testid="DispalycourseDetails">
+      <div>
+        <HeaderForApplicant/>
+        <div className={styles.DispalyCourseDetails} data-testid="DispalycourseDetails">
 
-        <div className="row">
+          <div className="row">
 
-          <div className="col-4">
-            <b>Keep your preferences</b> 
-            <div>
-              <TagsSelect
-                label="Courses"
-                options={this.state.options}
-                onChange={this.handleChange}
-                SelectProps={{
-                  isCreatable: true,
-                  msgNoOptionsAvailable: 'All tags are selected',
-                  msgNoOptionsMatchFilter: 'No tag matches the filter',
-                }}
-              />
+            <div className="col-4">
+              <b>Keep your preferences</b> 
+              <div>
+                <TagsSelect
+                  label="Courses"
+                  options={this.state.options}
+                  onChange={this.handleChange}
+                  SelectProps={{
+                    isCreatable: true,
+                    msgNoOptionsAvailable: 'All tags are selected',
+                    msgNoOptionsMatchFilter: 'No tag matches the filter',
+                  }}
+                />
+              </div>
+
+              <br/>
+
+              <form onSubmit={this.handleSubmitOnSort}>
+
+                <div class="form-group">
+                  <label>Maximum Fee</label>
+                  <div>
+                    <input 
+                      name="MaxFee" 
+                      placeholder="Maximum Fee" 
+                      class="form-control" 
+                      pattern="[0-9]*"
+                      value={this.state.MaxFee} 
+                      onChange={this.handleChangeOnSubmitForm} >
+                    </input>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Maximum Duration of the course</label>
+                  <div>
+                    <input 
+                      name="MaxDuration" 
+                      placeholder="Maximum Duration of course" 
+                      class="form-control" 
+                      pattern="[0-9]*"
+                      value={this.state.MaxDuration} 
+                      onChange={this.handleChangeOnSubmitForm} >
+                    </input>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Maximum Period of course</label>
+                  <div>
+                    <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
+                      <option value="Months">Month/s</option>
+                      <option value="Weeks">Week/s</option>
+                      <option value="Days">Days</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button class="btn btn-info" onClick={this.sortCourses}>Sort Courses</button>
+
+              </form>
             </div>
 
-            <br/>
-
-            <form onSubmit={this.handleSubmitOnSort}>
-
-              <div class="form-group">
-                <label>Maximum Fee</label>
-                <div>
-                  <input 
-                    name="MaxFee" 
-                    placeholder="Maximum Fee" 
-                    class="form-control" 
-                    pattern="[0-9]*"
-                    value={this.state.MaxFee} 
-                    onChange={this.handleChangeOnSubmitForm} >
-                  </input>
+            <div className="col-8">
+              {this.state.SortedDetails.map((detail, index) => (
+                <div  value={detail} onClick={this.displayCourse.bind(this, detail)} key={index}>
+                  <h1>Name: {detail.Name}</h1>
+                  <p>Course Offered: {detail.CourseOffered}</p>
+                  <i>Duration: {detail.Duration}</i>
+                  <br/>
+                  <i>Period: {detail.Period}</i>
+                  <br/>
+                  <p>About Yourself: {detail.AboutYourself}</p>
+                  <p>Course Description: {detail.CourseDescription}</p>
+                  <p>Benefits: {detail.Benefits}</p>
+                  <i>Fees: {detail.Fees}</i>
+                  <br/>
+                  <b>Date: {detail.date}</b> 
+                  <br/>
+                  <h2>{detail.TutorDetails.email}</h2>
+                  <br/>
+                  <br/>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <label>Maximum Duration of the course</label>
-                <div>
-                  <input 
-                    name="MaxDuration" 
-                    placeholder="Maximum Duration of course" 
-                    class="form-control" 
-                    pattern="[0-9]*"
-                    value={this.state.MaxDuration} 
-                    onChange={this.handleChangeOnSubmitForm} >
-                  </input>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label>Maximum Period of course</label>
-                <div>
-                  <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
-                    <option value="Months">Month/s</option>
-                    <option value="Weeks">Week/s</option>
-                    <option value="Days">Days</option>
-                  </select>
-                </div>
-              </div>
-
-              <button class="btn btn-info" onClick={this.sortCourses}>Sort Courses</button>
-
-            </form>
+              ))}
+            </div>
           </div>
-
-          <div className="col-8">
-            {this.state.SortedDetails.map((detail, index) => (
-              <div  value={detail} onClick={this.displayCourse.bind(this, detail)} key={index}>
-                <h1>Name: {detail.Name}</h1>
-                <p>Course Offered: {detail.CourseOffered}</p>
-                <i>Duration: {detail.Duration}</i>
-                <br/>
-                <i>Period: {detail.Period}</i>
-                <br/>
-                <p>About Yourself: {detail.AboutYourself}</p>
-                <p>Course Description: {detail.CourseDescription}</p>
-                <p>Benefits: {detail.Benefits}</p>
-                <i>Fees: {detail.Fees}</i>
-                <br/>
-                <b>Date: {detail.date}</b> 
-                <br/>
-                <h2>{detail.TutorDetails.email}</h2>
-                <br/>
-                <br/>
-              </div>
-            ))}
-          </div>
+          
         </div>
-        
+        <Footer/>
       </div>
     )
   }

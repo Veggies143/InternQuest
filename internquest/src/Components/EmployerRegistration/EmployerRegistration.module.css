@@ -1,11 +1,11 @@
-
 @media all and (min-width: 480px) {
-    .EmployerRegistration {
-      padding: 60px 0;
-    }
-  
-    .EmployerRegistration form {
-      margin: 0 auto;
-      max-width: 320px;
-    }
+  .EmployerRegistration {
+    padding: 60px 0;
+    background: linear-gradient(to right, #e6dada, #274046);
   }
+
+  .EmployerRegistration form {
+    margin: 0 auto;
+    /* max-width: 320px; */
+  }
+}

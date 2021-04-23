@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './EmployerProfile.module.css';
 import axios from 'axios';
+import HeaderForEmployer from '../HeaderForEmployer/HeaderForEmployer';
+import Footer from '../Footer/Footer';
 
 class EmployerProfile extends React.Component {
   state = {
@@ -39,44 +41,48 @@ class EmployerProfile extends React.Component {
 
   render() {
     return(
-      <div className={styles.EmployerProfile} data-testid="EmployerProfile">
-        <div className={styles.box}>
-         <div class="card">
-          <div className={styles.simg}>
-            <img class="card-img-top" src="https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg" alt="Card cap"/>
-            <h3>Profile</h3>
-          </div>
-          <br/>
-          <div class="card-body">
-            {/* <h5 class="card-title">Card title</h5> */}
-              <table className="table  table-striped ">
-              <tbody>
-                        <tr >
-                            <td><b>COMPANY NAME</b></td>
-                            <td>{this.state.dataToDisplay.companyName}</td>
-                          </tr>
-                        <tr >
-                            <td><b>NAME</b></td>
-                            <td>{this.state.dataToDisplay.name}</td>
-                          </tr>
+      <div>
+        <HeaderForEmployer/>
+        <div className={styles.EmployerProfile} data-testid="EmployerProfile">
+          <div className={styles.box}>
+          <div class="card">
+            <div className={styles.simg}>
+              <img class="card-img-top" src="https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg" alt="Card cap"/>
+              <h3>Profile</h3>
+            </div>
+            <br/>
+            <div class="card-body">
+              {/* <h5 class="card-title">Card title</h5> */}
+                <table className="table  table-striped ">
+                <tbody>
                           <tr >
-                            <td><b>EMAIL ID</b></td>
-                            <td>{this.state.dataToDisplay.email}</td>
-                          </tr>
+                              <td><b>COMPANY NAME</b></td>
+                              <td>{this.state.dataToDisplay.companyName}</td>
+                            </tr>
                           <tr >
-                            <td><b>PHONE NO</b></td>
-                            <td>{this.state.dataToDisplay.phoneNo}</td>
-                          </tr>
-                          <tr >
-                            <td><b>PASSWORD</b></td>
-                            <td>{this.state.dataToDisplay.password}</td>
-                          </tr>
-                            
-                      </tbody>
-                </table>
+                              <td><b>NAME</b></td>
+                              <td>{this.state.dataToDisplay.name}</td>
+                            </tr>
+                            <tr >
+                              <td><b>EMAIL ID</b></td>
+                              <td>{this.state.dataToDisplay.email}</td>
+                            </tr>
+                            <tr >
+                              <td><b>PHONE NO</b></td>
+                              <td>{this.state.dataToDisplay.phoneNo}</td>
+                            </tr>
+                            <tr >
+                              <td><b>PASSWORD</b></td>
+                              <td>{this.state.dataToDisplay.password}</td>
+                            </tr>
+                              
+                        </tbody>
+                  </table>
+              </div>
             </div>
           </div>
-         </div>
+        </div>
+        <Footer/>
       </div>
     )
   }

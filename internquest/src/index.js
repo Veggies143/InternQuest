@@ -18,16 +18,19 @@ import EmployeeProfile from './Components/EmployeeProfile/EmployeeProfile';
 import CourseDetailsForm from './Components/CourseDetailsForm/CourseDetailsForm';
 import DisplayCourseDetails from './Components/DisplayCourseDetails/DisplayCourseDetails';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
-import FirstPage from './Components/FirstPage/FirstPage';
 import BeforeLoginPage from './Components/BeforeLoginPage/BeforeLoginPage';
 import SingleInternshipDisplay from './Components/SingleInternshipDisplay/SingleInternshipDisplay';
 import EmployerApplicantDetails from './Components/EmployerApplicantDetails/EmployerApplicantDetails';
 import SingleCourseDisplay from './Components/SingleCourseDisplay/SingleCourseDisplay';
 import CourseRegistrationDetails from './Components/CourseRegistrationDetails/CourseRegistrationDetails';
+import AfterLoginApplicant from './Components/AfterLoginApplicant/AfterLoginApplicant';
+import AfterLoginEmployer from './Components/AfterLoginEmployer/AfterLoginEmployer';
+import AfterLoginTutor from './Components/AfterLoginTutor/AfterLoginTutor';
 import HeaderBeforeLogin from './Components/HeaderBeforeLogin/HeaderBeforeLogin';
-import HeaderAfterLogin from './Components/HeaderAfterLogin/HeaderAfterLogin';
+import HeaderForApplicant from './Components/HeaderForApplicant/HeaderForApplicant';
+import HeaderForEmployer from './Components/HeaderForEmployer/HeaderForEmployer';
+import HeaderForTutor from './Components/HeaderForTutor/HeaderForTutor';
 import Footer from './Components/Footer/Footer';
-import Header from './Components/Header/Header';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -48,15 +51,18 @@ const routing = (
       <Route path="/employeeProfile" component={EmployeeProfile}/>
       <Route path="/tutorProfile" component={TutorProfile}/>
       <Route path="/courseDetailsForm" component={CourseDetailsForm}/>
-      <Route path="/firstPage" component={FirstPage}/>
       <Route path="/beforeLoginPage" component={BeforeLoginPage}/>
       <Route path="/singleInternshipDisplay" component={SingleInternshipDisplay}/>
       <Route path="/employerApplicantDetails" component={EmployerApplicantDetails}/>
       <Route path="/singleCourseDisplay" component={SingleCourseDisplay}/>
       <Route path="/courseRegistrationDetails" component={CourseRegistrationDetails}/>
+      <Route path="/afterLoginApplicant" component={AfterLoginApplicant}/>
+      <Route path="/afterLoginEmployer" component={AfterLoginEmployer}/>
+      <Route path="/afterLoginTutor" component={AfterLoginTutor}/>
       <Route path="/headerBeforeLogin" component={HeaderBeforeLogin}/>
-      <Route path="/headerAfterLogin" component={HeaderAfterLogin}/>
-      <Route path="/header" component={Header}/>
+      <Route path="/headerForApplicant" component={HeaderForApplicant}/>
+      <Route path="/headerForEmployer" component={HeaderForEmployer}/>
+      <Route path="/headerForTutor" component={HeaderForTutor}/>
       <Route path="/footer" component={Footer}/>
       <Route component={ErrorPage}/>
     </Switch>
