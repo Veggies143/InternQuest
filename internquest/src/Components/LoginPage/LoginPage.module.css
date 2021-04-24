@@ -1,11 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
-@media all and (min-width: 480px) {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&family=Pacifico&display=swap');
+
+@media all and (min-width: 480px) { 
     .LoginPage {
-      padding: 60px 0;
+      background-image: url(https://blog-www.pods.com/wp-content/uploads/2020/07/Feature-Home-Office-GEtty-Resized.jpg);
+     color:white;
+     background-size: cover;
+     -webkit-background-size:cover;
+      -moz-background-size:cover; 
+      background-attachment: fixed;
+      position: relative;
+      min-height: 100vh;
+      font-family: 'Bebas Neue', cursive;
+      font-family: 'Dancing Script', cursive;
+      font-family: 'Pacifico', cursive;
+    
     }
-  
+    
+
+  .blogin{
+    background: rgba(0, 0, 0, 0.7);
+    min-height: 100vh;
+    padding-top: 50px;
+  }
     .LoginPage form {
       margin: 0 auto;
-      max-width: 320px;
+       max-width: 320px; 
+      
     }
-  }
+
+    .LoginPage label{
+      color:white;
+      font-family: 'Dancing Script', cursive;
+      font-size:x-large;
+    }
+
+    .card{
+      max-width: 400px;
+      height:auto;
+      margin: 0 auto;
+      background-color: transparent;
+      margin: '0 2px';
+      -webkit-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+      box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+      
+    }
+    
+    
+   
+ } 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './TutorRegistration.module.css';
 import axios from 'axios';
+import { Container, CardGroup, Card, Row, Col } from 'react-bootstrap';
 
 class TutorRegistration extends React.Component {
 
@@ -129,84 +130,99 @@ class TutorRegistration extends React.Component {
      
   render() {
     return (
-      <div className={styles.TutorRegistration}> 
-        <h1>Tutor Regitsration Form</h1>
+      <div className={styles.TutorRegistration}>       
         <form onSubmit={this.handleSubmit}>
+        <Container fluid>
+            <CardGroup className="m-5 d-block">
+              <Card className="m-5 border-0 shadow" style={styles.card}>
+                <Row>
+                  <Col className={styles.setimg}>
+                    <Card.Img  src="https://i.pinimg.com/originals/de/1d/d8/de1dd840a9b87f565d85191abb03d2fa.jpg" style={styles.cardImage} />
+                  </Col>
+                  <Col >
+                    <Card.Body>
+                        <Card.Title as="h1"> Registration Form</Card.Title>
+                        <br/><br/>
 
-          <div class="form-group">
-            <label for="name">Name:</label>
-            <input 
-              type="text" 
-              name="name" 
-              value={this.state.input.name}
-              onChange={this.handleChange}
-              class="form-control" 
-              placeholder="Enter name" 
-              id="name" />
-   
-              <div className="text-danger">{this.state.errors.name}</div>
-          </div>
+                        <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input 
+                            type="text" 
+                            name="name" 
+                            value={this.state.input.name}
+                            onChange={this.handleChange}
+                            class="form-control" 
+                            placeholder="Enter name" 
+                            id="name" />
+                
+                            <div className="text-danger">{this.state.errors.name}</div>
+                        </div>
 
-          <div class="form-group">
-            <label for="email">Email Address:</label>
-            <input 
-              type="text" 
-              name="email" 
-              value={this.state.input.email}
-              onChange={this.handleChange}
-              class="form-control" 
-              placeholder="Enter email" 
-              id="email" />
-   
-              <div className="text-danger">{this.state.errors.email}</div>
-          </div>
+                        <div class="form-group">
+                          <label for="email">Email Address:</label>
+                          <input 
+                            type="text" 
+                            name="email" 
+                            value={this.state.input.email}
+                            onChange={this.handleChange}
+                            class="form-control" 
+                            placeholder="Enter email" 
+                            id="email" />
+                
+                            <div className="text-danger">{this.state.errors.email}</div>
+                        </div>
 
-          <div class="form-group">
-            <label for="name">Password:</label>
-            <input 
-              name="password"
-              type="password" 
-              value={this.state.input.password}
-              onChange={this.handleChange}
-              class="form-control" 
-              placeholder="Enter password" 
-              id="password" />
-  
-              <div className="text-danger">{this.state.errors.password}</div>
-          </div>
+                        <div class="form-group">
+                          <label for="name">Password:</label>
+                          <input 
+                            name="password"
+                            type="password" 
+                            value={this.state.input.password}
+                            onChange={this.handleChange}
+                            class="form-control" 
+                            placeholder="Enter password" 
+                            id="password" />
+                
+                            <div className="text-danger">{this.state.errors.password}</div>
+                        </div>
 
-          <div class="form-group">
-            <label for="name">Confirm Password:</label>
-            <input  
-              name="confirmPassword"
-              type="password" 
-              value={this.state.input.comfirmPassword}
-              onChange={this.handleChange}
-              class="form-control" 
-              placeholder="Enter conform password" 
-              id="confirmPassword" />
-  
-              <div className="text-danger">{this.state.errors.confirmPassword}</div>
-          </div>
+                        <div class="form-group">
+                          <label for="name">Confirm Password:</label>
+                          <input  
+                            name="confirmPassword"
+                            type="password" 
+                            value={this.state.input.comfirmPassword}
+                            onChange={this.handleChange}
+                            class="form-control" 
+                            placeholder="Enter conform password" 
+                            id="confirmPassword" />
+                
+                            <div className="text-danger">{this.state.errors.confirmPassword}</div>
+                        </div>
 
-          <div class="form-group">
-            <label for="phoneNo">Phone number:</label>
-            <input 
-              type="tel" 
-              name="phoneNo"
-              value={this.state.input.phoneNo}
-              onChange={this.handleChange}
-              class="form-control" 
-              placeholder="Enter phone number" 
-              id="phoneNo" />
-  
-              <div className="text-danger">{this.state.errors.phoneNo}</div>
-          </div>
-             
-          <input type="submit" value="Submit" className="btn btn-success" />
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <button className='btn btn-info' onClick={this.onLogin}>Login ?</button>
-      
+                        <div class="form-group">
+                          <label for="phoneNo">Phone number:</label>
+                          <input 
+                            type="tel" 
+                            name="phoneNo"
+                            value={this.state.input.phoneNo}
+                            onChange={this.handleChange}
+                            class="form-control" 
+                            placeholder="Enter phone number" 
+                            id="phoneNo" />
+                
+                            <div className="text-danger">{this.state.errors.phoneNo}</div>
+                        </div>
+                          
+                        <input type="submit" value="Submit" className="btn btn-success" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button className='btn btn-info' onClick={this.onLogin}>Login ?</button>
+                    </Card.Body>
+                  </Col>
+                </Row>
+              </Card>
+            </CardGroup>
+          </Container>
         </form>
         <br/>
       </div>

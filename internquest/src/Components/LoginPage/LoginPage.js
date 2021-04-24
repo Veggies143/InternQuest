@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './LoginPage.module.css';
 import axios from 'axios';
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, Card } from 'react-bootstrap';
 
 class LoginPage extends React.Component {
 
@@ -168,72 +168,83 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div className={styles.LoginPage}> 
-        <h1>Login Page</h1>
-        <form onSubmit={this.handleSubmit}>
-
-          <div className="form-group">
-            <label>Type of user</label>
-            <div>
-              <select 
-                type="text" 
-                name='userType' 
-                value={this.state.input.userType} 
-                className="form-control"  
-                onChange={this.handleChange} 
-                id="userType" >
-                <option value="Applicant">Applicant</option>
-                <option value="Employer">Employer</option>
-                <option value="Tutor">Tutor</option>
-              </select>
-            </div>
-
-          </div>
-
-          <div className="form-group">
-            <label>Email Address:</label>
-            <input 
-              type="text" 
-              name="email" 
-              value={this.state.input.email}
-              onChange={this.handleChange}
-              className="form-control" 
-              placeholder="Enter email" 
-              id="email" />
-   
-              <div className="text-danger">{this.state.errors.email}</div>
-          </div>
-
-          <div className="form-group">
-            <label>Password:</label>
-            <input 
-              name="password"
-              type="password" 
-              value={this.state.input.password}
-              onChange={this.handleChange}
-              className="form-control" 
-              placeholder="Enter password" 
-              id="password" />
-
-              <div className="text-danger">{this.state.errors.password}</div>
-              <div className="text-danger">{this.state.invalidDetails}</div>
-          </div>
-             
-          <input type="submit" value="Submit" className="btn btn-success" />   
-          <br/><br/>
-          <Dropdown>
-            <Dropdown.Toggle variant="info" id="dropdown-basic">
-              Register ?
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href="/employeeRegistration">Applicant</Dropdown.Item>
-              <Dropdown.Item href="/employerRegistration">Employer</Dropdown.Item>
-              <Dropdown.Item href="/tutorRegistration">Tutor</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>    
-        
-        </form>
+      <div className={styles.blogin}>
+        <h1 style={{textAlign:'center'}}>Login Page</h1>
         <br/>
+        <Card className={styles.card} >
+            <Card.Body>               
+              <form onSubmit={this.handleSubmit}>
+                <div  className="form-group">
+                  <label><b>Type of user</b></label>
+                  <div>
+                    <select 
+                      type="text" 
+                      name='userType' 
+                      value={this.state.input.userType} 
+                      className="form-control"  
+                      onChange={this.handleChange} 
+                      id="userType" >
+                      <option value="Applicant">Applicant</option>
+                      <option value="Employer">Employer</option>
+                      <option value="Tutor">Tutor</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div className="form-group">
+                  <label><b>Email Address:</b></label>
+                  <input 
+                    type="text" 
+                    name="email" 
+                    value={this.state.input.email}
+                    onChange={this.handleChange}
+                    className="form-control" 
+                    placeholder="Enter email" 
+                    id="email" />
+        
+                    <div className="text-danger">{this.state.errors.email}</div>
+                </div>
+
+                <div className="form-group">
+                  <label><b>Password:</b></label>
+                  <input 
+                    name="password"
+                    type="password" 
+                    value={this.state.input.password}
+                    onChange={this.handleChange}
+                    className="form-control" 
+                    placeholder="Enter password" 
+                    id="password" />
+
+                    <div className="text-danger">{this.state.errors.password}</div>
+                    <div className="text-danger">{this.state.invalidDetails}</div>
+                </div>
+                  <div class="row" > 
+                  <div class="col">
+                  <input type="submit" value="LOG IN" className="btn btn-primary" />   
+                  
+                  </div>
+                  <div class="col">
+                  <Dropdown>
+                    <Dropdown.Toggle variant="danger" id="dropdown-basic">
+                      REGISTER 
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="/employeeRegistration">Applicant</Dropdown.Item>
+                      <Dropdown.Item href="/employerRegistration">Employer</Dropdown.Item>
+                      <Dropdown.Item href="/tutorRegistration">Tutor</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown> 
+                  </div>           
+                </div>
+                <br/>
+              </form>
+            </Card.Body>
+          </Card>
+          <br/>
+        </div>
       </div>
     );
   }
