@@ -39,6 +39,7 @@ class SingleCourseDisplay extends React.Component {
     })
     .then(() => {
       console.log("Course Registration Details Data has been sent to the server");
+      window.location.href = 'afterLoginApplicant'
     })
     .catch(() => {
       console.log("Internal server error in SingleCourseDisplay Component");

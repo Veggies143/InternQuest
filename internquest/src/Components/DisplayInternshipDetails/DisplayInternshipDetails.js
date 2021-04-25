@@ -19,7 +19,7 @@ class DisplayInternshipDetails extends React.Component {
       MinStipend: '',
       MaxDuration: '',
       Location: '',
-      ModeOfInternship: 'WFH',
+      ModeOfInternship: 'Both',
       MaxPeriod: 'Months'
     }
   }
@@ -121,7 +121,7 @@ class DisplayInternshipDetails extends React.Component {
       });
       sortedDetails = tempDetails;
     }
-    if(mode !== '') {
+    if(mode !== '' && mode !== 'Both') {
       let tempDetails = [];
       sortedDetails.forEach(element => {
         if(element.ModeOfInternship === mode) {
@@ -211,6 +211,7 @@ class DisplayInternshipDetails extends React.Component {
                   <label>Mode of internship</label>
                   <div>
                     <select name='ModeOfInternship' class="form-control" value={this.state.ModeOfInternship} onChange={this.handleChangeOnSubmitForm} >
+                      <option value="Both">Both</option>
                       <option value="WFH">Work From Home</option>
                       <option value="Remote">Remote</option>
                     </select>

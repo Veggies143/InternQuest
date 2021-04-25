@@ -1,11 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
 
 @media all and (min-width: 480px) {
     .ApplicationForm {
       padding: 60px 0;
+      background-image: url("https://wallpaperaccess.com/full/1691916.jpg");
+      background-size: cover;
+     -webkit-background-size:cover;
+      -moz-background-size:cover; 
+      background-attachment: fixed;
+      position: relative;
+      min-height: 100vh;
     }
   
     .ApplicationForm form {
       margin: 0 auto;
-      max-width: 320px;
+      /* max-width: 320px; */
+    }
+
+    .stycard
+    {
+      width: 800px;
+      margin: 0 auto;
+      margin: '0 2px';
+      background-color: transparent;
+      background: rgba(0, 0, 0, 0.7);
+      color:white;
+      font-family: 'Antonio', sans-serif;
+      font-family: 'Playfair Display', serif;
     }
   }

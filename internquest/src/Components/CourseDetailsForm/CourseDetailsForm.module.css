@@ -1,11 +1,33 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
+
 @media all and (min-width: 480px) {
     .CourseDetailsForm {
       padding: 60px 0;
+      background-image: url("https://images.unsplash.com/photo-1512649406163-f231484b4d69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80");
+      background-size: cover;
+     -webkit-background-size:cover;
+      -moz-background-size:cover; 
+      background-attachment: fixed;
+      position: relative;
+      min-height: 100vh;
     }
   
     .CourseDetailsForm form {
       margin: 0 auto;
       max-width: 320px;
     }
+
+    .stycard
+    {
+      width: 800px;
+      margin: 0 auto;
+      margin: '0 2px';
+      background-color: transparent;
+      background: rgba(0, 0, 0, 0.7);
+      color:white;
+      font-family: 'Antonio', sans-serif;
+      font-family: 'Playfair Display', serif;
+    }
+
   }

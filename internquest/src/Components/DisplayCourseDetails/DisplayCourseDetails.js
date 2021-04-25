@@ -59,7 +59,7 @@ class DisplayCourseDetails extends React.Component {
     let maxFee = this.state.MaxFee;
     let courses = [];
     courses = this.state.selectedValues;
-    let sortedDetails = this.state.SortedDetails;
+    let sortedDetails = this.state.Details;
     console.log(courses+" "+maxDays+" "+maxPeriod+" "+maxFee)
 
     if((courses!==null && courses.length !== 0)) {
