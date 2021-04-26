@@ -8,19 +8,33 @@ class SingleInternshipDisplay extends React.Component {
   constructor() {
     super();
     this.state = {
-      DetailsInfo: {}
+      DetailsInfo: {},
+      Skills: [],
+      Benefits: [],
+      JobDescription: []
     }
   }
 
   componentDidMount() {
     let data=localStorage.getItem('internDetails');
     data = JSON.parse(data);
-    //console.log(data);
     this.setState({DetailsInfo: data});
+
+    let skillsArray = data.SkillsRequired.split("\n");
+    let jobDesArray = data.JobDescription.split("\n");
+    let benefitsArray = data.Benefits.split("\n");
+
+    setTimeout(this.splitData(skillsArray,jobDesArray,benefitsArray),500);
+  }
+
+  splitData = (s,j,b) => {
+    this.setState({Skills: s});
+    this.setState({JobDescription: j});
+    this.setState({Benefits: b});
+    
   }
   
   onApplyIntern = () => {
-    //console.log("Apply for the internship");
     window.location.href="applicationForm";
   }
   
@@ -33,19 +47,41 @@ class SingleInternshipDisplay extends React.Component {
           <div>
             <button className='btn btn-info' onClick={this.onApplyIntern}>Apply</button>
             <h1> Company Name: {this.state.DetailsInfo.CompanyName} </h1>
+            <br/>
             <p>About Company: {this.state.DetailsInfo.AboutCompany}</p>
             <h2>Job Role: {this.state.DetailsInfo.JobRole}</h2>
-            <p>Job Description: {this.state.DetailsInfo.JobDescription}</p>
+            <br/>
+
+            <h3>Job Description:  </h3>
+            {this.state.JobDescription.map((ele, index) => (
+              <div key={index}>
+                <p>{ele}</p>
+              </div>
+            ))}
+
             <i>Duration: {this.state.DetailsInfo.Duration}</i>
+            <br/>
             <br/>
             <i>Period: {this.state.DetailsInfo.Period}</i>
             <br/>
-            <b>SkillsRequired: {this.state.DetailsInfo.SkillsRequired}</b>
             <br/>
-            <p>Benefits: {this.state.DetailsInfo.Benefits}</p>
+
+            <b>SkillsRequired: </b>
+            {this.state.Skills.map((ele, index) => (
+              <div key={index}>
+                <p>{ele}</p>
+              </div>
+            ))}
+
+            <b>Benefits: </b>
+            {this.state.Benefits.map((ele, index) => (
+              <div key={index}>
+                <p>{ele}</p>
+              </div>
+            ))}
+
             <i>Stipend: {this.state.DetailsInfo.Stipend}</i>
-            <br/>
-            <b>Date: {this.state.DetailsInfo.date}</b> 
+            
             <br/>
             <br/>
           </div>

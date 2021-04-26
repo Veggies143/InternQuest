@@ -10,19 +10,30 @@ class SingleCourseDisplay extends React.Component {
     super();
     this.state = {
       DetailsInfo: {},
-      ApplicantDetails: {}
+      ApplicantDetails: {},
+      CourseDescription: [],
+      Benefits: []
     }
   }
 
   componentDidMount() {
     let data=localStorage.getItem('courseDetails');
     data = JSON.parse(data);
-    //console.log(data);
     this.setState({DetailsInfo: data});
 
     let d=localStorage.getItem('myData');
     d = JSON.parse(d);
     this.setState({ApplicantDetails: d});
+
+    let benefitsArray = data.Benefits.split("\n");
+    let courseDesArray = data.CourseDescription.split("\n");
+
+    setTimeout(this.splitData(courseDesArray,benefitsArray),500);
+  }
+
+  splitData = (c,b) => {
+    this.setState({Benefits: b});
+    this.setState({CourseDescription: c});
   }
   
   onRegisterCourse = () => {
@@ -61,11 +72,22 @@ class SingleCourseDisplay extends React.Component {
             <i>Period: {this.state.DetailsInfo.Period}</i>
             <br/>
             <p>About Yourself: {this.state.DetailsInfo.AboutYourself}</p>
-            <p>Course Description: {this.state.DetailsInfo.CourseDescription}</p>
-            <p>Benefits: {this.state.DetailsInfo.Benefits}</p>
+
+            <b>Course Description: </b>
+            {this.state.CourseDescription.map((ele, index) => (
+              <div key={index}>
+                <p>{ele}</p>
+              </div>
+            ))}
+
+            <b>Benefits: </b>
+            {this.state.Benefits.map((ele, index) => (
+              <div key={index}>
+                <p>{ele}</p>
+              </div>
+            ))}
+
             <i>Fees: {this.state.DetailsInfo.Fees}</i>
-            <br/>
-            <b>Date: {this.state.DetailsInfo.date}</b> 
             <br/>
             <br/>
           </div>
