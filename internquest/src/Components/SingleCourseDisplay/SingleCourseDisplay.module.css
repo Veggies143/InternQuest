@@ -1,1 +1,25 @@
-.SingleCourseDisplay {}
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
+@media all and (min-width: 480px) {
+    .SingleCourseDisplay {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        font-family: 'Antonio', sans-serif;
+        font-family: 'Playfair Display', serif;
+        font-size:18px;
+
+        background-image: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-flat-solid-geometry-corporate-company-ppt-background-image_260522.jpg);
+        background-size: cover;
+        -webkit-background-size:cover;
+         -moz-background-size:cover; 
+         background-attachment: fixed;
+         position: relative;
+         min-height: 100vh;
+
+    }
+
+    .cstyle{
+        width: 800px;
+        margin: 0 auto;        
+    }
+
+}

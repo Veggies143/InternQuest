@@ -55,10 +55,8 @@ class CourseRegistrationDetails extends React.Component {
           <div className="users">
           {this.state.DisplayRegistrationDetails.map((detail, index) => (
             <div key={index}>
-              <h1>{detail.ApplicantDetails.email}</h1>
-              <h2>{detail.DetailsInfo.CourseOffered}</h2>
-              <h3>{detail.DetailsInfo.Fees}</h3>
-              <p>{detail.DetailsInfo.TutorDetails.email}</p>
+              <h1>Applicant Email ID: {detail.ApplicantDetails.email}</h1>
+              <h2>Course Offering: {detail.DetailsInfo.CourseOffered}</h2>
             </div>
           ))}
           </div>

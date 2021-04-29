@@ -53,11 +53,12 @@ class DispalyApplicationDetails extends React.Component {
           <div className="users">
           {this.state.DisplayAppDetails.map((detail, index) => (
             <div key={index}>
-              <h1>{detail.ApplicationDetailsAfterReview.ApplicantDetails.email}</h1>
-              <h2>{detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</h2>
-              <h3>{detail.ApplicationDetailsAfterReview.YHire}</h3>
-              <p>{detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
-              <b>{detail.ReviewForApplication}</b>
+              <h1>Employer Mail ID: {detail.ApplicationDetailsAfterReview.InternDetails.EmployerDetails.email}</h1>
+              <h2>Company Name: {detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</h2>
+              <b>Job role: {detail.ApplicationDetailsAfterReview.InternDetails.JobRole}</b>
+              <h3>Why hire: {detail.ApplicationDetailsAfterReview.YHire}</h3>
+              <p>Duration available?: {detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
+              <b>Review or feedback for you application: {detail.ReviewForApplication}</b>
             </div>
           ))}
           </div>

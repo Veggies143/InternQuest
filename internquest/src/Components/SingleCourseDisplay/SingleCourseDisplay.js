@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SingleCourseDisplay.module.css';
 import axios from 'axios';
+import {Card} from 'react-bootstrap';
 import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
 import Footer from '../Footer/Footer';
 
@@ -62,34 +63,54 @@ class SingleCourseDisplay extends React.Component {
       <div>
         <HeaderForApplicant/>
         <div className={styles.SingleCourseDisplay} data-testid="SingleCourseDisplay">
-          <b>SingleCourseDisplay Component</b>
-          <div>
-            <button className='btn btn-info' onClick={this.onRegisterCourse}>Register for the course</button>
-            <h1>Name: {this.state.DetailsInfo.Name}</h1>
-            <p>Course Offered: {this.state.DetailsInfo.CourseOffered}</p>
-            <i>Duration: {this.state.DetailsInfo.Duration}</i>
-            <br/>
-            <i>Period: {this.state.DetailsInfo.Period}</i>
-            <br/>
-            <p>About Yourself: {this.state.DetailsInfo.AboutYourself}</p>
 
-            <b>Course Description: </b>
-            {this.state.CourseDescription.map((ele, index) => (
-              <div key={index}>
-                <p>{ele}</p>
-              </div>
-            ))}
+          <div className={styles.dispic}>
+            <Card className={styles.cstyle}>
+              <Card.Header>
+              <h3 style={{textAlign:'center'}}> Course Details </h3>
+              </Card.Header>
+              <Card.Body>
+            
+                <p><b> Tutor Name:</b> {this.state.DetailsInfo.Name}</p><br/>
+                <p><b>Course Offered:</b> {this.state.DetailsInfo.CourseOffered}</p><br/>
 
-            <b>Benefits: </b>
-            {this.state.Benefits.map((ele, index) => (
-              <div key={index}>
-                <p>{ele}</p>
-              </div>
-            ))}
+                <div className="row">
+                {/* &emsp;&emsp; */}
+                  <div className="col-3">
+                    <i class="fa fa-calendar"> Duration</i>
+                    <br/><p >{this.state.DetailsInfo.Duration}  {this.state.DetailsInfo.Period}</p>
+                  </div>
+                  <div className="col-3">
+                    <i class="fa fa-money" aria-hidden="true"> Fees</i>
+                    <br/> <p>{this.state.DetailsInfo.Fees} /-</p>
+                  </div>
+                </div>
+                  <br/>
+                <p><b>About Yourself:</b> <br/> &emsp;&emsp;{this.state.DetailsInfo.AboutYourself}</p><br/>
 
-            <i>Fees: {this.state.DetailsInfo.Fees}</i>
-            <br/>
-            <br/>
+                <b>Course Description: </b>
+                {this.state.CourseDescription.map((ele, index) => (
+                  <div key={index}>
+                        <ul>
+                        <p style={{paddingLeft:10}}><li>{ele}</li></p>
+                        </ul>
+                  </div>
+                ))}<br/>
+
+                <b>Benefits: </b>
+                {this.state.Benefits.map((ele, index) => (
+                    <div key={index}>
+                        <ul>
+                        <p style={{paddingLeft:10}}><li>{ele}</li></p>
+                        </ul>
+                  </div>
+                ))}
+
+                <div class="col text-center">
+                <button className='btn btn-info btn-lg' onClick={this.onRegisterCourse}>Register for the course</button>
+                </div>
+            </Card.Body>
+            </Card>
           </div>
         </div>
         <Footer/>

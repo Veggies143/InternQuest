@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
 
 @media all and (min-width: 480px) { 
     .LoginPage {
@@ -12,9 +10,8 @@
       background-attachment: fixed;
       position: relative;
       min-height: 100vh;
-      font-family: 'Bebas Neue', cursive;
-      font-family: 'Dancing Script', cursive;
-      font-family: 'Pacifico', cursive;
+      font-family: 'Antonio', sans-serif;
+      font-family: 'Playfair Display', serif;
     
     }
     
@@ -32,7 +29,8 @@
 
     .LoginPage label{
       color:white;
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Antonio', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size:x-large;
     }
 
