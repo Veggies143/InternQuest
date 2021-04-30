@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './DispalyApplicationDetails.module.css';
 import axios from 'axios';
+import {Card} from 'react-bootstrap';
 import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
 import Footer from '../Footer/Footer';
 
@@ -48,20 +49,27 @@ class DispalyApplicationDetails extends React.Component {
     return(
       <div>
         <HeaderForApplicant/>
-        <div className={styles.DispalyApplicationDetails} data-testid="DispalyApplicationDetails">
-          <h1>DispalyApplicationDetails Component</h1>
+        <div className={styles.DispalyApplicationDetails}data-testid="DispalyApplicationDetails">
+        <Card className={styles.cstyle}>
+        <Card.Header className={styles.cbody}>
+          <h3 style={{textAlign:'center'}}>DispalyApplicationDetails Component</h3>
+          </Card.Header>
+          <Card.Body className={styles.stybody}>
           <div className="users">
           {this.state.DisplayAppDetails.map((detail, index) => (
             <div key={index}>
-              <h1>Employer Mail ID: {detail.ApplicationDetailsAfterReview.InternDetails.EmployerDetails.email}</h1>
-              <h2>Company Name: {detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</h2>
-              <b>Job role: {detail.ApplicationDetailsAfterReview.InternDetails.JobRole}</b>
-              <h3>Why hire: {detail.ApplicationDetailsAfterReview.YHire}</h3>
-              <p>Duration available?: {detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
-              <b>Review or feedback for you application: {detail.ReviewForApplication}</b>
+              <p><b>Employer Mail ID:</b> {detail.ApplicationDetailsAfterReview.InternDetails.EmployerDetails.email}</p>
+              <p><b>Company Name:</b> {detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</p>
+              <p><b>Job role:</b> {detail.ApplicationDetailsAfterReview.InternDetails.JobRole}</p>
+              <p><b>Why hire:</b> {detail.ApplicationDetailsAfterReview.YHire}</p>
+              <p><b> Availablility :</b> {detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
+              <p><b>Review or feedback for you application:</b><br/> &nbsp;&nbsp;&nbsp;&nbsp;{detail.ReviewForApplication}</p>
+              <hr/>
             </div>
           ))}
           </div>
+          </Card.Body>
+          </Card>
         </div>
         <Footer/>
       </div>

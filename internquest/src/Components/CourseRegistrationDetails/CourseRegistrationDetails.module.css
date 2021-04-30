@@ -1,1 +1,37 @@
-.CourseRegistrationDetails {}
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
+@media all and (min-width: 480px) {
+    .CourseRegistrationDetails {
+        background-image: url(https://i.pinimg.com/originals/6a/f8/0c/6af80c7895db6df34001c3ed01fb8170.jpg);
+        background-size: cover;
+        -webkit-background-size:cover;
+         -moz-background-size:cover; 
+         background-attachment: fixed;
+         position: relative;
+         min-height: 100vh;
+         padding-top: 20px;
+    }
+
+    .cstyle{
+        width: 800px;
+        margin: 0 auto;  
+        font-family: 'Antonio', sans-serif;
+        font-family: 'Playfair Display', serif;
+        font-size:18px;      
+    }
+
+    .stybody{
+        padding-left:20px;
+    }
+    .cbody{
+        background: linear-gradient(to right, #bbd2c5, #536976);
+    }
+    
+    hr {
+        border: none;
+        height: 1px;
+        /* Set the hr color */
+        color: #333; /* old IE */
+        background-color: #333; /* Modern Browsers */
+    }
+
+}
