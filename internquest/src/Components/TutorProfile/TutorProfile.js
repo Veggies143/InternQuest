@@ -66,10 +66,10 @@ class TutorProfile extends React.Component {
                           <td><b>PHONE NO</b></td>
                           <td>{this.state.dataToDisplay.phoneNo}</td>
                       </tr>
-                      <tr >
+                      {/* <tr >
                           <td><b>PASSWORD</b></td>
                           <td>{this.state.dataToDisplay.password}</td>
-                      </tr>
+                      </tr> */}
                                 
                     </tbody>
                   </table>

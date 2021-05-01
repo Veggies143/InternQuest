@@ -73,6 +73,8 @@ class DisplayInternshipDetails extends React.Component {
         if(this.state.selectedValues !== null) {
           this.state.selectedValues.forEach(skill => {
             var temp = element.SkillsRequired;
+            var arr = temp.split("\n");
+            console.log(arr)
             if(!temp.includes(skill)) {
               isValid = false;
               return;
@@ -236,9 +238,9 @@ class DisplayInternshipDetails extends React.Component {
                   <label>Maximum Period of Internship</label>
                   <div>
                     <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
-                      <option value="Months">Month/s</option>
-                      <option value="Weeks">Week/s</option>
-                      <option value="Days">Day/s</option>
+                      <option value="Months">Month(s)</option>
+                      <option value="Weeks">Week(s)</option>
+                      <option value="Days">Day(s)</option>
                     </select>
                   </div>
                 </div>

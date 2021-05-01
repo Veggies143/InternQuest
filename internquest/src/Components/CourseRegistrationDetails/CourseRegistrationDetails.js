@@ -66,8 +66,8 @@ class CourseRegistrationDetails extends React.Component {
                       <Avatar src="https://cdn1.vectorstock.com/i/thumb-large/22/05/male-profile-picture-vector-1862205.jpg" style={{ height: '100px', width: '100px' }}  />
                       </div>
                       <div className="col">
-                         <p> <b>Applicant Details Email :</b>{detail.ApplicantDetails.email}</p>
-                         <p><b>Course Name:</b>{detail.DetailsInfo.CourseOffered}</p>
+                         <p> <b>Applicant Email :</b> {detail.ApplicantDetails.email}</p>
+                         <p><b>Course Registered :</b> {detail.DetailsInfo.CourseOffered}</p>
                        </div>
                   </div>
                   <hr/>

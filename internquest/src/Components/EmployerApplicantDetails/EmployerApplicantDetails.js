@@ -140,7 +140,7 @@ class EmployerApplicantDetails extends React.Component {
         <div className={styles.EmployerApplicantDetails} data-testid="EmployerApplicantDetails">
           <Card className={styles.cstyle}>
             <Card.Header className={styles.cbody}>
-              <h3 style={{textAlign:'center'}}>Employee Application Details</h3>
+              <h3 style={{textAlign:'center'}}>Received Applications</h3>
             </Card.Header>
             <Card.Body className={styles.stybody}>
            <div className="users">
@@ -150,13 +150,14 @@ class EmployerApplicantDetails extends React.Component {
                <div className="col">
                   <p><b>Applicant Email:</b> {detail.ApplicantDetails.email}</p>
                     <p><b>Jobe Role: </b>{detail.InternDetails.JobRole}</p>
-                    <p><b>Why Should we hire You!</b><br/>&emsp;&emsp; {detail.YHire}</p>
-                    <p><b>Are you available: </b>{detail.DuraAvailable}</p>
+                    <p><b>Why Should We Hire You:</b><br/>&emsp;&emsp; {detail.YHire}</p>
+                    <p><b>Are You Available: </b>{detail.DuraAvailable}</p>
                     &nbsp;&nbsp;
                     <button className="btn btn-info" value={detail.ApplicantDetails} onClick={this.onViewApplicantResume.bind(this, detail.ResumeLink)}>View Applicant Resume</button>
                     <br/>
                </div>
                <div className="col">
+                 <br/>
                  <br/>
                   {
                       this.state.displayReviewBox && <div>
@@ -166,7 +167,7 @@ class EmployerApplicantDetails extends React.Component {
                             <textarea 
                               name="reviewForApplication" 
                               className="form-control"  
-                              placeholder="Specify the reason of rejection or acceptance" 
+                              placeholder="Detail Reason of Acceptance or Rejection..." 
                               cols="100" 
                               rows="5" 
                               value={this.state.reviewForApplication} 

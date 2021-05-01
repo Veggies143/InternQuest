@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
+@media all and (min-width: 480px) {
+    .AboutInternQuest {
+        font-family: 'Antonio', sans-serif;
+        font-family: 'Playfair Display', serif;
+        /* z-index: 3; */
+        /* padding-top: 30px; */
+        /* background:linear-gradient(to right,#8e9eab, #8e9eab); */
+    }
+    .particles{
+        /* background: rgba(25, 102, 96, 0.6) url("https://i.pinimg.com/originals/ea/3f/d3/ea3fd3102ccf575e3c33954f73eab78d.jpg") ; */
+
+        background: linear-gradient(to right, #2193b0, #6dd5ed); 
+        z-index: -10;
+        width: 1200px;
+        margin: 0 auto; 
+        margin-left: 30px;
+        height: 300px;
+        position: absolute;
+      }
+    
+
+    .chead{
+        width: 1200px;
+        margin: 0 auto; 
+        height: 300px;
+        z-index: 4;
+        
+        background: transparent
+    }
+
+    .cbody{
+        padding-top: 60px;
+    }
+}

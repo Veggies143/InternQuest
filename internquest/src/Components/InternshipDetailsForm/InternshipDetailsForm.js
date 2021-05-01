@@ -97,18 +97,18 @@ class InternshipDetailsForm extends React.Component {
         
           <Card className={styles.stycard}>
             <Card.Header>
-              <h2 style={{textAlign:'center'}}>Posting Internship Details</h2>
+              <h2 style={{textAlign:'center'}}>Internship Details Form</h2>
             </Card.Header>
             <Card.Body>
               <form onSubmit={this.handleSubmit}>
               
                 <div>   
                     <div class="form-group">
-                      <label>Name of your Company</label>
+                      <label>Company Name</label>
                       <div>
                         <input 
                           name="CompanyName" 
-                          placeholder="Name of your company" 
+                          placeholder="Enter Company Name" 
                           class="form-control"  
                           value={this.state.CompanyName} 
                           onChange={this.handleChange} 
@@ -122,7 +122,7 @@ class InternshipDetailsForm extends React.Component {
                     <div>
                       <input 
                         name="JobRole" 
-                        placeholder="Role name for the job" 
+                        placeholder="Enter Offered Job Role" 
                         class="form-control" 
                         value={this.state.JobRole} 
                         onChange={this.handleChange} 
@@ -133,11 +133,11 @@ class InternshipDetailsForm extends React.Component {
                 </div>
 
                 <div class="form-group">
-                  <label>What is your company about</label>
+                  <label>About Company</label>
                   <div>
                     <textarea 
                       name="AboutCompany" 
-                      placeholder="How your company works"
+                      placeholder="Enter Company Info"
                       class="form-control"  
                       cols="100" 
                       rows="5" 
@@ -154,11 +154,11 @@ class InternshipDetailsForm extends React.Component {
                     <div className="row">
                       <div className="Col">
                           <div class="form-group">
-                            <label>Duration of the internship</label>
+                            <label>Duration of the Internship</label>
                             <div>
                               <input 
                                 name="Duration" 
-                                placeholder="Duration of internship" 
+                                placeholder="Enter Duration " 
                                 class="form-control" 
                                 pattern="[0-9]*"
                                 value={this.state.Duration} 
@@ -174,9 +174,9 @@ class InternshipDetailsForm extends React.Component {
                           <label>Period of Internship</label>
                           <div>
                             <select name='Period' class="form-control" value={this.state.Period} onChange={this.handleChange} required>
-                              <option value="Months">Month/s</option>
-                              <option value="Weeks">Week/s</option>
-                              <option value="Days">Days</option>
+                              <option value="Months">Month(s)</option>
+                              <option value="Weeks">Week(s)</option>
+                              <option value="Days">Day(s)</option>
                             </select>
                           </div>
                           <br/>
@@ -187,11 +187,11 @@ class InternshipDetailsForm extends React.Component {
 
 
                     <div class="form-group">
-                  <label>What is this internship about</label>
+                  <label>About Internship</label>
                   <div>
                     <textarea 
                       name="JobDescription" 
-                      placeholder="How your company works" 
+                      placeholder="Enter Internship Details..." 
                       class="form-control" 
                       cols="100" 
                       rows="5" 
@@ -212,7 +212,7 @@ class InternshipDetailsForm extends React.Component {
                           <div>
                               <input
                                 name="Stipend" 
-                                placeholder="Stipend" 
+                                placeholder="Enter Stipend" 
                                 class="form-control" 
                                 pattern="[0-9]*"
                                 value={this.state.Stipend} 
@@ -229,7 +229,7 @@ class InternshipDetailsForm extends React.Component {
                             <div>
                               <input 
                                 name="Location" 
-                                placeholder="Location" 
+                                placeholder="Enter Location" 
                                 class="form-control" 
                                 value={this.state.Location} 
                                 onChange={this.handleChange} 
@@ -243,11 +243,11 @@ class InternshipDetailsForm extends React.Component {
                     </div>
 
                     <div class="form-group">
-                    <label>Skill Required for this internship</label>
+                    <label>Required Skills</label>
                     <div>
                       <textarea 
                         name="SkillsRequired" 
-                        placeholder="Skills Required" 
+                        placeholder="Skill Required for this internship" 
                         class="form-control" 
                         cols="100" 
                         rows="5" 
@@ -265,21 +265,18 @@ class InternshipDetailsForm extends React.Component {
                     <div>
                       <select name='ModeOfInternship' class="form-control" value={this.state.ModeOfInternship} onChange={this.handleChange} required>
                         <option value="WFH">Work From Home</option>
-                        <option value="Remote">Remote</option>
+                        <option value="Remote">Office</option>
                       </select>
                     </div>
                     <br/>
                   </div>
-
-              
-                
                 
                     <div class="form-group">
-                      <label>What benefits will you give</label>
+                      <label>Incentives Provided</label>
                       <div>
                         <textarea 
                           name="Benefits" 
-                          placeholder="Benefits provided" 
+                          placeholder="Enter Incentives..." 
                           class="form-control" 
                           cols="100" 
                           rows="5" 
@@ -291,7 +288,7 @@ class InternshipDetailsForm extends React.Component {
                     </div>
 
                     <div class="form-group">
-                      <label>Minimum requirements expected from applicant</label>
+                      <label>Requirements expected</label>
                       <div>
                         <textarea 
                           name="MinRequiremnetsFromApplicant" 
@@ -308,12 +305,12 @@ class InternshipDetailsForm extends React.Component {
                     </div>
 
                     <div className="row">
-                      <div className="col">
-                        <button class="btn btn-primary ">Submit</button>   
-                      </div>
-                      <div className="col">
+                      {/* <div className="col"> */}
+                      &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary ">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                      {/* </div> */}
+                      {/* <div className="col"> */}
                         <button class="btn btn-danger" onClick={this.resetUserInputs}>Reset</button>
-                    </div> 
+                    {/* </div>  */}
                   </div>
 
                   </div> 

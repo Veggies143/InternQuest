@@ -88,11 +88,11 @@ class CourseDetailsForm extends React.Component {
             <Card.Body>
               <form id='course_details' onSubmit={this.handleSubmit}>
 
-                  <label>Name</label>
+                  <label>Tutor Name</label>
                   <div className="form-input">
                       <input 
                         name="Name" 
-                        placeholder="Name" 
+                        placeholder="Enter Tutor Name" 
                         class="form-control"
                         value={this.state.Name} 
                         onChange={this.handleChange} 
@@ -105,7 +105,7 @@ class CourseDetailsForm extends React.Component {
                   <div className="form-input">
                       <input 
                         name="CourseOffered" 
-                        placeholder="Course Offered" 
+                        placeholder="Enter Course Name" 
                         class="form-control"
                         value={this.state.CourseOffered} 
                         onChange={this.handleChange} 
@@ -117,11 +117,38 @@ class CourseDetailsForm extends React.Component {
                   
                     <div className="row">
                       <div className="col">
+                      <label>Duration</label>
+                      <div className="form-input">
+                        <input 
+                            name="Duration" 
+                            placeholder="Enter Duration" 
+                            pattern="[0-9]*"
+                            class="form-control"
+                            value={this.state.Duration} 
+                            onChange={this.handleChange} 
+                            required>
+                        </input>
+                        </div>
+                          <br/>
+                      </div>
+                          <div className="col">
+                            <label>Period of Course</label>
+                            <div className="form-input">
+                              <select name='Period' class="form-control" value={this.state.Period} onChange={this.handleChange} required>
+                                <option value="Months">Month(s)</option>
+                                <option value="Weeks">Week(s)</option>
+                                <option value="Days">Day(s)</option>
+                              </select>
+                            </div>
+                            <br/>
+                        </div>
+                      </div>
+                    
                       <label>Course Fees</label>
                         <div className="form-input">
                             <input 
                               name="Fees" 
-                              placeholder="Fees" 
+                              placeholder="Enter Fees" 
                               class="form-control"
                               pattern="[0-9]*"
                               value={this.state.Fees} 
@@ -129,56 +156,13 @@ class CourseDetailsForm extends React.Component {
                               required>
                             </input>
                           </div>
-                          <br/>
-                      </div>
-                          <div className="col">
-                            <label>Period of Course</label>
-                            <div className="form-input">
-                              <select name='Period' class="form-control" value={this.state.Period} onChange={this.handleChange} required>
-                                <option value="Months">Month/s</option>
-                                <option value="Weeks">Week/s</option>
-                                <option value="Days">Days</option>
-                              </select>
-                            </div>
-                            <br/>
-                        </div>
-                      </div>
-                    
-
-                    <label>Duration of the internship</label>
-                    <div className="form-input">
-                      <input 
-                          name="Duration" 
-                          placeholder="Duration of internship" 
-                          pattern="[0-9]*"
-                          class="form-control"
-                          value={this.state.Duration} 
-                          onChange={this.handleChange} 
-                          required>
-                      </input>
-                      </div>
-                    <br/>
-
-                    <label>About yourself</label>
-                    <div className="form-input">
-                      <textarea 
-                        name="AboutYourself" 
-                        placeholder="About Yourself" 
-                        class="form-control"
-                        cols="100" 
-                        rows="5" 
-                        value={this.state.AboutYourself} 
-                        onChange={this.handleChange} 
-                        required>
-                      </textarea>
-                    </div>
                     <br/>
 
                     <label>Course Description</label>
                     <div className="form-input">
                       <textarea 
                         name="CourseDescription" 
-                        placeholder="Course Description" 
+                        placeholder="Enter Course Description" 
                         class="form-control"
                         cols="100" 
                         rows="5" 
@@ -189,11 +173,26 @@ class CourseDetailsForm extends React.Component {
                     </div>
                     <br/>
 
-                    <label>What benefits will you give</label>
+                    <label>About Yourself</label>
+                    <div className="form-input">
+                      <textarea 
+                        name="AboutYourself" 
+                        placeholder="Enter About Yourself" 
+                        class="form-control"
+                        cols="100" 
+                        rows="5" 
+                        value={this.state.AboutYourself} 
+                        onChange={this.handleChange} 
+                        required>
+                      </textarea>
+                    </div>
+                    <br/>
+
+                    <label>Incentives Provided</label>
                     <div className="form-input">
                       <textarea 
                         name="Benefits" 
-                        placeholder="Benefits provided" 
+                        placeholder="Enter Incentives..." 
                         class="form-control"
                         cols="100" 
                         rows="5" 
@@ -204,13 +203,13 @@ class CourseDetailsForm extends React.Component {
                     <br/>
 
                     <div className="row">
-                      <div className="col">
-                        <button class="btn btn-primary">Submit</button>   
-                      </div>
-                      <div className="col">
+                      {/* <div className="col"> */}
+                        &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;   
+                      {/* </div>
+                      <div className="col"> */}
                           <button class="btn btn-danger" onClick={this.resetUserInputs} >Reset</button> 
                       </div>
-                    </div>
+                    {/* </div> */}
                   </form>
             </Card.Body>
           </Card> 

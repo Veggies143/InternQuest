@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderBeforeLogin from '../HeaderBeforeLogin/HeaderBeforeLogin';
 import FirstPageSecondComponent from '../FirstPageSecondComponent/FirstPageSecondComponent';
+import AboutInternQuest from '../AboutInternQuest/AboutInternQuest';
 import Footer from '../Footer/Footer';
 
 class BeforeLoginPage extends React.Component {
@@ -17,6 +18,7 @@ class BeforeLoginPage extends React.Component {
     return(
       <div>
         <HeaderBeforeLogin/>
+        <AboutInternQuest/>
         <FirstPageSecondComponent/>
         <Footer/>
       </div>

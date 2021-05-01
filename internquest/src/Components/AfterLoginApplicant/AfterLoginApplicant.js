@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
+import AboutInternQuest from '../AboutInternQuest/AboutInternQuest';
 import {Card, CardDeck,Button} from 'react-bootstrap';
 import styles from './AfterLoginApplicant.module.css';
 import Footer from '../Footer/Footer';
@@ -18,6 +19,7 @@ class AfterLoginApplicant extends React.Component {
     return(
       <div>
         <HeaderForApplicant/>
+        <AboutInternQuest/>
         <div className={styles.AboutInternQuestCard} data-testid="AboutInternQuestCard">
         <Card.Body>  
           <CardDeck>
