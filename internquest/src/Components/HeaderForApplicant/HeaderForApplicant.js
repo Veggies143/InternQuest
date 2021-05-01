@@ -25,6 +25,9 @@ class HeaderForApplicant extends React.Component {
                   <a className="nav-link" href='/applicationDetails'>MY APPLICATIONS</a>
                 </li>
                 <li className="nav-item">
+                  <a className="nav-link" href='/applicantEnrolledCourses'>MY COURSE REGITRATIONS</a>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link" href='/employeeProfile'>PROFILE</a>
                 </li>
                 <li className="nav-item">

@@ -22,6 +22,7 @@ import BeforeLoginPage from './Components/BeforeLoginPage/BeforeLoginPage';
 import SingleInternshipDisplay from './Components/SingleInternshipDisplay/SingleInternshipDisplay';
 import EmployerApplicantDetails from './Components/EmployerApplicantDetails/EmployerApplicantDetails';
 import SingleCourseDisplay from './Components/SingleCourseDisplay/SingleCourseDisplay';
+import ApplicantEnrolledCourses from './Components/ApplicantEnrolledCourses/ApplicantEnrolledCourses';
 import CourseRegistrationDetails from './Components/CourseRegistrationDetails/CourseRegistrationDetails';
 import AfterLoginApplicant from './Components/AfterLoginApplicant/AfterLoginApplicant';
 import AfterLoginEmployer from './Components/AfterLoginEmployer/AfterLoginEmployer';
@@ -55,6 +56,7 @@ const routing = (
       <Route path="/singleInternshipDisplay" component={SingleInternshipDisplay}/>
       <Route path="/employerApplicantDetails" component={EmployerApplicantDetails}/>
       <Route path="/singleCourseDisplay" component={SingleCourseDisplay}/>
+      <Route path="/applicantEnrolledCourses" component={ApplicantEnrolledCourses}/>
       <Route path="/courseRegistrationDetails" component={CourseRegistrationDetails}/>
       <Route path="/afterLoginApplicant" component={AfterLoginApplicant}/>
       <Route path="/afterLoginEmployer" component={AfterLoginEmployer}/>

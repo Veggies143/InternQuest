@@ -74,8 +74,7 @@ class DisplayInternshipDetails extends React.Component {
           this.state.selectedValues.forEach(skill => {
             var temp = element.SkillsRequired;
             var arr = temp.split("\n");
-            console.log(arr)
-            if(!temp.includes(skill)) {
+            if(!arr.includes(skill)) {
               isValid = false;
               return;
             }
@@ -182,13 +181,13 @@ class DisplayInternshipDetails extends React.Component {
 
               <form onSubmit={this.handleSubmitOnSort}>
 
-                <div class="form-group">
+                <div className="form-group">
                   <label>Minimum Stipend</label>
                   <div>
                     <input 
                       name="MinStipend" 
                       placeholder="Enter Minimum Stipend" 
-                      class="form-control" 
+                      className="form-control" 
                       pattern="[0-9]*"
                       value={this.state.MinStipend} 
                       onChange={this.handleChangeOnSubmitForm} >
@@ -196,23 +195,23 @@ class DisplayInternshipDetails extends React.Component {
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                   <label>Location</label>
                   <div>
                     <input 
                       name="Location" 
                       placeholder="Enter Location" 
-                      class="form-control" 
+                      className="form-control" 
                       value={this.state.Location} 
                       onChange={this.handleChangeOnSubmitForm} >
                     </input>
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                   <label>Mode of Internship</label>
                   <div>
-                    <select name='ModeOfInternship' class="form-control" value={this.state.ModeOfInternship} onChange={this.handleChangeOnSubmitForm} >
+                    <select name='ModeOfInternship' className="form-control" value={this.state.ModeOfInternship} onChange={this.handleChangeOnSubmitForm} >
                       <option value="Both">Both</option>
                       <option value="WFH">Work From Home</option>
                       <option value="Remote">Office</option>
@@ -220,13 +219,13 @@ class DisplayInternshipDetails extends React.Component {
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                   <label>Maximum Duration of Internship</label>
                   <div>
                     <input 
                       name="MaxDuration" 
                       placeholder="Enter Maximum Duration of Internship" 
-                      class="form-control" 
+                      className="form-control" 
                       pattern="[0-9]*"
                       value={this.state.MaxDuration} 
                       onChange={this.handleChangeOnSubmitForm} >
@@ -234,10 +233,10 @@ class DisplayInternshipDetails extends React.Component {
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div className="form-group">
                   <label>Maximum Period of Internship</label>
                   <div>
-                    <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
+                    <select name='MaxPeriod' className="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
                       <option value="Months">Month(s)</option>
                       <option value="Weeks">Week(s)</option>
                       <option value="Days">Day(s)</option>
@@ -245,7 +244,7 @@ class DisplayInternshipDetails extends React.Component {
                   </div>
                 </div>
 
-                <button class="btn btn-info" onClick={this.sortInternships}>Sort Preferences</button>
+                <button className="btn btn-info" onClick={this.sortInternships}>Sort Preferences</button>
 
               </form>
               
@@ -256,11 +255,12 @@ class DisplayInternshipDetails extends React.Component {
               {this.state.SortedDetails.map((detail, index) => (
                 <div value={detail} onClick={this.displayInternship.bind(this, detail)} key={index}>
                   
-                  <h1> Company Name: {detail.CompanyName} </h1>
-                  <h2>Job Role: {detail.JobRole}</h2>
-                  <i>Duration: {detail.Duration}</i>
+                  <h3> Company Name: {detail.CompanyName} </h3>
+                  <b>Skills: {detail.SkillsRequired}</b>
                   <br/>
-                  <i>Period: {detail.Period}</i>
+                  <i>Job Role: {detail.JobRole}</i>
+                  <br/>
+                  <i>Duration: {detail.Duration} {detail.Period}</i>
                   <br/>
                   <i>Stipend: {detail.Stipend}</i>
                   <br/>
