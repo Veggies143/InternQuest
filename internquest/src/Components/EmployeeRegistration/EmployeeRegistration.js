@@ -53,7 +53,6 @@ class EmployeeRegistration extends React.Component {
       input["age"] = "";
       this.setState({input:input});
 
-      //alert('Demo Form is submited');
     }
   }
 

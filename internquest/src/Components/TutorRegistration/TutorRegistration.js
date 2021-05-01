@@ -57,7 +57,6 @@ class TutorRegistration extends React.Component {
         input["phoneNo"] = "";
         this.setState({input:input});
   
-        alert('Demo Form is submited');
     }
   }
 

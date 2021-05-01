@@ -58,7 +58,6 @@ class EmployerRegistration extends React.Component {
         input["phoneNo"] = "";
         this.setState({input:input});
   
-        alert('Demo Form is submited');
     }
   }
 

@@ -10,7 +10,7 @@ class DisplayCourseDetails extends React.Component {
     Details: [],
     SortedDetails: [],
     options: [
-      'Java', 'HTML', 'CSS', 'Python', 'Django', 'Javascript', 'Machine Learning', 'SQL'
+      'Cooking', 'Crafting', 'Western Dance', 'Java', 'DBMS', 'JavaScript', 'Machine Learning', 'HTML'
     ],
     selectedValues: [],
     MaxFee: '',
@@ -182,9 +182,9 @@ class DisplayCourseDetails extends React.Component {
                   <label>Maximum Period of Tutorial</label>
                   <div>
                     <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
-                      <option value="Months">Month/s</option>
-                      <option value="Weeks">Week/s</option>
-                      <option value="Days">Days</option>
+                      <option value="Months">Month(s)</option>
+                      <option value="Weeks">Week(s)</option>
+                      <option value="Days">Day(s)</option>
                     </select>
                   </div>
                 </div>
@@ -203,7 +203,6 @@ class DisplayCourseDetails extends React.Component {
                   <br/>
                   <i>Period: {detail.Period}</i>
                   <br/>
-                  
                   <i>Fees: {detail.Fees}</i>
                   <br/>
                   <br/>
