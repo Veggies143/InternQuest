@@ -6,6 +6,14 @@ import Footer from '../Footer/Footer';
 
 class AfterLoginTutor extends React.Component {
 
+  goToViewRegs = () => {
+    window.location.href='./courseRegistrationDetails'
+  }
+
+  goToPostCourse = () => {
+    window.location.href='./courseDetailsForm'
+  }
+
   render() {
     return(
       <div>
@@ -15,7 +23,7 @@ class AfterLoginTutor extends React.Component {
               <CardDeck>
             <Card><br/>
             <Card.Title style={{textAlignLast:'center'}}><b>View Students</b></Card.Title><br/>
-              <Card.Img variant="top" src="https://davhizrhxzcu1.cloudfront.net/assets/long-form/college-students-in-lecture-hall-90a71b8ede7727d414495e17ecb4b4f2152b34a91593a5fca2b9e4037ccbbf09.jpg" style={{height:300}} />
+              <Card.Img onClick={this.goToViewRegs} variant="top" src="https://davhizrhxzcu1.cloudfront.net/assets/long-form/college-students-in-lecture-hall-90a71b8ede7727d414495e17ecb4b4f2152b34a91593a5fca2b9e4037ccbbf09.jpg" style={{height:300}} />
               <Card.Body>
                 <Card.Text>
                   This is a wider card with supporting text below as a natural lead-in to
@@ -28,7 +36,7 @@ class AfterLoginTutor extends React.Component {
             </Card>
             <Card><br/>
             <Card.Title style={{textAlignLast:'center'}}><b>Post Tutorials</b></Card.Title><br/>
-              <Card.Img variant="top" src="https://s35691.pcdn.co/wp-content/uploads/2019/05/tips-for-teaching-190515.jpg"  style={{height:300}}/>
+              <Card.Img onClick={this.goToPostCourse} variant="top" src="https://s35691.pcdn.co/wp-content/uploads/2019/05/tips-for-teaching-190515.jpg"  style={{height:300}}/>
               <Card.Body>
                 <Card.Text>
                   This is a wider card with supporting text below as a natural lead-in to

@@ -75,18 +75,18 @@ class ApplicationForm extends React.Component {
         <div className={styles.ApplicationForm}>
           <Card className={styles.stycard}>
           <Card.Header>
-             <h2 style={{textAlign:'center'}}>Application Details Form</h2>
+             <h2 style={{textAlign:'center'}}>Application Form</h2>
           </Card.Header>
           <Card.Body>
                 <form onSubmit={this.handleSubmit}>
 
                   <div class="form-group">
-                    <label>Why Should we hire you</label>
+                    <label>Why should we hire you ? *</label>
                     <div className="form-input">
                       <textarea
                         name="YHire"
                         class="form-control"
-                        placeholder="Specify the reason to hire you"
+                        placeholder="Your reply..."
                         cols="100"
                         rows="5"
                         value={this.state.YHire}
@@ -101,12 +101,12 @@ class ApplicationForm extends React.Component {
                   <div class="form-group">
                     <label>Are you available for the duration of "
                       {this.state.InternDetails.Duration} {this.state.InternDetails.Period} "
-                      for this internship</label>
+                      for this internship ? *</label>
                     <div className="form-input">
                       <textarea
                         name="DuraAvailable"
                         class="form-control"
-                        placeholder="Yes, I am available"
+                        placeholder="Your Availability..."
                         cols="150"
                         rows="5"
                         value={this.state.DuraAvailable}
@@ -119,11 +119,10 @@ class ApplicationForm extends React.Component {
                   <br></br>
 
                   <div className="form-group">
-                    <label>Provide a google drive link or some other
-                    link for resume details</label>
+                    <label>Provide resume link *</label>
                     <div className="form-input">
-                      <input type="text" size="70" name="ResumeLink"
-                        onChange={this.handleChange} />
+                      <input type="text" placeholder="Google Drive or Other link " size="70" name="ResumeLink"
+                        onChange={this.handleChange} required/>
                     </div>
                   </div>
 

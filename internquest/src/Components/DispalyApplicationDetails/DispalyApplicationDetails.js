@@ -52,7 +52,7 @@ class DispalyApplicationDetails extends React.Component {
         <div className={styles.DispalyApplicationDetails}data-testid="DispalyApplicationDetails">
         <Card className={styles.cstyle}>
         <Card.Header className={styles.cbody}>
-          <h3 style={{textAlign:'center'}}>DispalyApplicationDetails Component</h3>
+          <h3 style={{textAlign:'center'}}>My Application(s)</h3>
           </Card.Header>
           <Card.Body className={styles.stybody}>
           <div className="users">
@@ -60,10 +60,11 @@ class DispalyApplicationDetails extends React.Component {
             <div key={index}>
               <p><b>Employer Mail ID:</b> {detail.ApplicationDetailsAfterReview.InternDetails.EmployerDetails.email}</p>
               <p><b>Company Name:</b> {detail.ApplicationDetailsAfterReview.InternDetails.CompanyName}</p>
-              <p><b>Job role:</b> {detail.ApplicationDetailsAfterReview.InternDetails.JobRole}</p>
-              <p><b>Why hire:</b> {detail.ApplicationDetailsAfterReview.YHire}</p>
-              <p><b> Availablility :</b> {detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
-              <p><b>Review or feedback for you application:</b><br/> &nbsp;&nbsp;&nbsp;&nbsp;{detail.ReviewForApplication}</p>
+              <p><b>Job Role:</b> {detail.ApplicationDetailsAfterReview.InternDetails.JobRole}</p>
+              <p><b>Feedback on your Application:</b><br/> &nbsp;&nbsp;&nbsp;&nbsp;{detail.ReviewForApplication}</p>
+              <p><b>Your Response on Application:</b></p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<b>Why should we hire you:</b> {detail.ApplicationDetailsAfterReview.YHire}</p>
+              <p><b>&nbsp;&nbsp;&nbsp;&nbsp;Are you available for {detail.ApplicationDetailsAfterReview.InternDetails.Duration} {detail.ApplicationDetailsAfterReview.InternDetails.Period}:</b> {detail.ApplicationDetailsAfterReview.DuraAvailable}</p>
               <hr/>
             </div>
           ))}

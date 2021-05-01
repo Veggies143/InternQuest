@@ -81,12 +81,12 @@ class SingleCourseDisplay extends React.Component {
                     <br/><p >{this.state.DetailsInfo.Duration}  {this.state.DetailsInfo.Period}</p>
                   </div>
                   <div className="col-3">
-                    <i class="fa fa-money" aria-hidden="true"> Fees</i>
+                    <i class="fa fa-money" aria-hidden="true"> Course Fees</i>
                     <br/> <p>{this.state.DetailsInfo.Fees} /-</p>
                   </div>
                 </div>
                   <br/>
-                <p><b>About Yourself:</b> <br/> &emsp;&emsp;{this.state.DetailsInfo.AboutYourself}</p><br/>
+                <p><b>About {this.state.DetailsInfo.Name}:</b> <br/> &emsp;&emsp;{this.state.DetailsInfo.AboutYourself}</p><br/>
 
                 <b>Course Description: </b>
                 {this.state.CourseDescription.map((ele, index) => (
@@ -97,7 +97,7 @@ class SingleCourseDisplay extends React.Component {
                   </div>
                 ))}<br/>
 
-                <b>Benefits: </b>
+                <b>Incentives: </b>
                 {this.state.Benefits.map((ele, index) => (
                     <div key={index}>
                         <ul>
@@ -107,7 +107,7 @@ class SingleCourseDisplay extends React.Component {
                 ))}
 
                 <div class="col text-center">
-                <button className='btn btn-info btn-lg' onClick={this.onRegisterCourse}>Register for the course</button>
+                <button className='btn btn-info btn-lg' onClick={this.onRegisterCourse}>Register now</button>
                 </div>
             </Card.Body>
             </Card>

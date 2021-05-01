@@ -70,10 +70,10 @@ class EmployeeProfile extends React.Component {
                   <td><b>AGE</b></td>
                   <td>{this.state.dataToDisplay.age}</td>
                 </tr>
-                <tr >
+                {/* <tr >
                   <td><b>PASSWORD</b></td>
                   <td>{this.state.dataToDisplay.password}</td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
           </div>

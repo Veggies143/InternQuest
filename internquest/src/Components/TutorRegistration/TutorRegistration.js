@@ -83,7 +83,7 @@ class TutorRegistration extends React.Component {
   
       if (!input["email"]) {
         isValid = false;
-        errors["email"] = "Please enter your email Address.";
+        errors["email"] = "Please enter your Email Address.";
       }
 
       if (!input["name"]) {
@@ -96,7 +96,7 @@ class TutorRegistration extends React.Component {
         var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
         if (!pattern.test(input["email"])) {
           isValid = false;
-          errors["email"] = "Please enter valid email address.";
+          errors["email"] = "Please enter valid Email address.";
         }
       }
 
@@ -216,7 +216,7 @@ class TutorRegistration extends React.Component {
                           
                         <input type="submit" value="Submit" className="btn btn-success" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <button className='btn btn-info' onClick={this.onLogin}>Login ?</button>
+                        <button className='btn btn-info' onClick={this.onLogin}>Login</button>
                     </Card.Body>
                   </Col>
                 </Row>

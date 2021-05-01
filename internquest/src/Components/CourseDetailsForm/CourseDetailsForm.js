@@ -55,7 +55,7 @@ class CourseDetailsForm extends React.Component {
     .then(() => {
       console.log("Course Details Data has been sent to the server");
       this.resetUserInputs();
-      window.location.href = 'firstPage'
+      window.location.href = 'afterLoginTutor'
     })
     .catch(() => {
       console.log("Internal server error in CourseDetailsForm component");

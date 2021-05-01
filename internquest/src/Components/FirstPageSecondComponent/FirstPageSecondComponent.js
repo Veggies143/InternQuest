@@ -4,6 +4,11 @@ import styles from './FirstPageSecondComponent.module.css';
 
 class FirstPageSecondComponent extends React.Component {
 
+  goToLogin = () => {
+    alert("Please login to view details")
+    window.location.href='./login'
+  }
+
   render() {
     return(
       <div className={styles.AboutInternQuestCard} data-testid="AboutInternQuestCard">
@@ -11,28 +16,25 @@ class FirstPageSecondComponent extends React.Component {
           <CardDeck>
         <Card><br/>
         <Card.Title style={{textAlignLast:'center'}}><b>Internships</b></Card.Title><br/>
-          <Card.Img variant="top" src="https://reason.org/wp-content/uploads/dreamstime_xl_79091934-1200x630.jpg" style={{height:300}} />
+          <Card.Img onClick={this.goToLogin} variant="top" src="https://reason.org/wp-content/uploads/dreamstime_xl_79091934-1200x630.jpg" style={{height:300}} />
           <Card.Body>
             <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
+            The only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. 
             </Card.Text>
             <div class="col text-center">
-            <Button variant="primary" href='./internshipDetails'>View Internships</Button>
+            <Button variant="primary" onClick={this.goToLogin}>View Internships</Button>
             </div>
           </Card.Body>
         </Card>
         <Card><br/>
         <Card.Title style={{textAlignLast:'center'}}><b>Tutorials</b></Card.Title><br/>
-          <Card.Img variant="top" src="https://stackify.com/wp-content/uploads/2017/08/CSharp-Tutorials-Header-min-1280x720.jpg"  style={{height:300}}/>
+          <Card.Img onClick={this.goToLogin} variant="top" src="https://stackify.com/wp-content/uploads/2017/08/CSharp-Tutorials-Header-min-1280x720.jpg"  style={{height:300}}/>
           <Card.Body>
             <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This card has even longer content than the first to
-              show that equal height action.
+            In order to create an engaging learning experience, the role of instructor is optional, but the role of learner is essential.
             </Card.Text>
             <div class="col text-center">
-            <Button variant="primary" href='./courseDetails'>View Tutorials</Button>
+            <Button variant="primary" onClick={this.goToLogin}>View Tutorials</Button>
             </div>
           </Card.Body>
         </Card>

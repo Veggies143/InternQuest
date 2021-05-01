@@ -132,7 +132,7 @@ class DisplayCourseDetails extends React.Component {
           <div className="row">
 
             <div className="col-4">
-              <b>Keep your preferences</b> 
+              <b>SELECT YOUR PREFERENCES</b> 
               <div>
                 <TagsSelect
                   label="Courses"
@@ -155,7 +155,7 @@ class DisplayCourseDetails extends React.Component {
                   <div>
                     <input 
                       name="MaxFee" 
-                      placeholder="Maximum Fee" 
+                      placeholder="Enter Maximum Fee" 
                       class="form-control" 
                       pattern="[0-9]*"
                       value={this.state.MaxFee} 
@@ -165,11 +165,11 @@ class DisplayCourseDetails extends React.Component {
                 </div>
 
                 <div class="form-group">
-                  <label>Maximum Duration of the course</label>
+                  <label>Maximum Duration of Tutorial</label>
                   <div>
                     <input 
                       name="MaxDuration" 
-                      placeholder="Maximum Duration of course" 
+                      placeholder="Enter Maximum Duration of Tutorial" 
                       class="form-control" 
                       pattern="[0-9]*"
                       value={this.state.MaxDuration} 
@@ -179,7 +179,7 @@ class DisplayCourseDetails extends React.Component {
                 </div>
 
                 <div class="form-group">
-                  <label>Maximum Period of course</label>
+                  <label>Maximum Period of Tutorial</label>
                   <div>
                     <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
                       <option value="Months">Month/s</option>
@@ -189,7 +189,7 @@ class DisplayCourseDetails extends React.Component {
                   </div>
                 </div>
 
-                <button class="btn btn-info" onClick={this.sortCourses}>Sort Courses</button>
+                <button class="btn btn-info" onClick={this.sortCourses}>Sort Preferences</button>
 
               </form>
             </div>
@@ -203,14 +203,8 @@ class DisplayCourseDetails extends React.Component {
                   <br/>
                   <i>Period: {detail.Period}</i>
                   <br/>
-                  <p>About Yourself: {detail.AboutYourself}</p>
-                  <p>Course Description: {detail.CourseDescription}</p>
-                  <p>Benefits: {detail.Benefits}</p>
+                  
                   <i>Fees: {detail.Fees}</i>
-                  <br/>
-                  <b>Date: {detail.date}</b> 
-                  <br/>
-                  <h2>{detail.TutorDetails.email}</h2>
                   <br/>
                   <br/>
                 </div>

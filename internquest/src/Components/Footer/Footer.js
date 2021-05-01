@@ -8,8 +8,8 @@ class Footer extends React.Component {
     return(
       <div className="FPage">
       <footer className="text-center text-white" >
-        <div className="container pt-4">
-          <section className="mb-4">
+        <div className="container pt-2">
+          <section className="mb-2">
             <a
               className="btn btn-link btn-floating btn-lg text-dark m-1"
               href="/errorPage"

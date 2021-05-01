@@ -114,7 +114,7 @@ class LoginPage extends React.Component {
   
       if (!input["email"]) {
         isValid = false;
-        errors["email"] = "Please enter your email Address.";
+        errors["email"] = "Please enter your Email Address.";
       }
   
       if (typeof input["email"] !== "undefined") {
@@ -122,7 +122,7 @@ class LoginPage extends React.Component {
         var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
         if (!pattern.test(input["email"])) {
           isValid = false;
-          errors["email"] = "Please enter valid email address.";
+          errors["email"] = "Please enter valid Email address.";
         }
       }
   
@@ -175,7 +175,7 @@ class LoginPage extends React.Component {
             <Card.Body>               
               <form onSubmit={this.handleSubmit}>
                 <div  className="form-group">
-                  <label><b>Type of user</b></label>
+                  <label><b>Login As</b></label>
                   <div>
                     <select 
                       type="text" 
@@ -193,7 +193,7 @@ class LoginPage extends React.Component {
                 </div>
 
                 <div className="form-group">
-                  <label><b>Email Address:</b></label>
+                  <label><b>Email Address</b></label>
                   <input 
                     type="text" 
                     name="email" 
@@ -207,7 +207,7 @@ class LoginPage extends React.Component {
                 </div>
 
                 <div className="form-group">
-                  <label><b>Password:</b></label>
+                  <label><b>Password</b></label>
                   <input 
                     name="password"
                     type="password" 

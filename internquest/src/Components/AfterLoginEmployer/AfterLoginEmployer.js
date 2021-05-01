@@ -6,6 +6,14 @@ import Footer from '../Footer/Footer';
 
 class AfterLoginEmployer extends React.Component {
 
+  goToPostIntern = () => {
+    window.location.href='./internshipForm'
+  }
+
+  goToReviewApp = () => {
+    window.location.href='./employerApplicantDetails'
+  }
+
   render() {
     return(
       <div>
@@ -15,7 +23,7 @@ class AfterLoginEmployer extends React.Component {
               <CardDeck>
             <Card><br/>
             <Card.Title style={{textAlignLast:'center'}}><b>View Applicants</b></Card.Title><br/>
-              <Card.Img variant="top" src="https://cache.careers360.mobi/media/presets/860X430/presets/860X430/article_images/2020/1/16/AIHMCT-WAT_Application-Form.webp" style={{height:300}} />
+              <Card.Img onClick={this.goToReviewApp} variant="top" src="https://cache.careers360.mobi/media/presets/860X430/presets/860X430/article_images/2020/1/16/AIHMCT-WAT_Application-Form.webp" style={{height:300}} />
               <Card.Body>
                 <Card.Text>
                   This is a wider card with supporting text below as a natural lead-in to
@@ -28,7 +36,7 @@ class AfterLoginEmployer extends React.Component {
             </Card>
             <Card><br/>
             <Card.Title style={{textAlignLast:'center'}}><b>Post Internship</b></Card.Title><br/>
-              <Card.Img variant="top" src="https://s3.amazonaws.com/fjwp/blog/wp-content/uploads/2013/04/30195646/20-Companies-Offering-Flexible-Jobs-1024x518.jpg"  style={{height:300}}/>
+              <Card.Img variant="top" onClick={this.goToPostIntern} src="https://s3.amazonaws.com/fjwp/blog/wp-content/uploads/2013/04/30195646/20-Companies-Offering-Flexible-Jobs-1024x518.jpg"  style={{height:300}}/>
               <Card.Body>
                 <Card.Text>
                   This is a wider card with supporting text below as a natural lead-in to

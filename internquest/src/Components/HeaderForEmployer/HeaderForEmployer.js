@@ -25,7 +25,7 @@ class HeaderForEmployer extends React.Component {
                   <a className="nav-link" href='/employerProfile'>PROFILE</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href='/login'>LOGOUT</a>
+                  <a className="nav-link" href='/beforeLoginPage'>LOGOUT</a>
                 </li>
               </ul>
             </div>

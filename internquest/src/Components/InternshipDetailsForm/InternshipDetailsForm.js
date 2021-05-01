@@ -63,7 +63,7 @@ class InternshipDetailsForm extends React.Component {
     .then(() => {
       console.log("Internship Details Data has been sent to the server");
       this.resetUserInputs();
-      window.location.href = "/firstPage"
+      window.location.href = "/afterLoginEmployer"
     })
     .catch(() => {
       console.log("Internal server error in InternshipDetailsForm component");
@@ -97,7 +97,7 @@ class InternshipDetailsForm extends React.Component {
         
           <Card className={styles.stycard}>
             <Card.Header>
-              <h2 style={{textAlign:'center'}}>Internship Details Form</h2>
+              <h2 style={{textAlign:'center'}}>Posting Internship Details</h2>
             </Card.Header>
             <Card.Body>
               <form onSubmit={this.handleSubmit}>

@@ -25,7 +25,7 @@ class HeaderForTutor extends React.Component {
                   <a className="nav-link" href='/tutorProfile'>PROFILE</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href='/login'>LOGOUT</a>
+                  <a className="nav-link" href='/beforeLoginPage'>LOGOUT</a>
                 </li>
               </ul>
             </div>

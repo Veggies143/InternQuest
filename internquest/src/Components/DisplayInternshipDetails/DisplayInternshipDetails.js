@@ -13,7 +13,7 @@ class DisplayInternshipDetails extends React.Component {
       Details: [],
       SortedDetails: [],
       options: [
-        'Java', 'HTML', 'CSS', 'Python', 'Django', 'Javascript', 'Machine Learning', 'SQL', 'Music'
+        'Java', 'HTML', 'CSS', 'Python', 'Django', 'JavaScript', 'Machine Learning', 'SQL', 'Music'
       ],
       selectedValues: [],
       MinStipend: '',
@@ -162,7 +162,7 @@ class DisplayInternshipDetails extends React.Component {
           <div className="row">
 
             <div className="col-4" id={styles.sortInternships}>
-              <b>Keep your preferences</b> 
+              <h3>SELECT YOUR PREFERENCES</h3> 
               <div>
                 <TagsSelect
                   label="Skills"
@@ -181,11 +181,11 @@ class DisplayInternshipDetails extends React.Component {
               <form onSubmit={this.handleSubmitOnSort}>
 
                 <div class="form-group">
-                  <label>Minimum stipend wanted</label>
+                  <label>Minimum Stipend</label>
                   <div>
                     <input 
                       name="MinStipend" 
-                      placeholder="Minimum Stipend" 
+                      placeholder="Enter Minimum Stipend" 
                       class="form-control" 
                       pattern="[0-9]*"
                       value={this.state.MinStipend} 
@@ -199,7 +199,7 @@ class DisplayInternshipDetails extends React.Component {
                   <div>
                     <input 
                       name="Location" 
-                      placeholder="Location" 
+                      placeholder="Enter Location" 
                       class="form-control" 
                       value={this.state.Location} 
                       onChange={this.handleChangeOnSubmitForm} >
@@ -208,22 +208,22 @@ class DisplayInternshipDetails extends React.Component {
                 </div>
 
                 <div class="form-group">
-                  <label>Mode of internship</label>
+                  <label>Mode of Internship</label>
                   <div>
                     <select name='ModeOfInternship' class="form-control" value={this.state.ModeOfInternship} onChange={this.handleChangeOnSubmitForm} >
                       <option value="Both">Both</option>
                       <option value="WFH">Work From Home</option>
-                      <option value="Remote">Remote</option>
+                      <option value="Remote">Office</option>
                     </select>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label>Maximum Duration of the internship</label>
+                  <label>Maximum Duration of Internship</label>
                   <div>
                     <input 
                       name="MaxDuration" 
-                      placeholder="Maximum Duration of internship" 
+                      placeholder="Enter Maximum Duration of Internship" 
                       class="form-control" 
                       pattern="[0-9]*"
                       value={this.state.MaxDuration} 
@@ -238,12 +238,12 @@ class DisplayInternshipDetails extends React.Component {
                     <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
                       <option value="Months">Month/s</option>
                       <option value="Weeks">Week/s</option>
-                      <option value="Days">Days</option>
+                      <option value="Days">Day/s</option>
                     </select>
                   </div>
                 </div>
 
-                <button class="btn btn-info" onClick={this.sortInternships}>Sort Internships</button>
+                <button class="btn btn-info" onClick={this.sortInternships}>Sort Preferences</button>
 
               </form>
               
@@ -252,23 +252,15 @@ class DisplayInternshipDetails extends React.Component {
             <div className="col-8" id={styles.details}>
               <b>Number of internships: {this.state.SortedDetails.length}</b>
               {this.state.SortedDetails.map((detail, index) => (
-                <div key={index}>
+                <div value={detail} onClick={this.displayInternship.bind(this, detail)} key={index}>
                   
-                  <h1 value={detail} onClick={this.displayInternship.bind(this, detail)}> Company Name: {detail.CompanyName} </h1>
-                  {/* <p>About Company: {detail.AboutCompany}</p>
+                  <h1> Company Name: {detail.CompanyName} </h1>
                   <h2>Job Role: {detail.JobRole}</h2>
-                  <p>Job Description: {detail.JobDescription}</p> */}
                   <i>Duration: {detail.Duration}</i>
                   <br/>
                   <i>Period: {detail.Period}</i>
                   <br/>
-                  <b>SkillsRequired: {detail.SkillsRequired}</b>
-                  <br/>
-                  {/* <p>Benefits: {detail.Benefits}</p> */}
                   <i>Stipend: {detail.Stipend}</i>
-                  <br/>
-                  {/* <b>Date: {detail.date}</b>  */}
-                  <br/>
                   <br/>
                   <br/>
                 </div>

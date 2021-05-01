@@ -51,10 +51,10 @@ class SingleInternshipDisplay extends React.Component {
             </Card.Header>
            <Card.Body>
                
-                <p style={{fontSize:20}}> &emsp;&emsp;<b>{this.state.DetailsInfo.JobRole}</b></p>
-                <p > &emsp;&emsp; {this.state.DetailsInfo.CompanyName}</p>
+                <p style={{fontSize:20}}> &emsp;<b>{this.state.DetailsInfo.JobRole}</b></p>
+                <p > &emsp;&emsp;( {this.state.DetailsInfo.CompanyName} )</p>
                 
-                <p>  &emsp;&emsp;Mode of work:  <b style={{fontSize:20}} >{this.state.DetailsInfo.JobRole}</b></p>
+                <p>  &emsp;&emsp;Mode of Internship:  <b style={{fontSize:20}} >{this.state.DetailsInfo.JobRole}</b></p>
                 &emsp;&emsp;
                 <i class="fa fa-map-marker" aria-hidden="true"> {this.state.DetailsInfo.JobRole}</i>
                 <br/><br/>
@@ -67,7 +67,7 @@ class SingleInternshipDisplay extends React.Component {
                   </div>
                   <div className="col-3">
                     <i class="fa fa-money" aria-hidden="true"> Stipend</i>
-                    <br/> <p>{this.state.DetailsInfo.Stipend} /-</p>
+                    <br/> <p>{this.state.DetailsInfo.Stipend} </p>
                   </div>
                 </div>
       
@@ -98,7 +98,7 @@ class SingleInternshipDisplay extends React.Component {
                       </div>
                     </div>
                     
-                    <b style={{fontSize:20}}>Benefits: </b><br/>
+                    <b style={{fontSize:20}}>Incentives: </b><br/>
                     {this.state.Benefits.map((ele, index) => (
                       <div key={index}>
                         <ul>
@@ -108,7 +108,7 @@ class SingleInternshipDisplay extends React.Component {
                     ))}
                     <br/>
 
-                    <b style={{fontSize:20}}>Minimum Requirements: </b><br/>
+                    <b style={{fontSize:20}}>Expected Requirements: </b><br/>
                     {this.state.Benefits.map((ele, index) => (
                       <div key={index}>
                         <ul>
