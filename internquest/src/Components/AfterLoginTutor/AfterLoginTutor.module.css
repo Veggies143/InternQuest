@@ -1,1 +1,7 @@
-.AfterLoginTutor {}
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
+@media all and (min-width: 480px) {
+    .AfterLoginTutor {
+        font-family: 'Antonio', sans-serif;
+        font-family: 'Playfair Display', serif;
+    }
+}

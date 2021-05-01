@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './AfterLoginApplicant.module.css';
 import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
+import FirstPageSecondComponent from '../FirstPageSecondComponent/FirstPageSecondComponent';
 import Footer from '../Footer/Footer';
 
 class AfterLoginApplicant extends React.Component {
@@ -9,9 +9,7 @@ class AfterLoginApplicant extends React.Component {
     return(
       <div>
         <HeaderForApplicant/>
-        <div className={styles.AfterLoginApplicant} data-testid="AfterLoginApplicant">
-          AfterLoginApplicant Component
-        </div>
+        <FirstPageSecondComponent/>
         <Footer/>
       </div>
     )

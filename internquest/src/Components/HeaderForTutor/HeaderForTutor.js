@@ -8,7 +8,7 @@ class HeaderForTutor extends React.Component {
       <div className="Pageh">
         <nav className="navbar navbar-expand-lg ">
           <img src="https://i.ibb.co/KwJSwKG/Screenshot-352.png" alt="logo"/>
-          <p className="navbar-brand">InternQuest</p>
+          <a className="navbar-brand" href='./afterLoginTutor'>InternQuest</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
