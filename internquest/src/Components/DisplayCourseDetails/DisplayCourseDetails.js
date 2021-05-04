@@ -4,6 +4,7 @@ import axios from 'axios';
 import { TagsSelect } from 'react-select-material-ui';
 import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
 import Footer from '../Footer/Footer';
+import {Card} from 'react-bootstrap';
 
 class DisplayCourseDetails extends React.Component {
   state = {
@@ -28,7 +29,6 @@ class DisplayCourseDetails extends React.Component {
       const data=response.data;
       this.setState({Details:data});
       this.setState({SortedDetails:data});
-      console.log("Data received!!");
     })
     .catch(() => {
       alert("Error retreving data");
@@ -127,12 +127,14 @@ class DisplayCourseDetails extends React.Component {
     return(
       <div>
         <HeaderForApplicant/>
-        <div className={styles.DispalyCourseDetails} data-testid="DispalycourseDetails">
-
-          <div className="row">
-
-            <div className="col-4">
-              <b>SELECT YOUR PREFERENCES</b> 
+        <div className={styles.DispalyCourseDetails}data-testid="DispalycourseDetails">
+        <div className={styles.fullcard}>
+          <div className="row" >
+            
+            <div className="col-4" style={{paddingTop:30}}>
+              <Card className={styles.left}>
+                <Card.Body>
+                <b><u style={{fontSize:18, textAlign:'center',color:'#00b09b'}}>SELECT YOUR PREFERENCES</u></b>
               <div>
                 <TagsSelect
                   label="Courses"
@@ -153,35 +155,42 @@ class DisplayCourseDetails extends React.Component {
                 <div class="form-group">
                   <label>Maximum Fee</label>
                   <div>
-                    <input 
-                      name="MaxFee" 
-                      placeholder="Enter Maximum Fee" 
-                      class="form-control" 
+                    <input
+                      name="MaxFee"
+                      placeholder="Enter Maximum Fee"
+                      class="form-control"
                       pattern="[0-9]*"
-                      value={this.state.MaxFee} 
+                      value={this.state.MaxFee}
                       onChange={this.handleChangeOnSubmitForm} >
                     </input>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label>Maximum Duration of Tutorial</label>
+                <div className="row">
+                  <div className="col">
+
+                  <div class="form-group">
+                  <label>Maximum Duration </label>
                   <div>
-                    <input 
-                      name="MaxDuration" 
-                      placeholder="Enter Maximum Duration of Tutorial" 
-                      class="form-control" 
+                    <input
+                      name="MaxDuration"
+                      placeholder="Enter Maximum Duration of Tutorial"
+                      class="form-control"
                       pattern="[0-9]*"
-                      value={this.state.MaxDuration} 
+                      value={this.state.MaxDuration}
                       onChange={this.handleChangeOnSubmitForm} >
                     </input>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label>Maximum Period of Tutorial</label>
+                  </div>
+                  <div className="col">
+                    
+                  <div class="form-group">
+                  <label>Maximum Period </label>
                   <div>
-                    <select name='MaxPeriod' class="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
+                    <select name='MaxPeriod' class="form-control"value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm}
+>
                       <option value="Months">Month(s)</option>
                       <option value="Weeks">Week(s)</option>
                       <option value="Days">Day(s)</option>
@@ -189,28 +198,49 @@ class DisplayCourseDetails extends React.Component {
                   </div>
                 </div>
 
-                <button class="btn btn-info" onClick={this.sortCourses}>Sort Preferences</button>
-
+                    </div>
+                </div>             
+          
+                <div class="col text-center">
+                <button class="btn btn-info"onClick={this.sortCourses}>Sort Preferences</button>
+                </div>
               </form>
+              </Card.Body>
+              </Card>
             </div>
+           
 
-            <div className="col-8">
+            <div className="col-8" >
+            <div className={styles.hcard}>
+                <Card.Body>
+                  <div>
               {this.state.SortedDetails.map((detail, index) => (
                 <div  value={detail} onClick={this.displayCourse.bind(this, detail)} key={index}>
-                  <h1>Name: {detail.Name}</h1>
-                  <p>Course Offered: {detail.CourseOffered}</p>
-                  <i>Duration: {detail.Duration}</i>
-                  <br/>
-                  <i>Period: {detail.Period}</i>
-                  <br/>
-                  <i>Fees: {detail.Fees}</i>
-                  <br/>
+                  <Card >
+                    <Card.Body>
+                    <p style={{fontSize:20,color:'#89253e'}}><b>{detail.CourseOffered}</b></p>
+                  <p>By <b>{detail.Name}</b></p>
+                  <div className="row">
+                  <div className="col-3">
+                    <i class="fa fa-calendar"> Duration</i>
+                    <br/><p >{detail.Duration} {detail.Period}</p>
+                  </div>
+                  <div className="col-3">
+                    <i class="fa fa-money" aria-hidden="true"> Fees</i>
+                    <br/> <p>{detail.Fees} /-</p>
+                  </div>
+                </div>
+                </Card.Body>
+                  </Card>
                   <br/>
                 </div>
               ))}
+              </div>
+              </Card.Body>
+              </div>
             </div>
           </div>
-          
+          </div>
         </div>
         <Footer/>
       </div>

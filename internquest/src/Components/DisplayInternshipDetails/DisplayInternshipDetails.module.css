@@ -1,1 +1,52 @@
-.DisplayInternshipDetails {}
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Playfair+Display&display=swap');
+@media all and (min-width: 480px) {
+    .DisplayInternshipDetails {
+        font-family: 'Antonio', sans-serif;
+        font-family: 'Playfair Display', serif;
+        padding-top: 20px;
+    }
+
+    .fulleff{
+        font-family: 'Antonio', sans-serif;
+        font-family: 'Playfair Display', serif;
+        padding-top: 6px;
+        height: 550px;
+        font-size:15px;
+        background-color: #eef2f3;
+        line-height: 1em;
+        padding-left:50px;
+       
+    }
+    body {overflow-x: hidden;}
+
+    /* #details{} */
+
+     /* .left{
+        width:400px;
+        height:500px;
+        overflow-y: scroll;
+        flex: 1;
+    }  */
+    .hcard{
+        width:700px;
+         height:490px;
+         overflow-y: scroll; 
+         line-height: 1em;
+         -webkit-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.05);
+      -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.05);
+      box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.05);
+        
+        
+    }
+    .left{
+        line-height: 1em;
+        -webkit-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.05);
+      -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.05);
+      box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.05);
+      
+    }
+
+    /* #sortInternships {
+        
+    } */
+}

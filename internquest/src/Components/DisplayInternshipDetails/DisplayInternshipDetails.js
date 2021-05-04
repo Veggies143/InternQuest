@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './DisplayInternshipDetails.module.css';
 import axios from 'axios';
 import { TagsSelect } from 'react-select-material-ui';
+import {Card} from 'react-bootstrap';
 import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
 import Footer from '../Footer/Footer';
 
@@ -158,12 +159,14 @@ class DisplayInternshipDetails extends React.Component {
     return(
       <div>
         <HeaderForApplicant/>
-        <div className={styles.DispalyInternshipDetails} data-testid="DispalyInternshipDetails">
-
-          <div className="row">
-
-            <div className="col-4" id={styles.sortInternships}>
-              <h3>SELECT YOUR PREFERENCES</h3> 
+        <div className={styles.DispalyInternshipDetails}data-testid="DispalyInternshipDetails">
+          <div className={styles.fulleff}>
+          <div className="row" >
+            
+            <div className="col-4" id={styles.sortInternships} style={{paddingTop:30}} >
+            <Card className={styles.left} >
+              <Card.Body >
+              <b><u style={{fontSize:18, textAlign:'center',color:'#00b09b'}}>SELECT YOUR PREFERENCES</u></b>
               <div>
                 <TagsSelect
                   label="Skills"
@@ -182,93 +185,115 @@ class DisplayInternshipDetails extends React.Component {
               <form onSubmit={this.handleSubmitOnSort}>
 
                 <div className="form-group">
-                  <label>Minimum Stipend</label>
+                  <label><b>Minimum Stipend</b></label>
                   <div>
-                    <input 
-                      name="MinStipend" 
-                      placeholder="Enter Minimum Stipend" 
-                      className="form-control" 
+                    <input
+                      name="MinStipend"
+                      placeholder="Enter Minimum Stipend"
+                      className="form-control"
                       pattern="[0-9]*"
-                      value={this.state.MinStipend} 
+                      value={this.state.MinStipend}
                       onChange={this.handleChangeOnSubmitForm} >
                     </input>
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label>Location</label>
+                  <label><b>Location</b></label>
                   <div>
-                    <input 
-                      name="Location" 
-                      placeholder="Enter Location" 
-                      className="form-control" 
-                      value={this.state.Location} 
+                    <input
+                      name="Location"
+                      placeholder="Enter Location"
+                      className="form-control"
+                      value={this.state.Location}
                       onChange={this.handleChangeOnSubmitForm} >
                     </input>
                   </div>
                 </div>
 
-                <div className="form-group">
-                  <label>Mode of Internship</label>
-                  <div>
-                    <select name='ModeOfInternship' className="form-control" value={this.state.ModeOfInternship} onChange={this.handleChangeOnSubmitForm} >
-                      <option value="Both">Both</option>
-                      <option value="WFH">Work From Home</option>
-                      <option value="Remote">Office</option>
-                    </select>
-                  </div>
-                </div>
+                  <div className="row">
+                    <div className="col">
 
-                <div className="form-group">
-                  <label>Maximum Duration of Internship</label>
+                    <div className="form-group">
+                  <label><b>Maximum Period</b></label>
                   <div>
-                    <input 
-                      name="MaxDuration" 
-                      placeholder="Enter Maximum Duration of Internship" 
-                      className="form-control" 
-                      pattern="[0-9]*"
-                      value={this.state.MaxDuration} 
-                      onChange={this.handleChangeOnSubmitForm} >
-                    </input>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label>Maximum Period of Internship</label>
-                  <div>
-                    <select name='MaxPeriod' className="form-control" value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm} >
+                    <select name='MaxPeriod' className="form-control"value={this.state.MaxPeriod} onChange={this.handleChangeOnSubmitForm}
+>
                       <option value="Months">Month(s)</option>
                       <option value="Weeks">Week(s)</option>
                       <option value="Days">Day(s)</option>
                     </select>
                   </div>
                 </div>
+              </div>
+                    <div className="col">
+                      
+                    <div className="form-group">
+                  <label><b> Maximum Duration </b></label>
+                  <div>
+                    <input
+                      name="MaxDuration"
+                      placeholder="Enter Maximum Duration of Internship"
+                      className="form-control"
+                      pattern="[0-9]*"
+                      value={this.state.MaxDuration}
+                      onChange={this.handleChangeOnSubmitForm} >
+                    </input>
+                  </div>
+                </div>
 
-                <button className="btn btn-info" onClick={this.sortInternships}>Sort Preferences</button>
-
+                    </div>
+                  </div>
+                    <div className="form-group">
+                  <label><b>Mode of Internship</b></label>
+                  <div>
+                    <select name='ModeOfInternship'className="form-control" value={this.state.ModeOfInternship}onChange={this.handleChangeOnSubmitForm} >
+                      <option value="Both">Both</option>
+                      <option value="WFH">Work From Home</option>
+                      <option value="Remote">Office</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col text-center">
+                <button className="btn btn-info"onClick={this.sortInternships}>Sort Preferences</button>
+                </div>
               </form>
-              
+
+              </Card.Body>
+              </Card>
             </div>
-              
+          
+
             <div className="col-8" id={styles.details}>
-              <b>Number of internships: {this.state.SortedDetails.length}</b>
+            <p style={{fontSize:20 , textAlign:'center',color:' #e96443'}}>Number of internships: <b>{this.state.SortedDetails.length}</b></p>
+              <div className={styles.hcard}>
+
               {this.state.SortedDetails.map((detail, index) => (
-                <div value={detail} onClick={this.displayInternship.bind(this, detail)} key={index}>
-                  
-                  <h3> Company Name: {detail.CompanyName} </h3>
-                  <b>Skills: {detail.SkillsRequired}</b>
-                  <br/>
-                  <i>Job Role: {detail.JobRole}</i>
-                  <br/>
-                  <i>Duration: {detail.Duration} {detail.Period}</i>
-                  <br/>
-                  <i>Stipend: {detail.Stipend}</i>
-                  <br/>
+                <div value={detail}onClick={this.displayInternship.bind(this, detail)} key={index}>
+                  <Card>
+                    <Card.Body>
+                   <p style={{fontSize:25,color:'#89253e'}}>{detail.JobRole} </p>
+                  <p>In <b> {detail.CompanyName}</b></p>
+                  <div className="row">
+                  <div className="col-3">
+                    <i class="fa fa-calendar"> Duration</i>
+                    <br/><p >{detail.Duration} {detail.Period}</p>
+                  </div>
+                  <div className="col-3">
+                    <i class="fa fa-money" aria-hidden="true"> Stipend</i>
+                    <br/> <p>{detail.Stipend} /-</p>
+                  </div>
+                </div>
+                </Card.Body>
+                  </Card>
                   <br/>
                 </div>
               ))}
+              
+              </div>
             </div>
 
+          </div>
           </div>
         </div>
         <Footer/>

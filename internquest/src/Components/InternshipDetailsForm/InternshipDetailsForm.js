@@ -129,7 +129,7 @@ class InternshipDetailsForm extends React.Component {
                         required>
                       </input>
                     </div>
-                    <br/>
+                    {/* <br/> */}
                 </div>
 
                 <div class="form-group">
@@ -146,7 +146,7 @@ class InternshipDetailsForm extends React.Component {
                       required>
                     </textarea>
                     </div>
-                  <br/>
+                  {/* <br/> */}
                 </div>
 
 
@@ -166,7 +166,7 @@ class InternshipDetailsForm extends React.Component {
                                 required>
                               </input>
                             </div>
-                            <br/>
+                            {/* <br/> */}
                           </div>
                         </div>
                       <div className="col">
@@ -179,7 +179,7 @@ class InternshipDetailsForm extends React.Component {
                               <option value="Days">Day(s)</option>
                             </select>
                           </div>
-                          <br/>
+                          {/* <br/> */}
                         </div>
                       </div>
                     </div>
@@ -200,7 +200,7 @@ class InternshipDetailsForm extends React.Component {
                       required>
                     </textarea>
                   </div>
-                  <br/>
+                  {/* <br/> */}
                 </div>
 
 
@@ -220,7 +220,7 @@ class InternshipDetailsForm extends React.Component {
                                 required>
                               </input>
                           </div>
-                          <br/>
+                          {/* <br/> */}
                         </div>
                       </div>
                       <div className="col">
@@ -236,7 +236,7 @@ class InternshipDetailsForm extends React.Component {
                                 required>
                               </input>
                             </div>
-                            <br/>
+                            {/* <br/> */}
                           </div>
                       </div>
                     </div>
@@ -256,7 +256,7 @@ class InternshipDetailsForm extends React.Component {
                         required>
                       </textarea>
                     </div>
-                    <br/>
+                    {/* <br/> */}
                   </div>
 
 
@@ -268,7 +268,7 @@ class InternshipDetailsForm extends React.Component {
                         <option value="Remote">Office</option>
                       </select>
                     </div>
-                    <br/>
+                    {/* <br/> */}
                   </div>
                 
                     <div class="form-group">
@@ -284,7 +284,7 @@ class InternshipDetailsForm extends React.Component {
                           onChange={this.handleChange} >
                         </textarea>
                       </div>
-                      <br/>
+                      {/* <br/> */}
                     </div>
 
                     <div class="form-group">
@@ -301,7 +301,7 @@ class InternshipDetailsForm extends React.Component {
                           required>
                         </textarea>
                       </div>
-                      <br/>
+                      {/* <br/> */}
                     </div>
 
                     <div className="row">

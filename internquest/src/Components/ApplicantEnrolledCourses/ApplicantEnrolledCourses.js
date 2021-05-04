@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ApplicantEnrolledCourses.module.css';
 import axios from 'axios';
+import {Card} from 'react-bootstrap';
 import HeaderForApplicant from '../HeaderForApplicant/HeaderForApplicant';
 import Footer from '../Footer/Footer';
 
@@ -49,16 +50,31 @@ class ApplicantEnrolledCourses extends React.Component {
       <div>
         <HeaderForApplicant/>
         <div className={styles.ApplicantEnrolledCourses}>
-          <h1>Applicant Enrolled Courses Details</h1>
+        <Card className={styles.cstyle}>
+            <Card.Header className={styles.cbody}>
+              <h3 style={{textAlign:'center'}}>My Enrolled Courses Details</h3>
+              </Card.Header>
+          <Card.Body className={styles.stybody}>
           {this.state.DisplayRegDetails.map((detail, index) => (
             <div key={index}>
-              <p><b>Tutor Mail ID:</b> {detail.DetailsInfo.TutorDetails.email}</p>
+              <p><b>Tutor Name:</b> {detail.DetailsInfo.Name}</p>
+              <p><b>Tutor Mail ID: </b>{detail.DetailsInfo.TutorDetails.email}</p>
               <p><b>Course Offered:</b> {detail.DetailsInfo.CourseOffered}</p>
-              {/* <p><b>Job Role:</b> {detail.ApplicationDetailsAfterReview.InternDetails.JobRole}</p>
-              <p><b>Feedback on your Application:</b><br/> &nbsp;&nbsp;&nbsp;&nbsp;{detail.ReviewForApplication}</p> */}
+              <div className="row">
+                  <div className="col-3">
+                    <i class="fa fa-calendar"> Duration</i>
+                    <br/><p >{detail.DetailsInfo.Duration} {detail.DetailsInfo.Period}</p>
+                  </div>
+                  <div className="col-3">
+                    <i class="fa fa-money" aria-hidden="true"> Stipend</i>
+                    <br/> <p>{detail.DetailsInfo.Fees} /-</p>
+                  </div>
+                </div>
               <hr/>
             </div>
           ))}
+          </Card.Body>
+        </Card>
         </div>
         <Footer/>
       </div>

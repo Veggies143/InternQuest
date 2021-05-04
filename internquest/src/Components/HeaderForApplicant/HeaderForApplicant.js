@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeaderForApplicant.css';
-import { Dropdown } from 'react-bootstrap';
+//import { Dropdown } from 'react-bootstrap';
 
 class HeaderForApplicant extends React.Component {
 
@@ -22,17 +22,32 @@ class HeaderForApplicant extends React.Component {
                 <li className="nav-item">
                   <a className="nav-link" href='/courseDetails'>TUTORIALS</a>
                 </li>
-                {/* <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="/employeeRegistration" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MORE</a>
+
+                {/* <li className="nav-item">
+                  <a className="nav-link" href='/courseDetails'>MY APPLICATIONS</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href='/courseDetails'>MY COURSE REGISTRATIONS</a>
+                </li> */}
+
+                <li className="nav-item dropdown">
+                  <a className="nav-link dropdown-toggle" href="/employeeRegistration" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    APPLICATIONS
+                  </a>
                   <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href='/employeeRegistration'>MY APPLICATIONS</a>
-                    <a className="dropdown-item" href='/employeeRegistration'>MY COURSE REGISTRATIONS</a>
-                    <a className="dropdown-item" href='/employerRegistration'>PROFILE</a>
-                    <a className="dropdown-item" href='/tutorRegistration'>LOGOUT</a>
+                    <a className="dropdown-item" href='/applicationDetails'>INTERNSHIP APPLICATIONS</a>
+                    <a className="dropdown-item" href='/applicantEnrolledCourses'>COURSE REGISTRATIONS</a>
                   </div>
                 </li>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
-                <Dropdown>
+
+                <li className="nav-item">
+                  <a className="nav-link" href='/employeeProfile'>PROFILE</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href='/beforeLoginPage'>LOGOUT</a>
+                </li>
+
+                {/* <Dropdown>
                   <Dropdown.Toggle 
                   variant="secondary btn-sm" 
                   id="dropdown-basic">
@@ -44,7 +59,7 @@ class HeaderForApplicant extends React.Component {
                       <Dropdown.Item href='/employeeProfile'>PROFILE</Dropdown.Item>
                       <Dropdown.Item href='/beforeLoginPage'>LOGOUT</Dropdown.Item>
                   </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown> */}
               </ul> 
             </div>
           </div>

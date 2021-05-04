@@ -26,18 +26,6 @@ class EmployerApplicantDetails extends React.Component {
 
     this.getApplicationDetailsFromMongo();
 
-    //setTimeout(() => {this.getApplications()},500);
-
-    // axios.get('/api/getResumeDetails')
-    // .then((response) => {
-    //   const da=response.data;
-    //   this.setState({ResumeDetails:da});
-    //   console.log("Data received!!");
-    // })
-    // .catch(() => {
-    //   alert("Error retreving data");
-    // });
-
   }
 
   getApplicationDetailsFromMongo = () => {

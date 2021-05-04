@@ -54,16 +54,13 @@ class LoginPage extends React.Component {
         }
         else if(this.state.input["userType"] === "Employer") {
           this.state.EmployerProfileDetails.forEach(element => {
-            //console.log(element.email+"   "+element.password);
             if(element.email === this.state.input["email"] && element.password === this.state.input["password"]) {
               flag=true;
               this.setState({invalidDetails : ""});
               window.location.href = '/afterLoginEmployer'
-              //alert("Login successfull");
             }
           });
           if(!flag) {
-            //alert("Login not successfull");
             this.setState({invalidDetails : "Please enter correct login credentials"});
           }
         }

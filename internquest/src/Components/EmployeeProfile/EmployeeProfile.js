@@ -42,41 +42,39 @@ class EmployeeProfile extends React.Component {
 
   };
 
-  
-
   render() {
     return(
       <div>
         <HeaderForApplicant/>
         <div className={styles.EmployeeProfile} data-testid="EmployeeProfile">
-          <img  class="img-responsive" alt="imageInEmployeeProfile" src="https://png.pngtree.com/thumb_back/fw800/back_pic/04/47/12/785857e15ddbe19.jpg" width="1263" height="300" /> 
+          <img  className="img-responsive" alt="imageInEmployeeProfile" src="https://annexq.io/wp-content/uploads/2020/09/1691795.jpg" width="1263" height="300" /> 
           <div className={styles.lb}>
             <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJbcOaYiR3F79EU0S0Ew95QUv9tVFoF4YZdA&usqp=CAU" style={{ height: '200px', width: '200px' }}  />
             <h3>Profile</h3>
           </div>
           <div className={styles.tstyle}>
             <div className={styles.card}>
-            <table className="table table-bordered table-striped " >
-              <tbody>
-                <tr >
-                  <td><b>NAME</b></td>
-                  <td>{this.state.dataToDisplay.name}</td>
-                </tr>
-                <tr >
-                  <td><b>EMAIL ID</b></td>
-                  <td>{this.state.dataToDisplay.email}</td>
-                </tr>
-                <tr >
-                  <td><b>AGE</b></td>
-                  <td>{this.state.dataToDisplay.age}</td>
-                </tr>
-                {/* <tr >
-                  <td><b>PASSWORD</b></td>
-                  <td>{this.state.dataToDisplay.password}</td>
-                </tr> */}
-              </tbody>
-            </table>
-          </div>
+              <table  className="table table-bordered table-striped " >
+                <tbody>
+                  <tr >
+                    <td><b>NAME</b></td>
+                    <td>{this.state.dataToDisplay.name}</td>
+                  </tr>
+                  <tr >
+                    <td><b>EMAIL ID</b></td>
+                    <td>{this.state.dataToDisplay.email}</td>
+                  </tr>
+                  <tr >
+                    <td><b>AGE</b></td>
+                    <td>{this.state.dataToDisplay.age}</td>
+                  </tr>
+                  {/* <tr >
+                    <td><b>PASSWORD</b></td>
+                    <td>{this.state.dataToDisplay.password}</td>
+                  </tr> */}
+                </tbody>
+              </table>
+            </div>
           </div>   
         </div>
         <Footer/>
