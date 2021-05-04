@@ -70,7 +70,7 @@ class EmployerApplicantDetails extends React.Component {
     //this.setState({displayReviewBox: !this.state.displayReviewBox});
 
     this.storeInMongo();
-    setTimeout(() => {this.deleteApplication(this.state.SingleApplicationDetails);},700)
+    setTimeout(() => {this.deleteApplication(this.state.SingleApplicationDetails);},500)
 
     console.log("Before delete");
 
@@ -137,7 +137,7 @@ class EmployerApplicantDetails extends React.Component {
              <div className="row" >
                <div className="col">
                   <p><b>Applicant Email:</b> {detail.ApplicantDetails.email}</p>
-                    <p><b>Jobe Role: </b>{detail.InternDetails.JobRole}</p>
+                    <p><b>Job Role: </b>{detail.InternDetails.JobRole}</p>
                     <p><b>Why Should We Hire You:</b><br/>&emsp;&emsp; {detail.YHire}</p>
                     <p><b>Are You Available: </b>{detail.DuraAvailable}</p>
                     &nbsp;&nbsp;

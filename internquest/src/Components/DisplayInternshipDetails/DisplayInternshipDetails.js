@@ -14,7 +14,11 @@ class DisplayInternshipDetails extends React.Component {
       Details: [],
       SortedDetails: [],
       options: [
-        'Java', 'HTML', 'CSS', 'Python', 'Django', 'JavaScript', 'Machine Learning', 'SQL', 'Music'
+        'Java', 'C', 'DBMS', 'Problem Solving', 'Communication Skills', 'Python', 'Operating Systems', 'Computer Architecture', 'Analytical Skills', 
+        'Unit Testing', 'Integration Testing', 'MS Excel','Ms Word',
+        'OOPS','Market Research','C++','Oracle','MySQL',
+        'RDBMS','Computer Organization','SEO','Computer Architecture','Violin Skills',
+        'Art','Design','Dance','Painting','HTML', 'Latex'
       ],
       selectedValues: [],
       MinStipend: '',
