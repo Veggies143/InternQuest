@@ -12,7 +12,8 @@ class SingleInternshipDisplay extends React.Component {
       DetailsInfo: {},
       Skills: [],
       Benefits: [],
-      JobDescription: []
+      JobDescription: [],
+      MinRequiremnetsFromApplicant:[]
     }
   }
 
@@ -24,14 +25,16 @@ class SingleInternshipDisplay extends React.Component {
     let skillsArray = data.SkillsRequired.split("\n");
     let jobDesArray = data.JobDescription.split("\n");
     let benefitsArray = data.Benefits.split("\n");
+    let MinRequiremnetsFromApplicant = data.MinRequiremnetsFromApplicant.split("\n")
 
-    setTimeout(this.splitData(skillsArray,jobDesArray,benefitsArray),500);
+    setTimeout(this.splitData(skillsArray,jobDesArray,benefitsArray,MinRequiremnetsFromApplicant),500);
   }
 
-  splitData = (s,j,b) => {
+  splitData = (s,j,b,m) => {
     this.setState({Skills: s});
     this.setState({JobDescription: j});
     this.setState({Benefits: b});
+    this.setState({MinRequiremnetsFromApplicant: m})
     
   }
   
@@ -54,9 +57,9 @@ class SingleInternshipDisplay extends React.Component {
                 <p style={{fontSize:20}}> &emsp;<b>{this.state.DetailsInfo.JobRole}</b></p>
                 <p > &emsp;&emsp;( {this.state.DetailsInfo.CompanyName} )</p>
                 
-                <p>  &emsp;&emsp;Mode of Internship:  <b style={{fontSize:20}} >{this.state.DetailsInfo.JobRole}</b></p>
+                <p>  &emsp;&emsp;Mode of Internship:  <b style={{fontSize:20}} >{this.state.DetailsInfo.ModeOfInternship}</b></p>
                 &emsp;&emsp;
-                <i class="fa fa-map-marker" aria-hidden="true"> {this.state.DetailsInfo.JobRole}</i>
+                <i class="fa fa-map-marker" aria-hidden="true"> {this.state.DetailsInfo.Location}</i>
                 <br/><br/>
 
                 <div className="row">
@@ -109,7 +112,7 @@ class SingleInternshipDisplay extends React.Component {
                     <br/>
 
                     <b style={{fontSize:20}}>Expected Requirements: </b><br/>
-                    {this.state.Benefits.map((ele, index) => (
+                    {this.state.MinRequiremnetsFromApplicant.map((ele, index) => (
                       <div key={index}>
                         <ul>
                         <p style={{paddingLeft:10}}><li>{ele}</li></p>

@@ -265,7 +265,7 @@ class InternshipDetailsForm extends React.Component {
                     <div>
                       <select name='ModeOfInternship' class="form-control" value={this.state.ModeOfInternship} onChange={this.handleChange} required>
                         <option value="WFH">Work From Home</option>
-                        <option value="Remote">Office</option>
+                        <option value="Office">Office</option>
                       </select>
                     </div>
                     {/* <br/> */}

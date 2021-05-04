@@ -250,7 +250,7 @@ class DisplayInternshipDetails extends React.Component {
                     <select name='ModeOfInternship'className="form-control" value={this.state.ModeOfInternship}onChange={this.handleChangeOnSubmitForm} >
                       <option value="Both">Both</option>
                       <option value="WFH">Work From Home</option>
-                      <option value="Remote">Office</option>
+                      <option value="Office">Office</option>
                     </select>
                   </div>
                 </div>
